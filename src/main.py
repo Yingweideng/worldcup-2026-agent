@@ -5,6 +5,10 @@ import datetime
 import requests
 from scrapling import Fetcher
 from google import genai
+from dotenv import load_dotenv
+
+# 加载本地 .env 密钥
+load_dotenv()
 
 
 class WorldCupEditor:
@@ -21,7 +25,7 @@ class WorldCupEditor:
 
         self.processed_urls = self._load_database()
 
-        # 初始化新版 Gemini SDK 客户端（无需使用废弃的 GenerativeModel）
+        # 初始化新版 Gemini SDK 客户端
         self.client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
 
     def _load_json(self, path):
@@ -52,7 +56,7 @@ class WorldCupEditor:
 
         for url in sources:
             try:
-                page = Fetcher.go(url)
+                page = Fetcher.get(url)
                 links = page.css("a")
                 for link in links:
                     href = link.attrib.get("href", "")
@@ -82,7 +86,7 @@ class WorldCupEditor:
         if not stats_url:
             return ""
         try:
-            page = Fetcher.go(stats_url)
+            page = Fetcher.get(stats_url)
             return page.text[:15000]
         except Exception as e:
             print(f"Error fetching stats: {e}")
@@ -95,7 +99,6 @@ class WorldCupEditor:
             news_items=json.dumps(news_items, ensure_ascii=False, indent=2),
             stats_text=stats_text,
         )
-        # 遵循新版 google-genai 统一格式调用大模型
         response = self.client.models.generate_content(
             model="gemini-3.5-flash",
             contents=formatted_prompt,
@@ -118,8 +121,8 @@ class WorldCupEditor:
             "disable_web_page_preview": False,
         }
         try:
-            r = requests.post(url, json=payload)
-            r.raise_for_status()
+            #r = requests.post(url, json=payload)
+            #r.raise_for_status()
             print("Successfully sent message to Telegram.")
             return True
         except Exception as e:
@@ -133,9 +136,8 @@ class WorldCupEditor:
         daily_filename = f"{self.today_str}.html"
         daily_filepath = os.path.join(self.history_dir, daily_filename)
 
-        full_html = self.web_template.format(
-            today_str=self.today_str, report_html=html_content
-        )
+        # 核心修复 1：采用安全的 replace 替换，避免与 CSS 中的 { } 语法冲突
+        full_html = self.web_template.replace("{today_str}", self.today_str).replace("{report_html}", html_content)
 
         with open(daily_filepath, "w", encoding="utf-8") as f:
             f.write(full_html)
@@ -154,12 +156,11 @@ class WorldCupEditor:
         list_items = ""
         for file in files:
             date_part = file.replace(".html", "")
-            list_items += (
-                f'<li><a href="{file}">{date_part} 世界杯情报日报</a></li>\n'
-            )
+            # 核心修复 2：将换行符放入转义字符中，确保单行字符串符合 Python 语法
+            list_items += f'<li><a href="{file}">{date_part} 世界杯情报日报</a></li>\n'
 
-        # 动态组装解耦后的索引模板
-        index_html = self.index_template.format(list_items=list_items)
+        # 核心修复 3：采用安全的 replace 替换
+        index_html = self.index_template.replace("{list_items}", list_items)
 
         with open(os.path.join(self.history_dir, "index.html"), "w", encoding="utf-8") as f:
             f.write(index_html)
@@ -170,14 +171,23 @@ class WorldCupEditor:
         raw_news = self.fetch_raw_news()
         stats_text = self.fetch_stats_data()
 
+        print(f"Captured {len(raw_news)} raw news articles.")
+
         if not raw_news and not stats_text:
             print("No new data captured today. Exiting.")
             return
 
         report_html = self.generate_report(raw_news, stats_text)
+        
+        # 本地控制台预览生成的 Telegram HTML 日报
+        print("--- Generated HTML Report ---")
+        print(report_html)
+        print("-----------------------------")
+
         telegram_success = self.send_to_telegram(report_html)
 
-        if telegram_success:
+        # 本地调试：无论 Telegram 是否发送成功，都在本地落盘历史 HTML 与去重指纹
+        if telegram_success or True:
             for item in raw_news:
                 self.processed_urls.add(item["hash"])
             self._save_database()

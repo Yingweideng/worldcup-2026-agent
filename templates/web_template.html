@@ -5,61 +5,274 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2026美加墨世界杯情报站 - {today_str}</title>
     <style>
+        :root {
+            --bg-color: #0b0f19; /* 赛场深夜星空黑 */
+            --container-bg: #111b15; /* 奢华草坪深绿 */
+            --card-bg: #1c2a21; /* 卡片亮草绿 */
+            --primary-gold: #f3a04c; /* 官方大力神杯金 */
+            --accent-green: #40b43e; /* 活力草坪绿 */
+            --text-main: #f3f4f6;
+            --text-muted: rgba(243, 244, 246, 0.7);
+            --border-color: rgba(243, 244, 246, 0.08);
+            --radius-lg: 16px;
+            --radius-md: 10px;
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg-color: #f4f6f8;
+                --container-bg: #ffffff;
+                --card-bg: #f8fafc;
+                --primary-gold: #e58522;
+                --accent-green: #38a136;
+                --text-main: #1e293b;
+                --text-muted: #64748b;
+                --border-color: #e2e8f0;
+            }
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.8;
-            color: #222;
-            max-width: 750px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 40px 20px;
+            color: var(--text-main);
+        }
+
+        .wrapper {
+            max-width: 720px;
             margin: 0 auto;
-            padding: 30px 20px;
-            background-color: #fcfcfc;
+            background: var(--container-bg);
+            border-radius: 24px;
+            padding: 35px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-color);
         }
-        h1 {
-            font-size: 1.85em;
-            color: #111;
-            border-bottom: 2px solid #1a1a1a;
-            padding-bottom: 12px;
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--primary-gold);
+            padding-bottom: 15px;
             margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 22px;
             font-weight: 800;
+            letter-spacing: 0.5px;
+            margin: 0;
+            color: var(--primary-gold);
         }
-        article {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-            border: 1px solid #eaeaea;
+
+        .date-badge {
+            font-size: 13px;
+            font-weight: 700;
+            background: var(--accent-green);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 20px;
         }
-        article b {
-            color: #000;
+
+        /* 基础结构控制 */
+        article > b {
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--primary-gold);
+            margin-top: 25px;
+            margin-bottom: 5px;
         }
-        article a {
-            color: #0066cc;
-            text-decoration: none;
-            border-bottom: 1px dotted #0066cc;
-            font-weight: 500;
+
+        article blockquote {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--accent-green);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            margin: 10px 0 30px 0;
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--text-main);
         }
-        article a:hover {
-            color: #004499;
-            border-bottom: 1px solid #004499;
+
+        /* 焦点赛事卡片 */
+        .focus-match {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: var(--radius-md);
+            padding: 20px 30px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border-color);
         }
-        footer {
-            margin-top: 50px;
-            font-size: 0.85em;
-            color: #888;
-            border-top: 1px solid #eee;
-            padding-top: 20px;
-            text-align: center;
+        @media (prefers-color-scheme: light) { .focus-match { background: #f1f5f9; } }
+        .team { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 30%; }
+        .team-flag { font-size: 36px; line-height: 1; }
+        .team-name { font-size: 14px; font-weight: 700; text-align: center; }
+        .match-score { font-size: 32px; font-weight: 800; letter-spacing: 5px; text-align: center; width: 40%; color: var(--primary-gold); }
+        .focus-commentary { font-size: 13.5px; line-height: 1.6; color: var(--text-muted); background: rgba(255,255,255,0.02); padding: 15px; border-radius: var(--radius-md); border-left: 3px solid var(--primary-gold); }
+        @media (prefers-color-scheme: light) { .focus-commentary { background: #fff; } }
+
+        /* 通用表格样式 (射手榜与赛程) */
+        .stats-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 5px; }
+        .stats-table th { text-align: left; color: var(--text-muted); font-weight: 700; padding-bottom: 12px; font-size: 11px; text-transform: uppercase; border-bottom: 1px solid var(--border-color); }
+        .stats-table td { padding: 14px 0; border-bottom: 1px solid var(--border-color); }
+        .stats-table tr:last-child td { border-bottom: none; }
+        .highlight-text { font-weight: 700; color: var(--primary-gold); }
+        .text-right { text-align: right; }
+
+        /* 赛果列表项目 */
+        .result-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--border-color); gap: 15px; }
+        .result-row:last-child { border-bottom: none; }
+        .result-main { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+        .result-teams { font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+        .result-desc { font-size: 12.5px; color: var(--text-muted); line-height: 1.4; }
+        
+        /* 查看详情图标 */
+        .link-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(243, 160, 76, 0.15);
+            color: var(--primary-gold);
+            transition: all 0.2s;
         }
+        .link-icon:hover {
+            background: var(--primary-gold);
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        footer { margin-top: 40px; text-align: center; font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--border-color); padding-top: 20px; }
     </style>
 </head>
 <body>
-    <h1>2026 美加墨世界杯情报站</h1>
-    <article>
-        {report_html}
-    </article>
-    <footer>
-        首席编辑 Agent 自动生成于：{today_str}
-    </footer>
+    <div class="wrapper">
+        <header>
+            <h1>THE UNITED DISPATCH</h1>
+            <span class="date-badge">{today_str}</span>
+        </header>
+        <article id="report-content">
+            {report_html}
+        </article>
+        <footer>
+            由 Tabbit 首席编辑 Agent 自动生成
+        </footer>
+    </div>
+
+    <script>
+        const teamDb = {
+            "美国": "🇺🇸", "德国": "🇩🇪", "加拿大": "🇨🇦", "喀麦隆": "🇨🇲", "墨西哥": "🇲🇽", "沙特": "🇸🇦", "沙特阿拉伯": "🇸🇦",
+            "意大利": "🇮🇹", "西班牙": "🇪🇸", "日本": "🇯🇵", "英格兰": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "塞内加尔": "🇸🇳", "玻利维亚": "🇧🇴", "巴西": "🇧🇷",
+            "澳大利亚": "🇦🇺", "阿根廷": "🇦🇷", "法国": "🇫🇷", "葡萄牙": "🇵🇹", "荷兰": "🇳🇱", "比利时": "🇧🇪"
+        };
+        const getFlag = (name) => teamDb[name.trim()] || "🏳️";
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const blocks = document.querySelectorAll("#report-content blockquote");
+            if (blocks.length < 4) return;
+
+            // 1. 焦点战渲染
+            (function() {
+                const block = blocks[0];
+                const lines = block.innerHTML.split(/<br\s*\/?>|/);
+                const scoreMatch = lines[0].replace(/<\/?b>/g, "").match(/([^\d\s\-–]+)\s*(\d+\s*[-–]\s*\d+)\s*([^\d\s\-–]+)/);
+                if (scoreMatch) {
+                    const home = scoreMatch[1], score = scoreMatch[2], away = scoreMatch[3];
+                    block.innerHTML = `
+                        <div class="focus-match">
+                            <div class="team"><span class="team-flag">${getFlag(home)}</span><span class="team-name">${home}</span></div>
+                            <div class="match-score">${score}</div>
+                            <div class="team"><span class="team-flag">${getFlag(away)}</span><span class="team-name">${away}</span></div>
+                        </div>
+                        <div class="focus-commentary">${lines.slice(1).join("<br>").trim()}</div>`;
+                }
+            })();
+
+            // 2. 其他赛果渲染 (移除代码，改用图标)
+            (function() {
+                const block = blocks[1];
+                const lines = block.innerHTML.trim().split(/<br\s*\/?>|/);
+                let html = "";
+                lines.forEach(line => {
+                    const cleanLine = line.replace(/^[•\s\-\d\.]+\s*/, "").trim();
+                    if (!cleanLine) return;
+                    const parts = cleanLine.split("|");
+                    if (parts.length >= 2) {
+                        const matchPart = parts[parts.length-2].trim();
+                        const infoPart = parts[parts.length-1].trim();
+                        const m = matchPart.match(/([^\d\s\-–]+)\s*(\d+\s*[-–]\s*\d+)\s*([^\d\s\-–]+)/);
+                        const links = infoPart.match(/<a\s+(?:[^>]*?\s+)?href="([^"]*)"[^>]*>.*?<\/a>/g);
+                        const summary = infoPart.replace(/<a\b[^>]*>.*?<\/a>/g, "").trim();
+                        
+                        let icons = "";
+                        if (links) {
+                            links.forEach(l => {
+                                const href = l.match(/href="([^"]*)"/)[1];
+                                icons += `<a href="${href}" class="link-icon" title="查看详情"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>`;
+                            });
+                        }
+
+                        if (m) {
+                            html += `
+                                <div class="result-row">
+                                    <div class="result-main">
+                                        <div class="result-teams">${getFlag(m[1])} ${m[1]} ${m[2]} ${m[3]} ${getFlag(m[3])}</div>
+                                        <div class="result-desc">${summary}</div>
+                                    </div>
+                                    <div class="result-actions">${icons}</div>
+                                </div>`;
+                        }
+                    }
+                });
+                if (html) block.innerHTML = html;
+            })();
+
+            // 3. 射手榜表格渲染 (修复解析逻辑)
+            (function() {
+                const block = blocks[2];
+                const lines = block.innerHTML.trim().split(/<br\s*\/?>|/);
+                let rows = "";
+                lines.forEach(line => {
+                    const m = line.trim().match(/(\d+)\.\s*(?:<b>)?([^<(\s*]+)(?:<\/b>)?\s*$([^)]+)$\s*[-–]\s*(\d+)球?/);
+                    if (m) {
+                        rows += `<tr><td class="player-rank">${m[1].padStart(2, '0')}</td><td style="font-weight:700">${m[2]}</td><td>${getFlag(m[3])} ${m[3]}</td><td class="player-goals text-right">${m[4]}</td></tr>`;
+                    }
+                });
+                if (rows) {
+                    block.innerHTML = `<table class="stats-table"><thead><tr><th>排名</th><th>球员</th><th>国家队</th><th class="text-right">进球数</th></tr></thead><tbody>${rows}</tbody></table>`;
+                }
+            })();
+
+            // 4. 明日赛程表格渲染
+            (function() {
+                const block = blocks[3];
+                const lines = block.innerHTML.trim().split(/<br\s*\/?>|/);
+                let rows = "";
+                lines.forEach(line => {
+                    const cleanLine = line.replace(/^[•\s\-\d\.]+\s*/, "").trim();
+                    const parts = cleanLine.split("|");
+                    if (parts.length >= 2) {
+                        const time = parts[0].trim();
+                        const match = parts[1].trim();
+                        const m = match.match(/([^\s]+)\s*vs\s*([^\s]+)/i);
+                        if (m) {
+                            rows += `<tr><td class="highlight-text">${getFlag(m[1])} ${m[1]} vs ${m[2]} ${getFlag(m[2])}</td><td class="text-right">${time}</td></tr>`;
+                        }
+                    }
+                });
+                if (rows) {
+                    block.innerHTML = `<table class="stats-table"><thead><tr><th>对阵比赛</th><th class="text-right">时间 (EST)</th></tr></thead><tbody>${rows}</tbody></table>`;
+                }
+            })();
+        });
+    </script>
 </body>
 </html>
-
