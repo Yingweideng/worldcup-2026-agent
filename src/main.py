@@ -6,12 +6,13 @@ import requests
 from scrapling import Fetcher
 from google import genai
 
+
 class WorldCupEditor:
     def __init__(self):
         self.today_str = datetime.datetime.now().strftime("%Y-%m-%d")
         self.db_path = "data/processed_urls.json"
         self.history_dir = "history"
-        
+
         # 加载解耦后的配置与模板
         self.config = self._load_json("config/sources.json")
         self.prompt_template = self._load_file("templates/gemini_prompt.md")
@@ -19,10 +20,9 @@ class WorldCupEditor:
         self.index_template = self._load_file("templates/index_template.html")
 
         self.processed_urls = self._load_database()
-        
-        # 初始化 Gemini
+
+        # 初始化新版 Gemini SDK 客户端（无需使用废弃的 GenerativeModel）
         self.client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
-        self.model = genai.GenerativeModel("gemini-3.5-flash")
 
     def _load_json(self, path):
         with open(path, "r", encoding="utf-8") as f:
@@ -49,7 +49,7 @@ class WorldCupEditor:
         """利用 Scrapling 爬取 Tier 1 媒体源"""
         collected_articles = []
         sources = self.config.get("tier1_sources", [])
-        
+
         for url in sources:
             try:
                 page = Fetcher.go(url)
@@ -57,16 +57,23 @@ class WorldCupEditor:
                 for link in links:
                     href = link.attrib.get("href", "")
                     text = link.text.strip() if link.text else ""
+
                     if href.startswith("/") and not href.startswith("//"):
                         base_domain = "/".join(url.split("/")[:3])
                         href = base_domain + href
-                    
-                    if any(kw in href.lower() or kw in text.lower() for kw in ["world-cup", "2026", "fifa", "match"]):
-                        url_hash = hashlib.md5(href.encode('utf-8')).hexdigest()
+
+                    if any(
+                        kw in href.lower() or kw in text.lower()
+                        for kw in ["world-cup", "2026", "fifa", "match"]
+                    ):
+                        url_hash = hashlib.md5(href.encode("utf-8")).hexdigest()
                         if url_hash not in self.processed_urls:
-                            collected_articles.append({"title": text, "url": href, "hash": url_hash})
+                            collected_articles.append(
+                                {"title": text, "url": href, "hash": url_hash}
+                            )
             except Exception as e:
                 print(f"Error fetching {url}: {e}")
+
         return collected_articles
 
     def fetch_stats_data(self):
@@ -82,12 +89,13 @@ class WorldCupEditor:
             return ""
 
     def generate_report(self, news_items, stats_text):
-        """Assemble the Markdown prompt and call Gemini."""
+        """利用新版 SDK 的 client.models.generate_content 接口请求 Gemini 3.5-flash"""
         formatted_prompt = self.prompt_template.format(
             today_str=self.today_str,
             news_items=json.dumps(news_items, ensure_ascii=False, indent=2),
             stats_text=stats_text,
         )
+        # 遵循新版 google-genai 统一格式调用大模型
         response = self.client.models.generate_content(
             model="gemini-3.5-flash",
             contents=formatted_prompt,
@@ -107,37 +115,35 @@ class WorldCupEditor:
             "chat_id": chat_id,
             "text": html_content,
             "parse_mode": "HTML",
-            "disable_web_page_preview": False
+            "disable_web_page_preview": False,
         }
         try:
             r = requests.post(url, json=payload)
             r.raise_for_status()
+            print("Successfully sent message to Telegram.")
             return True
         except Exception as e:
             print(f"Failed to send Telegram message: {e}")
             return False
 
     def save_and_build_history(self, html_content):
-        """利用独立 HTML 模板生成归档文件，并更新 index.html"""
+        """生成每日独立归档网页"""
         os.makedirs(self.history_dir, exist_ok=True)
-        
-        # 生成当天的 HTML 页面
+
         daily_filename = f"{self.today_str}.html"
         daily_filepath = os.path.join(self.history_dir, daily_filename)
-        
-        # 使用读取到的独立 HTML 模板进行填充
+
         full_html = self.web_template.format(
-            today_str=self.today_str,
-            report_html=html_content
+            today_str=self.today_str, report_html=html_content
         )
-        
+
         with open(daily_filepath, "w", encoding="utf-8") as f:
             f.write(full_html)
-            
+
         self.rebuild_index_html()
 
     def rebuild_index_html(self):
-        """Scan the history directory and rebuild the GitHub Pages index."""
+        """扫描历史并重建 Pages 主索引页"""
         files = [
             f
             for f in os.listdir(self.history_dir)
@@ -149,34 +155,36 @@ class WorldCupEditor:
         for file in files:
             date_part = file.replace(".html", "")
             list_items += (
-                f'<li><a href="{file}">{date_part} 世界杯情报日报</a></li>'
+                f'<li><a href="{file}">{date_part} 世界杯情报日报</a></li>\n'
             )
 
+        # 动态组装解耦后的索引模板
         index_html = self.index_template.format(list_items=list_items)
 
         with open(os.path.join(self.history_dir, "index.html"), "w", encoding="utf-8") as f:
             f.write(index_html)
 
     def run(self):
-        print("Starting re-architected 2026 World Cup Intelligence Agent...")
-        
+        print("Starting 2026 World Cup Intelligence Agent...")
+
         raw_news = self.fetch_raw_news()
         stats_text = self.fetch_stats_data()
-        
+
         if not raw_news and not stats_text:
             print("No new data captured today. Exiting.")
             return
 
         report_html = self.generate_report(raw_news, stats_text)
         telegram_success = self.send_to_telegram(report_html)
-        
+
         if telegram_success:
             for item in raw_news:
                 self.processed_urls.add(item["hash"])
             self._save_database()
-            
+
             self.save_and_build_history(report_html)
             print("Pipeline run completed successfully.")
+
 
 if __name__ == "__main__":
     editor = WorldCupEditor()
