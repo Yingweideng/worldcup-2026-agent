@@ -4,7 +4,7 @@ import hashlib
 import datetime
 import requests
 from scrapling import Fetcher
-import google.generativeai as genai
+from google import genai
 
 class WorldCupEditor:
     def __init__(self):
@@ -21,7 +21,7 @@ class WorldCupEditor:
         self.processed_urls = self._load_database()
         
         # 初始化 Gemini
-        genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
+        self.client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
         self.model = genai.GenerativeModel("gemini-3.5-flash")
 
     def _load_json(self, path):
@@ -82,13 +82,16 @@ class WorldCupEditor:
             return ""
 
     def generate_report(self, news_items, stats_text):
-        """组装 Markdown 模板并调用 Gemini 3.5-flash"""
+        """Assemble the Markdown prompt and call Gemini."""
         formatted_prompt = self.prompt_template.format(
             today_str=self.today_str,
             news_items=json.dumps(news_items, ensure_ascii=False, indent=2),
-            stats_text=stats_text
+            stats_text=stats_text,
         )
-        response = self.model.generate_content(formatted_prompt)
+        response = self.client.models.generate_content(
+            model="gemini-3.5-flash",
+            contents=formatted_prompt,
+        )
         return response.text
 
     def send_to_telegram(self, html_content):
