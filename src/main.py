@@ -69,7 +69,7 @@ class WorldCupEditor:
                     text = link.text.strip() if link.text else ""
                     if href.startswith("/") and not href.startswith("//"):
                         href = "/".join(url.split("/")[:3]) + href
-                    if any(kw in href.lower() or kw in text.lower() for kw in ["world-cup", "2026", "fifa", "match"]):
+                    if any(kw in href.lower() or kw in text.lower() for kw in ["world-cup", "2026", "fifa", "match","世界杯","美加墨世界杯","2026世界杯"]):
                         url_hash = hashlib.md5(href.encode("utf-8")).hexdigest()
                         if url_hash not in self.processed_urls:
                             articles.append({"title": text, "url": href, "hash": url_hash})
@@ -137,11 +137,34 @@ class WorldCupEditor:
         self.rebuild_index_html()
 
     def rebuild_index_html(self):
-        files = sorted([f for f in os.listdir(self.history_dir) if f.endswith(".html") and f != "index.html"], reverse=True)
-        items = "".join([f'<li><a href="{f}"><span class="date-text">{f.replace(".html","")} 日报</span></a></li>' for f in files])
-        with open(os.path.join(self.history_dir, "index.html"), "w", encoding="utf-8") as f:
-            f.write(self.index_template.replace("{list_items}", items or "暂无归档"))
+        """扫描历史目录并重建 GitHub Pages 归档主页"""
+        files = sorted(
+            [f for f in os.listdir(self.history_dir)
+             if f.endswith(".html") and f != "index.html"],
+            reverse=True,
+        )
+        
+        # 修正：将 \n 移出 f-string，或者直接使用普通的字符串拼接
+        list_items_list = []
+        for f in files:
+            date_part = f.replace(".html", "")
+            # 这里不再使用带反斜杠的 f-string
+            item_html = '<li><a href="' + f + '"><span class="date-text">' + date_part + ' 世界杯情报日报</span></a></li>'
+            list_items_list.append(item_html)
+        
+        # 用 join 合并
+        list_items = "\n".join(list_items_list)
 
+        if not list_items:
+            list_items = '<div class="empty">暂无历史日报，系统将每日自动生成归档。</div>'
+
+        index_html = self.index_template.replace("{list_items}", list_items)
+
+        with open(os.path.join(self.history_dir, "index.html"), "w", encoding="utf-8") as f:
+            f.write(index_html)
+
+
+    # main entrance
     def run(self):
         print(f"Starting Agent... Date: {self.today_str}")
         news, stats = self.fetch_raw_news(), self.fetch_stats_data()
