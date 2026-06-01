@@ -2,6 +2,7 @@ import os
 import json
 import hashlib
 import datetime
+import time
 import requests
 from scrapling import Fetcher
 from google import genai
@@ -30,6 +31,21 @@ class WorldCupEditor:
 
         self.processed_urls = self._load_database()
         self.client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
+
+        # define football-data api https://api.football-data.org/v4/matches
+        self.football_base_url = f"https://api.football-data.org/v4/competitions/WC"
+        self.football_headers = {'X-Auth-Token': os.environ.get("FOOTBALL_DATA_API_TOKEN")}
+        self.output_file = "data/2026_worldcup_data.json"
+    
+    def _football_fetch(self, endpoint):
+        football_url = f"{self.football_base_url}/{endpoint}"
+        try:
+            response = requests.get(football_url, headers=self.football_headers)
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"Error fetching {endpoint}: {e}")
+            return None
 
     def _load_json(self, path):
         with open(path, "r", encoding="utf-8") as f: return json.load(f)
@@ -79,8 +95,35 @@ class WorldCupEditor:
     def fetch_stats_data(self):
         try: return Fetcher.get(self.config.get("stats_source", "")).text[:15000]
         except: return ""
+    
+    def fetch_results_data(self):
+        print("Starting fetch matches, standing and scores from football-data.org ...")
 
-    def generate_report(self, news, stats):
+        # 1. 获取赛程 (Matches)
+        print("Fetching matches...")        
+        matches_data = self._football_fetch("matches")                
+        # 2. 获取排名 (Standings)        # 频率限制考虑：免费版建议间隔 2-6 秒        
+        time.sleep(6)         
+        print("Fetching standings...")        
+        standings_data = self._football_fetch("standings")                
+        # 3. 获取射手榜 (Scorers)        
+        time.sleep(6)        
+        print("Fetching scorers...")        
+        scorers_data = self._football_fetch("scorers")
+        # 4. 结构化整合        
+        combined_data = {"last_updated": time.strftime("%Y-%m-%d %H:%M:%S"),"competition": {"name": "FIFA World Cup 2026","hostCities":"USA-CANADA-MEXICO"},
+                                     "matches": matches_data.get("matches", []) if matches_data else [],            
+                                     "standings": standings_data.get("standings", []) if standings_data else [],            
+                                     "scorers": scorers_data.get("scorers", []) if scorers_data else []
+                        }
+        # 5. 写入 JSON 文件        
+        with open(self.output_file, "w", encoding="utf-8") as f:            
+            json.dump(combined_data, f, ensure_ascii=False, indent=2)                
+        
+        print(f"Successfully imported data to {self.output_file}")      
+
+
+    def generate_report(self, news, stats, stastics):
         phase = self._get_phase()
         prompt = self.prompt_template.format(
             today_str=self.today_str, phase_label=phase["label"],
@@ -121,8 +164,8 @@ class WorldCupEditor:
         url = f"https://api.telegram.org/bot{token}/sendMessage"
         payload = {"chat_id": chat_id, "text": html_content, "parse_mode": "HTML", "disable_web_page_preview": False}
         try:
-            r = requests.post(url, json=payload)
-            r.raise_for_status()
+            #r = requests.post(url, json=payload)
+            #r.raise_for_status()
             print("Successfully sent message to Telegram.")
             return True
         except Exception as e:
@@ -167,12 +210,12 @@ class WorldCupEditor:
     # main entrance
     def run(self):
         print(f"Starting Agent... Date: {self.today_str}")
-        news, stats = self.fetch_raw_news(), self.fetch_stats_data()
+        news, stats, stastics = self.fetch_raw_news(), self.fetch_stats_data(), self.fetch_results_data()
         if not news and not stats: 
             print("No data found.")
             return
         
-        raw = self.generate_report(news, stats)
+        raw = self.generate_report(news, stats, stastics)
         json_str = self._extract_json(raw)
         if json_str:
             try:
