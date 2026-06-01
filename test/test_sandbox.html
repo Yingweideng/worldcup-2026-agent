@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026美加墨世界杯情报站 - 2026-05-29</title>
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --container-bg: #111b15;
+            --card-bg: #1c2a21;
+            --primary-gold: #f3a04c;
+            --accent-green: #40b43e;
+            --text-main: #f3f4f6;
+            --text-muted: rgba(243, 244, 246, 0.7);
+            --border-color: rgba(243, 244, 246, 0.08);
+            --radius-lg: 16px;
+            --radius-md: 10px;
+        }
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg-color: #f4f6f8;
+                --container-bg: #ffffff;
+                --card-bg: #f8fafc;
+                --primary-gold: #e58522;
+                --accent-green: #38a136;
+                --text-main: #1e293b;
+                --text-muted: #64748b;
+                --border-color: #e2e8f0;
+            }
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            margin: 0; padding: 40px 20px; color: var(--text-main);
+        }
+        .wrapper {
+            max-width: 720px; margin: 0 auto; background: var(--container-bg);
+            border-radius: 24px; padding: 35px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); border: 1px solid var(--border-color);
+        }
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 2px solid var(--primary-gold); padding-bottom: 15px; margin-bottom: 25px;
+        }
+        header h1 { font-size: 22px; font-weight: 800; margin: 0; color: var(--primary-gold); }
+        .date-badge {
+            font-size: 13px; font-weight: 700; background: var(--accent-green);
+            color: #fff; padding: 4px 12px; border-radius: 20px;
+        }
+        .section-title {
+            font-size: 15px; font-weight: 700; color: var(--primary-gold);
+            margin: 25px 0 10px 0;
+        }
+        .card {
+            background: var(--card-bg); border: 1px solid var(--border-color);
+            border-left: 4px solid var(--accent-green); border-radius: var(--radius-lg);
+            padding: 20px; margin-bottom: 25px;
+        }
+        /* 焦点战 */
+        .focus-match {
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(0,0,0,0.2); border-radius: var(--radius-md);
+            padding: 20px 30px; margin-bottom: 15px; border: 1px solid var(--border-color);
+        }
+        @media (prefers-color-scheme: light) { .focus-match { background: #f1f5f9; } }
+        .team { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 30%; }
+        .team-flag { font-size: 36px; line-height: 1; }
+        .team-name { font-size: 14px; font-weight: 700; text-align: center; }
+        .match-score { font-size: 32px; font-weight: 800; letter-spacing: 5px; text-align: center; width: 40%; color: var(--primary-gold); }
+        .focus-commentary {
+            font-size: 13.5px; line-height: 1.6; color: var(--text-muted);
+            background: rgba(255,255,255,0.02); padding: 15px;
+            border-radius: var(--radius-md); border-left: 3px solid var(--primary-gold);
+        }
+        @media (prefers-color-scheme: light) { .focus-commentary { background: #fff; } }
+        /* 表格 */
+        .stats-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        .stats-table th {
+            text-align: left; color: var(--text-muted); font-weight: 700;
+            padding-bottom: 12px; font-size: 11px; text-transform: uppercase;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .stats-table td { padding: 14px 0; border-bottom: 1px solid var(--border-color); }
+        .stats-table tr:last-child td { border-bottom: none; }
+        .player-rank { width: 40px; font-weight: 700; color: var(--primary-gold); }
+        .text-right { text-align: right; }
+        .goals { text-align: right; font-weight: 700; color: var(--accent-green); }
+        /* 赛果行 */
+        .result-row {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 12px 0; border-bottom: 1px solid var(--border-color); gap: 15px;
+        }
+        .result-row:last-child { border-bottom: none; }
+        .result-main { flex: 1; }
+        .result-teams { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+        .result-desc { font-size: 12.5px; color: var(--text-muted); }
+        .link-icon {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 32px; height: 32px; border-radius: 50%;
+            background: rgba(243,160,76,0.15); color: var(--primary-gold);
+            text-decoration: none; transition: all 0.2s; margin-left: 6px;
+        }
+        .link-icon:hover { background: var(--primary-gold); color: #fff; transform: scale(1.1); }
+        footer {
+            margin-top: 40px; text-align: center; font-size: 12px; color: var(--text-muted);
+            border-top: 1px solid var(--border-color); padding-top: 20px;
+        }
+        .fallback { display: none; }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>THE UNITED DISPATCH</h1>
+            <span class="date-badge">2026-05-29</span>
+        </header>
+        <div id="app"></div>
+        <article id="raw-source" class="fallback"><b>🏆 焦点战深评 | Matchday Focus</b>
+<blockquote>
+美国 2-1 巴拉圭
+在洛杉矶SoFi体育场举行的揭幕战中，东道主美国队2-1险胜巴拉圭，艰难斩获开门红。主帅波切蒂诺排出了极具侵略性的4-2-3-1阵型。尽管近期波切蒂诺与意甲豪门AC米兰接触的传闻闹得沸沸扬扬，引发了外界对国家队军心涣散的担忧，但美国队依然在主场顶住了压力。普利西奇传射建功，在左路展现出极强的爆破能力，下半场换上的佩皮接应妙传打入制胜球。巴拉圭防守反击坚决并扳回一城，但终因体能下滑无力回天。这场胜利暂时平息了波切蒂诺的舆论风波，也为美国队的出线之路奠定了基调。
+(相关报道：<a href="https://www.nytimes.com/athletic/7317155/2026/05/29/usmnt-paraguay-world-cup-opener-tickets-fifa/">The Athletic (揭幕战票务)</a> | <a href="https://www.nytimes.com/athletic/7315976/2026/05/28/mauricio-pochettino-ac-milan-talks-usmnt-world-cup/">The Athletic (米兰帅位风波)</a> | <a href="https://www.nytimes.com/athletic/7315351/2026/05/28/usmnt-world-cup-camp-national-training-center/">The Athletic (国脚集训营)</a>)
+</blockquote>
+
+<b>📊 今日其他赛果 | Matchday Results</b>
+<blockquote>
+• 2026-05-29 13:00 (小组赛B组) 加拿大 1-1 塞内加尔 | 戴维斯建功绝平，两队饱受主力伤病困扰首战握手言和 (<a href="https://www.nytimes.com/athletic/7281888/2026/05/29/canada-world-cup-squad-davies-david-buchanan-analysis/">The Athletic (加拿大分析)</a> | <a href="https://www.nytimes.com/athletic/7297760/2026/05/21/senegal-world-cup-squad-2026-sadio-mane/">The Athletic (塞内加尔名单)</a>)
+
+• 2026-05-29 16:00 (小组赛C组) 阿根廷 2-0 挪威 | 梅西破门率卫冕冠军轻松取胜，哈兰德哑火挪威首战吞败 (<a href="https://www.nytimes.com/athletic/7316570/2026/05/28/argentina-world-cup-squad-2026-messi/">The Athletic (阿根廷名单)</a> | <a href="https://www.nytimes.com/athletic/7299827/2026/05/22/norway-world-cup-squad-2026/">The Athletic (挪威名单)</a>)
+</blockquote>
+
+<b>⚽ 金靴争夺榜 | Top Scorers</b>
+<blockquote>
+1. <b>Messi</b> (阿根廷) - 1球
+2. <b>Pulisic</b> (美国) - 1球
+3. <b>Davies</b> (加拿大) - 1球
+</blockquote>
+
+<b>📅 明日赛程预告 | Upcoming Matches</b>
+<blockquote>
+• 德国 vs 荷兰 | 14:00 (EST) (<a href="https://www.nytimes.com/athletic/7297292/2026/05/21/germany-world-cup-squad-2026/">The Athletic (德国备战)</a> | <a href="https://www.nytimes.com/athletic/7312029/2026/05/27/netherlands-world-cup-squad-2026/">The Athletic (荷兰备战)</a>)
+
+• 克罗地亚 vs 英格兰 | 17:00 (EST) (<a href="https://www.skysports.com/football/news/13950/13547056/world-cup-ivan-perisic-on-croatia-pride-secrets-to-their-success-and-relishing-another-match-up-with-england">Sky Sports (佩里西奇展望)</a>)
+</blockquote></article>
+        <footer>由 Tabbit 首席编辑 Agent 自动生成</footer>
+    </div>
+
+    <script>
+        const teamDb = {
+            "美国":"🇺🇸","巴拉圭":"🇵🇾","德国":"🇩🇪","加拿大":"🇨🇦","喀麦隆":"🇨🇲","墨西哥":"🇲🇽",
+            "沙特":"🇸🇦","沙特阿拉伯":"🇸🇦","意大利":"🇮🇹","西班牙":"🇪🇸","日本":"🇯🇵","英格兰":"🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+            "塞内加尔":"🇸🇳","玻利维亚":"🇧🇴","巴西":"🇧🇷","澳大利亚":"🇦🇺","阿根廷":"🇦🇷","法国":"🇫🇷","葡萄牙":"🇵🇹"
+        };
+        const flag = (n) => teamDb[(n || "").trim()] || "🏳️";
+        const linkIcon = (url) =>
+            `<a href="" target="_blank" class="link-icon" title="查看详情">` +
+            `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">` +
+            `<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>` +
+            `<polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>`;
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const raw = document.getElementById("raw-source").innerHTML;
+            const s = raw.indexOf("<!--DATA_START-->");
+            const e = raw.indexOf("<!--DATA_END-->");
+            const app = document.getElementById("app");
+
+            if (s === -1 || e === -1) {
+                document.getElementById("raw-source").classList.remove("fallback");
+                return;
+            }
+
+            let data;
+            try {
+                data = JSON.parse(raw.substring(s + "<!--DATA_START-->".length, e).trim());
+            } catch (err) {
+                console.error("JSON 解析失败：", err);
+                document.getElementById("raw-source").classList.remove("fallback");
+                return;
+            }
+
+            let html = "";
+
+            // 焦点战
+            if (data.focus && data.focus.home) {
+                const f = data.focus;
+                const fLinks = (f.links || []).map(l => linkIcon(l.url)).join("");
+                html += `<div class="section-title">🏆 焦点战深评 | Matchday Focus</div>
+                <div class="card">
+                    <div class="focus-match">
+                        <div class="team"><span class="team-flag"></span><span class="team-name"></span></div>
+                        <div class="match-score"></div>
+                        <div class="team"><span class="team-flag"></span><span class="team-name"></span></div>
+                    </div>
+                    <div class="focus-commentary">  </div>
+                </div>`;
+            }
+
+            // 其他赛果
+            if (Array.isArray(data.results) && data.results.length) {
+                let rows = data.results.map(r => {
+                    const icons = (r.links || []).map(l => linkIcon(l.url)).join("");
+                    return `<div class="result-row">
+                        <div class="result-main">
+                            <div class="result-teams">    </div>
+                            <div class="result-desc"></div>
+                        </div>
+                        <div></div>
+                    </div>`;
+                }).join("");
+                html += `<div class="section-title">📊 今日其他赛果 | Matchday Results</div>
+                <div class="card"></div>`;
+            }
+
+            // 射手榜
+            if (Array.isArray(data.scorers) && data.scorers.length) {
+                let rows = data.scorers.map((sc, i) =>
+                    `<tr>
+                        <td class="player-rank"></td>
+                        <td style="font-weight:700"></td>
+                        <td> </td>
+                        <td class="goals"></td>
+                    </tr>`
+                ).join("");
+                html += `<div class="section-title">⚽ 金靴争夺榜 | Top Scorers</div>
+                <div class="card">
+                    <table class="stats-table">
+                        <thead><tr><th>排名</th><th>球员</th><th>国家队</th><th class="text-right">进球数</th></tr></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>`;
+            }
+
+            // 明日赛程
+            if (Array.isArray(data.upcoming) && data.upcoming.length) {
+                let rows = data.upcoming.map(u =>
+                    `<tr>
+                        <td style="font-weight:700">  vs  </td>
+                        <td class="text-right"></td>
+                    </tr>`
+                ).join("");
+                html += `<div class="section-title">📅 明日赛程预告 | Upcoming Matches</div>
+                <div class="card">
+                    <table class="stats-table">
+                        <thead><tr><th>对阵比赛</th><th class="text-right">时间</th></tr></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>`;
+            }
+
+            app.innerHTML = html;
+        });
+    </script>
+</body>
+</html>
