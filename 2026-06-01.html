@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 美加墨世界杯 倒计时 10 天 · 2026-06-01</title>
+  <style>
+    :root {
+      --bg:    #0b0f19;
+      --cont:  #111b15;
+      --card:  #1c2a21;
+      --gold:  #f3a04c;
+      --green: #40b43e;
+      --red:   #e05555;
+      --blue:  #4c9ef3;
+      --text:  #f3f4f6;
+      --muted: rgba(243,244,246,0.6);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 20px 12px 40px;
+    }
+    .wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--cont);
+      padding: 28px 24px 36px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    /* ── Header ── */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 24px;
+    }
+    .page-title { color: var(--gold); font-size: 20px; font-weight: 800; line-height: 1.3; }
+    .page-date  { color: var(--green); font-size: 12px; margin-top: 4px; white-space: nowrap; }
+
+    /* ── Section ── */
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 24px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .section-label::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: rgba(243,160,76,.25);
+    }
+
+    /* ── Card base ── */
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin-bottom: 14px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* ── Feature ── */
+    .feature-match {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      background: rgba(0,0,0,0.3);
+      padding: 16px 18px;
+      border-radius: 10px;
+      margin-bottom: 14px;
+    }
+    .feature-team { text-align: center; font-weight: 700; font-size: 14px; flex: 1; }
+    .feature-score {
+      font-size: 30px;
+      font-weight: 900;
+      color: var(--gold);
+      letter-spacing: .05em;
+      text-align: center;
+      min-width: 90px;
+    }
+    .feature-content { font-size: 14px; line-height: 1.75; color: var(--muted); }
+
+    /* ── Match list ── */
+    .match-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .match-row:last-child { border-bottom: none; }
+    .match-teams {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .match-score {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--gold);
+      min-width: 60px;
+      text-align: center;
+    }
+    .match-meta {
+      font-size: 11px;
+      color: var(--muted);
+      text-align: right;
+      min-width: 120px;
+    }
+    .match-note {
+      font-size: 12px;
+      color: var(--muted);
+      padding: 6px 0 2px;
+      line-height: 1.6;
+    }
+
+    /* ── Schedule ── */
+    .schedule-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      gap: 8px;
+    }
+    .schedule-row:last-child { border-bottom: none; }
+    .schedule-teams { font-size: 14px; font-weight: 700; flex: 1; }
+    .schedule-time  { font-size: 12px; color: var(--blue); white-space: nowrap; }
+    .schedule-group { font-size: 11px; color: var(--muted); white-space: nowrap; }
+
+    /* ── Ranking ── */
+    .ranking-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .ranking-table th {
+      text-align: left;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 6px 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .ranking-table td {
+      padding: 10px 6px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      vertical-align: middle;
+    }
+    .ranking-table tr:last-child td { border-bottom: none; }
+    .rank-num  { color: var(--gold); font-weight: 800; width: 28px; }
+    .rank-name { font-weight: 700; }
+    .rank-team { color: var(--muted); font-size: 12px; }
+    .rank-goals {
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--green);
+      text-align: right;
+    }
+    .rank-pen  { font-size: 11px; color: var(--muted); text-align: right; }
+    .medal-1::before { content: "🥇 "; }
+    .medal-2::before { content: "🥈 "; }
+    .medal-3::before { content: "🥉 "; }
+
+    /* ── News feed ── */
+    .news-item {
+      padding: 11px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      line-height: 1.6;
+    }
+    .news-item:last-child { border-bottom: none; }
+    .news-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      background: rgba(243,160,76,0.15);
+      color: var(--gold);
+      border: 1px solid rgba(243,160,76,0.3);
+      padding: 1px 6px;
+      border-radius: 4px;
+      margin-right: 7px;
+      vertical-align: middle;
+    }
+    .news-text { font-size: 13px; font-weight: 600; }
+    .news-link { font-size: 11px; color: var(--blue); text-decoration: none; }
+    .news-link:hover { text-decoration: underline; }
+
+    /* ── Badge ── */
+    .badge {
+      display: inline-block;
+      font-size: 10px;
+      padding: 1px 6px;
+      border-radius: 4px;
+      background: rgba(64,180,62,0.15);
+      color: var(--green);
+      border: 1px solid rgba(64,180,62,0.3);
+    }
+
+    /* ── Footer ── */
+    .footer {
+      margin-top: 28px;
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+    }
+    .footer a { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <!-- Header -->
+    <div class="page-header">
+      <div>
+        <div class="page-title">2026 美加墨世界杯 倒计时 10 天</div>
+        <div class="page-date">🗓 2026-06-01 · 官方数据 football-data.org</div>
+      </div>
+    </div>
+
+    <!-- Dynamic content mount -->
+    <div id="app">加载中…</div>
+
+    <!-- Footer -->
+    <div class="footer">
+      数据来源：football-data.org &amp; Tier-1 Media ·
+      由 <a href="#">2026美加墨世界杯情报站</a> 整理汇总
+    </div>
+  </div>
+
+  <!-- Embedded data -->
+  <script id="data-json" type="application/json">{
+  "blocks": [
+    {
+      "type": "news_feed",
+      "title": "情报快讯",
+      "items": [
+        {
+          "tag": "规则更新",
+          "text": "国际足球理事会（IFAB）确认了2026世界杯的新规，包括VAR权限的调整、10秒换人以及战术暂停的禁令，旨在提升比赛流畅性。",
+          "url": "https://www.skysports.com/football/news/12098/13549645/world-cup-ifab-confirm-new-var-powers-10-second-substitutions-and-tactical-timeout-ban-in-major-rule-changes"
+        },
+        {
+          "tag": "备战动态",
+          "text": "英格兰队已启程飞往迈阿密，将在当地炎热天气下进行适应性训练，为即将到来的世界杯做最后冲刺。",
+          "url": "https://www.skysports.com/football/video/34023/13549706/world-cup-england-players-due-to-land-in-miami-heat"
+        },
+        {
+          "tag": "伤情",
+          "text": "苏格兰队中场比利·吉尔摩因伤无缘世界杯，曼联年轻中场泰勒·弗莱彻递补入选，球队阵容遭遇挑战。",
+          "url": "https://www.skysports.com/football/news/11095/13549643/tyler-fletcher-manchester-united-midfielder-replaces-billy-gilmour-in-scotland-world-cup-squad"
+        },
+        {
+          "tag": "友谊赛",
+          "text": "美国男足在对阵塞内加尔的友谊赛中表现不俗，普利西奇打破进球荒，为世界杯前夕注入信心。",
+          "url": "https://www.nytimes.com/athletic/7322090/2026/05/31/usmnt-senegal-friendly-score-result-pulisic-pochettino-world-cup/"
+        },
+        {
+          "tag": "球队阵容",
+          "text": "乌拉圭公布了2026世界杯的最终大名单，老将苏亚雷斯赫然在列，将继续为国征战。",
+          "url": "https://www.nytimes.com/athletic/7322279/2026/05/31/uruguay-world-cup-squad-2026-suarez/"
+        }
+      ]
+    },
+    {
+      "type": "feature",
+      "title": "焦点之战前瞻：卫冕冠军与东道主的双雄逐鹿",
+      "home": "阿根廷",
+      "away": "美国",
+      "score": null,
+      "content": "2026美加墨世界杯的战火即将点燃，卫冕冠军阿根廷与东道主美国队无疑是赛前最受关注的两支球队。阿根廷队在梅西的率领下，正全力备战，力求延续潘帕斯雄鹰的辉煌。而美国队作为东道主之一，承载着球迷巨大期望，近期主帅波切蒂诺在友谊赛中对战术的精细调整和对年轻球员的信任，都展现了球队的雄心。普利西奇的及时回勇，也为美国队的进攻端增添了火力。两支球队在世界杯的舞台上，虽然小组赛无直接对话，但他们各自的备战策略和核心球员表现，都将是决定他们能走多远的关键因素，值得球迷们持续关注。"
+    }
+  ]
+}</script>
+
+  <script>
+  (function () {
+    /* ── 国旗数据库（持续扩充） ── */
+    const TEAM_FLAGS = {
+      "United States":"🇺🇸","USA":"🇺🇸","美国":"🇺🇸",
+      "Canada":"🇨🇦","加拿大":"🇨🇦",
+      "Mexico":"🇲🇽","墨西哥":"🇲🇽",
+      "Brazil":"🇧🇷","巴西":"🇧🇷",
+      "Argentina":"🇦🇷","阿根廷":"🇦🇷",
+      "France":"🇫🇷","法国":"🇫🇷",
+      "England":"󠁧󠁢󠁥󠁮󠁧󠁿","England":"🏴󠁧󠁢󠁥󠁮󠁧󠁿","英格兰":"🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+      "Germany":"🇩🇪","德国":"🇩🇪",
+      "Spain":"🇪🇸","西班牙":"🇪🇸",
+      "Portugal":"🇵🇹","葡萄牙":"🇵🇹",
+      "Netherlands":"🇳🇱","荷兰":"🇳🇱",
+      "Japan":"🇯🇵","日本":"🇯🇵",
+      "South Korea":"🇰🇷","韩国":"🇰🇷",
+      "Morocco":"🇲🇦","摩洛哥":"🇲🇦",
+      "Senegal":"🇸🇳","塞内加尔":"🇸🇳",
+      "Nigeria":"🇳🇬","尼日利亚":"🇳🇬",
+      "Saudi Arabia":"🇸🇦","沙特":"🇸🇦",
+      "Australia":"🇦🇺","澳大利亚":"🇦🇺",
+      "Ecuador":"🇪🇨","厄瓜多尔":"🇪🇨",
+      "Uruguay":"🇺🇾","乌拉圭":"🇺🇾",
+      "Colombia":"🇨🇴","哥伦比亚":"🇨🇴",
+      "Switzerland":"🇨🇭","瑞士":"🇨🇭",
+      "Croatia":"🇭🇷","克罗地亚":"🇭🇷",
+      "Poland":"🇵🇱","波兰":"🇵🇱",
+      "Cameroon":"🇨🇲","喀麦隆":"🇨🇲",
+      "Ghana":"🇬🇭","加纳":"🇬🇭",
+      "Iran":"🇮🇷","伊朗":"🇮🇷",
+      "Belgium":"🇧🇪","比利时":"🇧🇪",
+      "Serbia":"🇷🇸","塞尔维亚":"🇷🇸",
+      "Denmark":"🇩🇰","丹麦":"🇩🇰",
+      "Tunisia":"🇹🇳","突尼斯":"🇹🇳",
+      "Costa Rica":"🇨🇷","哥斯达黎加":"🇨🇷",
+      "Ivory Coast":"🇨🇮","科特迪瓦":"🇨🇮",
+      "Albania":"🇦🇱","阿尔巴尼亚":"🇦🇱",
+      "Ukraine":"🇺🇦","乌克兰":"🇺🇦",
+      "Turkey":"🇹🇷","土耳其":"🇹🇷",
+      "Chile":"🇨🇱","智利":"🇨🇱",
+      "Austria":"🇦🇹","奥地利":"🇦🇹",
+      "Hungary":"🇭🇺","匈牙利":"🇭🇺",
+      "Slovakia":"🇸🇰","斯洛伐克":"🇸🇰",
+      "Slovenia":"🇸🇮","斯洛文尼亚":"🇸🇮",
+      "TBD":"⚽"
+    };
+    const flag = n => TEAM_FLAGS[n] || "⚽";
+
+    /* ── 渲染器字典 ── */
+    const renderers = {
+
+      feature(b) {
+        let matchHtml = "";
+        if (b.home && b.away) {
+          const scoreHtml = b.score
+            ? `<div class="feature-score">${esc(b.score)}</div>`
+            : `<div class="feature-score" style="font-size:13px;color:var(--muted)">VS</div>`;
+          matchHtml = `
+            <div class="feature-match">
+              <div class="feature-team">${flag(b.home)} ${esc(b.home)}</div>
+              ${scoreHtml}
+              <div class="feature-team">${flag(b.away)} ${esc(b.away)}</div>
+            </div>`;
+        }
+        return matchHtml + `<div class="feature-content">${esc(b.content || "")}</div>`;
+      },
+
+      match_list(b) {
+        return (b.items || []).map(m => {
+          const scoreStr = (m.home_score !== undefined && m.away_score !== undefined)
+            ? `${m.home_score} : ${m.away_score}` : "- : -";
+          const meta = [m.kickoff_et, m.venue, m.group].filter(Boolean).join(" · ");
+          const noteHtml = m.note
+            ? `<div class="match-note">💬 ${esc(m.note)}</div>` : "";
+          return `
+            <div class="match-row">
+              <div style="flex:1">
+                <div class="match-teams">
+                  <span>${flag(m.home_team)} ${esc(m.home_team)}</span>
+                  <span class="match-score">${esc(scoreStr)}</span>
+                  <span>${esc(m.away_team)} ${flag(m.away_team)}</span>
+                </div>
+                ${noteHtml}
+              </div>
+              <div class="match-meta">${esc(meta)}</div>
+            </div>`;
+        }).join("");
+      },
+
+      schedule(b) {
+        return (b.items || []).map(m => `
+          <div class="schedule-row">
+            <div class="schedule-teams">
+              ${flag(m.home_team)} ${esc(m.home_team)}
+              <span style="color:var(--muted); font-weight:400; margin:0 6px">vs</span>
+              ${esc(m.away_team)} ${flag(m.away_team)}
+            </div>
+            <div class="schedule-time">⏰ ${esc(m.kickoff_et || "TBD")}</div>
+            ${m.group ? `<div class="schedule-group">[${esc(m.group)}]</div>` : ""}
+          </div>`).join("");
+      },
+
+      ranking(b) {
+        const medals = ["medal-1","medal-2","medal-3"];
+        const rows = (b.items || []).map((r, i) => {
+          const medalClass = medals[i] || "";
+          const penHtml = r.penalties
+            ? `<div class="rank-pen">含点球 ${r.penalties}</div>` : "";
+          return `
+            <tr>
+              <td class="rank-num">${r.rank}</td>
+              <td>
+                <div class="rank-name ${medalClass}">${esc(r.player_name)}</div>
+                <div class="rank-team">${flag(r.team_name)} ${esc(r.team_name)}</div>
+              </td>
+              <td class="rank-goals">${r.goals}</td>
+              <td>${penHtml}</td>
+            </tr>`;
+        }).join("");
+        return `
+          <table class="ranking-table">
+            <thead>
+              <tr>
+                <th>#</th><th>球员 · 国家队</th>
+                <th style="text-align:right">进球</th>
+                <th style="text-align:right">点球</th>
+              </tr>
+            </thead>
+            <tbody>${rows}</tbody>
+          </table>`;
+      },
+
+      news_feed(b) {
+        return (b.items || []).map(n => `
+          <div class="news-item">
+            <span class="news-tag">${esc(n.tag || "新闻")}</span>
+            <span class="news-text">${esc(n.text || "")}</span><br>
+            ${n.url ? `<a class="news-link" href="${esc(n.url)}" target="_blank" rel="noopener">→ 查看详情</a>` : ""}
+          </div>`).join("");
+      }
+    };
+
+    /* ── 图标映射 ── */
+    const BLOCK_ICONS = {
+      feature: "🏆", match_list: "📊",
+      ranking: "⚽", schedule: "📅", news_feed: "📰"
+    };
+
+    /* ── XSS 转义 ── */
+    function esc(s) {
+      return String(s ?? "")
+        .replace(/&/g,"&amp;").replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+    }
+
+    /* ── 主渲染 ── */
+    document.addEventListener("DOMContentLoaded", () => {
+      const app = document.getElementById("app");
+      try {
+        const raw  = document.getElementById("data-json").textContent;
+        const data = JSON.parse(raw);
+        const html = (data.blocks || []).map(b => {
+          const icon    = BLOCK_ICONS[b.type] || "•";
+          const inner   = renderers[b.type] ? renderers[b.type](b) : "";
+          return `
+            <div class="section-label">${icon} ${esc(b.title || b.type)}</div>
+            <div class="card">${inner}</div>`;
+        }).join("");
+        app.innerHTML = html || "<p style='color:var(--muted)'>暂无内容</p>";
+      } catch(e) {
+        app.innerHTML = `<p style="color:var(--red)">⚠ 数据加载失败：${esc(e.message)}</p>`;
+      }
+    });
+  })();
+  </script>
+</body>
+</html>
