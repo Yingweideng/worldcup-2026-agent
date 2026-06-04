@@ -9,14 +9,14 @@ class WorldCupDataProcessor:
     供 Gemini Prompt 和前端 HTML 消费。
     """
 
-    def __init__(self, data_file: str = "data/2026_worldcup_data.json"):
+    def __init__(self, data_file: str = "data/2026_worldcup_data.json", process_date:  datetime.date = datetime.date.today()):
         try:
             with open(data_file, "r", encoding="utf-8") as f:
                 self.data = json.load(f)
         except FileNotFoundError:
             print(f"[DataProcessor] Warning: {data_file} not found. Using empty dataset.")
             self.data = {"matches": [], "standings": [], "scorers": []}
-        self.today = datetime.date.today()
+        self.today = process_date
 
     # ──────────────────────────────────────────
     # 比赛查询

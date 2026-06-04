@@ -19,7 +19,8 @@ TOURNAMENT_END   = datetime.date(2026, 7, 19)
 
 class WorldCupEditor:
     def __init__(self):
-        self.today      = datetime.date.today()
+        #self.today      = datetime.date.today()
+        self.today      = datetime.date(2026, 6, 14)
         self.today_str  = self.today.strftime("%Y-%m-%d")
         self.dynamic_title = ""
 
@@ -48,7 +49,7 @@ class WorldCupEditor:
 
     def _init_data_processor(self) -> "WorldCupDataProcessor | None":
         if os.path.exists(self.output_file):
-            return WorldCupDataProcessor(self.output_file)
+            return WorldCupDataProcessor(self.output_file, self.today)
         print("[main] Warning: 2026_worldcup_data.json not found — will fetch first.")
         return None
 
@@ -141,7 +142,7 @@ class WorldCupEditor:
         print(f"[football-data] Data saved → {self.output_file}")
 
         # 刷新处理器，使本次 run() 后续步骤立即可用
-        self.data_processor = WorldCupDataProcessor(self.output_file)
+        self.data_processor = WorldCupDataProcessor(self.output_file, self.today)
 
     def fetch_raw_news(self):
         """从 Tier-1 来源抓取世界杯相关新闻链接"""
@@ -194,6 +195,11 @@ class WorldCupEditor:
                 "standings_sample": [],
             }
 
+        #print(json.dumps(wc["today_matches"]))
+        #print(json.dumps(wc["tomorrow_matches"]))
+        #print(json.dumps(wc["top_scorers"]))
+        #print(json.dumps(wc["standings_sample"]))        
+        
         # ── 使用 str.replace() 逐一替换，避免 str.format() 误解析 JSON 花括号 ──
         prompt = (
             self.prompt_template
@@ -209,7 +215,7 @@ class WorldCupEditor:
         )
 
         response = self.client.models.generate_content(
-            model="gemini-2.5-flash",
+            model="gemini-3.5-flash",
             contents=prompt,
         )
         return response.text
@@ -239,11 +245,11 @@ class WorldCupEditor:
             btype = b.get("type", "")
             title = b.get("title", "情报")
             icon  = emoji_map.get(btype, "•")
-            parts.append(f"<b>{icon} {title}</b>")
+            parts.append(f"<b>{icon} 【{title}】</b>")
 
             if btype == "feature":
                 score  = b.get("score")
-                header = f"{b.get('home')} {score} {b.get('away')}\n" if score else ""
+                header = f"<img src='{b.get('home_flag')}' width='16'> <b>{b.get('home')} {score} {b.get('away')}</b> <img src='{b.get('away_flag')}' width='16'>\n" if score else ""
                 parts.append(f"<blockquote>{header}{b.get('content','')}</blockquote>")
 
             elif btype == "match_list":
@@ -251,11 +257,11 @@ class WorldCupEditor:
                 for m in b.get("items", []):
                     score_str = f"{m.get('home_score','-')} : {m.get('away_score','-')}"
                     line = (
-                        f"🏟 <b>{m.get('home_team')}</b> {score_str} "
-                        f"<b>{m.get('away_team')}</b>"
+                        f"<img src='{m.get('home_flag')}' width='16'> <b>{m.get('home_team')}</b> {score_str} "
+                        f"<b>{m.get('away_team')}</b> <img src='{m.get('away_flag')}' width='16'>"
                     )
-                    if m.get("venue"):
-                        line += f"  📍{m['venue']}"
+                    #if m.get("venue"):
+                    #    line += f"  🏟 {m['venue']}"
                     if m.get("group"):
                         line += f"  [{m['group']}]"
                     lines.append(line)
@@ -265,7 +271,7 @@ class WorldCupEditor:
                 lines = []
                 for m in b.get("items", []):
                     lines.append(
-                        f"📅 <b>{m.get('home_team')}</b> vs <b>{m.get('away_team')}</b>"
+                        f"<img src='{m.get('home_flag')}' width='16'> <b>{m.get('home_team')}</b> vs <b>{m.get('away_team')}</b> <img src='{m.get('away_flag')}' width='16'>"
                         f"  {m.get('kickoff_et','TBD')}"
                         + (f"  [{m.get('group','')}]" if m.get("group") else "")
                     )
@@ -276,7 +282,7 @@ class WorldCupEditor:
                 for r in b.get("items", []):
                     lines.append(
                         f"{r.get('rank','#')}. <b>{r.get('player_name')}</b>"
-                        f"  {r.get('team_name','')}  ⚽ {r.get('goals',0)}"
+                        f"({r.get('team_name','')}) ｜ ⚽ {r.get('goals',0)}"
                         + (f" (点球 {r['penalties']})" if r.get("penalties") else "")
                     )
                 parts.append("<blockquote>" + "\n".join(lines) + "</blockquote>")
@@ -294,6 +300,12 @@ class WorldCupEditor:
     def send_to_telegram(self, html_content: str) -> bool:
         token   = os.environ.get("TELEGRAM_BOT_TOKEN")
         chat_id = os.environ.get("TELEGRAM_CHAT_ID")
+
+        #temprary code
+        tele_out_path = os.path.join(self.history_dir, f"tele_{self.today_str}.html")
+        with open(tele_out_path, "w", encoding="utf-8") as f:
+            f.write(html_content)
+
         if not token or not chat_id:
             print("[telegram] Credentials missing — skipping send.")
             return False
@@ -357,7 +369,7 @@ class WorldCupEditor:
         print(f"[agent] Starting … Date: {self.today_str}")
 
         # Step 1: 从 football-data.org 拉取官方数据（写入 JSON 并刷新处理器）
-        self.fetch_results_data()
+        #self.fetch_results_data()
 
         # Step 2: 从网络抓取新闻 + 统计文本
         news  = self.fetch_raw_news()

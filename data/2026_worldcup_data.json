@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-31 21:55:01 UTC",
+  "last_updated": "2026-06-01 19:09:08 UTC",
   "competition": {
     "name": "FIFA World Cup 2026",
     "code": "WC"
@@ -87,7 +87,7 @@
       },
       "id": 537328,
       "utcDate": "2026-06-12T02:00:00Z",
-      "status": "TIMED",
+      "status": "FINISHED",
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_A",
@@ -110,12 +110,12 @@
         "winner": null,
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 2
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 1
         }
       },
       "odds": {
@@ -146,7 +146,7 @@
       },
       "id": 537333,
       "utcDate": "2026-06-12T19:00:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_B",
@@ -173,8 +173,8 @@
           "away": null
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 1
         }
       },
       "odds": {
@@ -205,7 +205,7 @@
       },
       "id": 537345,
       "utcDate": "2026-06-13T01:00:00Z",
-      "status": "TIMED",
+      "status": "FINISHED",
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_D",
@@ -228,12 +228,12 @@
         "winner": null,
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 1
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 1
         }
       },
       "odds": {
@@ -382,7 +382,7 @@
       },
       "id": 537340,
       "utcDate": "2026-06-14T01:00:00Z",
-      "status": "TIMED",
+      "status": "FINISHED",
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_C",
@@ -402,15 +402,15 @@
         "crest": "https://crests.football-data.org/814.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "Scotland",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 0
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         }
       },
       "odds": {
@@ -441,7 +441,7 @@
       },
       "id": 537346,
       "utcDate": "2026-06-14T04:00:00Z",
-      "status": "TIMED",
+      "status": "FINISHED",
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_D",
@@ -461,15 +461,15 @@
         "crest": "https://crests.football-data.org/803.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "Turkey",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 2
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 1
         }
       },
       "odds": {
@@ -500,7 +500,7 @@
       },
       "id": 537351,
       "utcDate": "2026-06-14T17:00:00Z",
-      "status": "TIMED",
+      "status": "FINISHED",
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_E",
@@ -520,15 +520,15 @@
         "crest": "https://crests.football-data.org/curacao.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "Germany",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 4,
+          "away": 0
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 0
         }
       },
       "odds": {
@@ -579,15 +579,15 @@
         "crest": "https://crests.football-data.org/766.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "Japan",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 3
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 1
         }
       },
       "odds": {
@@ -638,15 +638,15 @@
         "crest": "https://crests.football-data.org/791.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "Ecuador",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 1
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         }
       },
       "odds": {
@@ -7140,5 +7140,18 @@
       ]
     }
   ],
-  "scorers": []
+  "scorers": [
+    {
+      "player": { "name": "Christian Pulisic" },
+      "team": { "name": "United States", "crest": "https://crests.football-data.org/usa.svg"},
+      "goals": 2,
+      "penalties": 0
+    },
+    {
+      "player": { "name": "Julio Enciso" },
+      "team": { "name": "Paraguay","crest": "https://crests.football-data.org/761.svg"},
+      "goals": 1,
+      "penalties": 1
+    }
+  ]
 }

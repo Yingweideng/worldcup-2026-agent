@@ -43,7 +43,7 @@
 
     /* ── Section ── */
     .section-label {
-      font-size: 11px;
+      font-size: 17px;
       font-weight: 700;
       letter-spacing: .12em;
       text-transform: uppercase;
@@ -116,7 +116,7 @@
       text-align: center;
     }
     .match-meta {
-      font-size: 11px;
+      font-size: 14px;
       color: var(--muted);
       text-align: right;
       min-width: 120px;
@@ -139,8 +139,8 @@
     }
     .schedule-row:last-child { border-bottom: none; }
     .schedule-teams { font-size: 14px; font-weight: 700; flex: 1; }
-    .schedule-time  { font-size: 12px; color: var(--blue); white-space: nowrap; }
-    .schedule-group { font-size: 11px; color: var(--muted); white-space: nowrap; }
+    .schedule-time  { font-size: 14px; color: var(--blue); white-space: nowrap; }
+    .schedule-group { font-size: 14px; color: var(--muted); white-space: nowrap; }
 
     /* ── Ranking ── */
     .ranking-table {
@@ -151,7 +151,7 @@
     .ranking-table th {
       text-align: left;
       color: var(--muted);
-      font-size: 11px;
+      font-size: 14px;
       font-weight: 600;
       padding: 4px 6px 10px;
       border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -185,7 +185,7 @@
     .news-item:last-child { border-bottom: none; }
     .news-tag {
       display: inline-block;
-      font-size: 10px;
+      font-size: 12px;
       font-weight: 700;
       background: rgba(243,160,76,0.15);
       color: var(--gold);
@@ -303,9 +303,17 @@
             : `<div class="feature-score" style="font-size:13px;color:var(--muted)">VS</div>`;
           matchHtml = `
             <div class="feature-match">
-              <div class="feature-team">${flag(b.home)} ${esc(b.home)}</div>
-              ${scoreHtml}
-              <div class="feature-team">${flag(b.away)} ${esc(b.away)}</div>
+              <table width="100%">
+                <tbody>
+                  <tr>
+                    <th width="10%"><img src="${b.home_flag}" width="36" alt="Flag of ${flag(b.home)}"></th>
+                    <th width="25%"><div class="feature-team">${esc(b.home)}</div></th>
+                    <th width="30%">${scoreHtml}</th>
+                    <th width="25%"><div class="feature-team">${esc(b.away)}</div></th>
+                    <th width="10%" text-align="left"><img src="${b.away_flag}" width="36" alt="Flag of ${flag(b.away)}"></th>
+                  </tr>
+                </tbody>
+              </table>
             </div>`;
         }
         return matchHtml + `<div class="feature-content">${esc(b.content || "")}</div>`;
@@ -322,9 +330,17 @@
             <div class="match-row">
               <div style="flex:1">
                 <div class="match-teams">
-                  <span>${flag(m.home_team)} ${esc(m.home_team)}</span>
-                  <span class="match-score">${esc(scoreStr)}</span>
-                  <span>${esc(m.away_team)} ${flag(m.away_team)}</span>
+                  <table width="80%">
+                    <tbody>
+                      <tr>
+                        <th width="10%"><img src="${m.home_flag}" width="36" alt="Flag of ${flag(m.home_team)}"></th>
+                        <th width="25%"><div class="feature-team">${esc(m.home_team)}</div></th>
+                        <th width="30%">${scoreStr}</th>
+                        <th width="25%"><div class="feature-team">${esc(m.away_team)}</div></th>
+                        <th width="10%" text-align="left"><img src="${m.away_flag}" width="36" alt="Flag of ${flag(m.away_team)}"></th>
+                      </tr>
+                    </tbody>
+                  </table> 
                 </div>
                 ${noteHtml}
               </div>
@@ -337,9 +353,17 @@
         return (b.items || []).map(m => `
           <div class="schedule-row">
             <div class="schedule-teams">
-              ${flag(m.home_team)} ${esc(m.home_team)}
-              <span style="color:var(--muted); font-weight:400; margin:0 6px">vs</span>
-              ${esc(m.away_team)} ${flag(m.away_team)}
+              <table width="80%">
+                <tbody>
+                  <tr>
+                    <th width="10%"><img src="${m.home_flag}" width="36" alt="Flag of ${flag(m.home_team)}"></th>
+                    <th width="25%"><div class="feature-team">${esc(m.home_team)}</div></th>
+                    <th width="30%"><span style="color:var(--muted); font-weight:400; font-size:22px; margin:0 6px">vs</span></th>
+                    <th width="25%"><div class="feature-team">${esc(m.away_team)}</div></th>
+                    <th width="10%" text-align="left"><img src="${m.away_flag}" width="36" alt="Flag of ${flag(m.away_team)}"></th>
+                  </tr>
+                </tbody>
+              </table> 
             </div>
             <div class="schedule-time">⏰ ${esc(m.kickoff_et || "TBD")}</div>
             ${m.group ? `<div class="schedule-group">[${esc(m.group)}]</div>` : ""}
