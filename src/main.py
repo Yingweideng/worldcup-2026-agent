@@ -249,7 +249,7 @@ class WorldCupEditor:
 
             if btype == "feature":
                 score  = b.get("score")
-                header = f"🏴󠁧󠁢󠁥󠁮󠁧󠁿 <b>{b.get('home')} {score} {b.get('away')}</b> 🏴󠁧󠁢󠁥󠁮󠁧󠁿\n" if score else ""
+                header = f" <b>{b.get('home')} {score} {b.get('away')}</b> \n" if score else ""
                 parts.append(f"<blockquote>{header}{b.get('content','')}</blockquote>")
 
             elif btype == "match_list":
@@ -257,8 +257,8 @@ class WorldCupEditor:
                 for m in b.get("items", []):
                     score_str = f"{m.get('home_score','-')} : {m.get('away_score','-')}"
                     line = (
-                        f"🏴󠁧󠁢󠁥󠁮󠁧󠁿 <b>{m.get('home_team')}</b> {score_str} "
-                        f"<b>{m.get('away_team')}</b> 🏴󠁧󠁢󠁥󠁮󠁧󠁿"
+                        f" <b>{m.get('home_team')}</b> {score_str} "
+                        f"<b>{m.get('away_team')}</b> "
                     )
                     #if m.get("venue"):
                     #    line += f"  🏟 {m['venue']}"
@@ -271,7 +271,7 @@ class WorldCupEditor:
                 lines = []
                 for m in b.get("items", []):
                     lines.append(
-                        f"🏴󠁧󠁢󠁥󠁮󠁧󠁿 <b>{m.get('home_team')}</b> vs <b>{m.get('away_team')}</b> 🏴󠁧󠁢󠁥󠁮󠁧󠁿"
+                        f" <b>{m.get('home_team')}</b> vs <b>{m.get('away_team')}</b> "
                         f"  {m.get('kickoff_et','TBD')}"
                         + (f"  [{m.get('group','')}]" if m.get("group") else "")
                     )
