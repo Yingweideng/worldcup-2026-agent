@@ -249,7 +249,7 @@ class WorldCupEditor:
 
             if btype == "feature":
                 score  = b.get("score")
-                header = f"🏴󠁧󠁢󠁥󠁮󠁧󠁿 <b>{b.get('home')} {score} {b.get('away')}</b> 🏴󠁧󠁢󠁥󠁮󠁧󠁿\n" if score else ""
+                header = f"{b.get('home_emoji')} <b>{b.get('home')} {score} {b.get('away')}</b> {b.get('away_emoji')}\n" if score else ""
                 parts.append(f"<blockquote>{header}{b.get('content','')}</blockquote>")
 
             elif btype == "match_list":
@@ -257,8 +257,8 @@ class WorldCupEditor:
                 for m in b.get("items", []):
                     score_str = f"{m.get('home_score','-')} : {m.get('away_score','-')}"
                     line = (
-                        f"🏴󠁧󠁢󠁥󠁮󠁧󠁿 <b>{m.get('home_team')}</b> {score_str} "
-                        f"<b>{m.get('away_team')}</b> 🏴󠁧󠁢󠁥󠁮󠁧󠁿"
+                        f"{m.get('home_emoji')} <b>{m.get('home_team')}</b> {score_str} "
+                        f"<b>{m.get('away_team')}</b> {m.get('away_emoji')}"
                     )
                     #if m.get("venue"):
                     #    line += f"  🏟 {m['venue']}"
@@ -271,7 +271,7 @@ class WorldCupEditor:
                 lines = []
                 for m in b.get("items", []):
                     lines.append(
-                        f"🏴󠁧󠁢󠁥󠁮󠁧󠁿 <b>{m.get('home_team')}</b> vs <b>{m.get('away_team')}</b> 🏴󠁧󠁢󠁥󠁮󠁧󠁿"
+                        f"{m.get('home_emoji')} <b>{m.get('home_team')}</b> vs <b>{m.get('away_team')}</b> {m.get('away_emoji')}"
                         f"  {m.get('kickoff_et','TBD')}"
                         + (f"  [{m.get('group','')}]" if m.get("group") else "")
                     )
@@ -282,7 +282,7 @@ class WorldCupEditor:
                 for r in b.get("items", []):
                     lines.append(
                         f"{r.get('rank','#')}. <b>{r.get('player_name')}</b>"
-                        f"({r.get('team_name','')}) ｜ ⚽ {r.get('goals',0)}"
+                        f"({r.get('team_name','')}|{r.get('team_emoji','')}) ｜ ⚽ {r.get('goals',0)}"
                         + (f" (点球 {r['penalties']})" if r.get("penalties") else "")
                     )
                 parts.append("<blockquote>" + "\n".join(lines) + "</blockquote>")

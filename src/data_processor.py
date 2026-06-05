@@ -1,6 +1,7 @@
 import json
 import datetime
 from typing import List, Dict, Any, Optional
+from team_flag import team_flag
 
 
 class WorldCupDataProcessor:
@@ -8,7 +9,6 @@ class WorldCupDataProcessor:
     从 football-data.org 抓取的 JSON 文件中读取、清洗、格式化数据，
     供 Gemini Prompt 和前端 HTML 消费。
     """
-
     def __init__(self, data_file: str = "data/2026_worldcup_data.json", process_date:  datetime.date = datetime.date.today()):
         try:
             with open(data_file, "r", encoding="utf-8") as f:
@@ -17,6 +17,22 @@ class WorldCupDataProcessor:
             print(f"[DataProcessor] Warning: {data_file} not found. Using empty dataset.")
             self.data = {"matches": [], "standings": [], "scorers": []}
         self.today = process_date
+
+    def get_flag_emoji(self,team_name):
+        """
+        输入国家队中文、英文或简称，自动返回对应的国旗 Emoji 字符。
+        如果未找到，则安全返回白色旗帜 🏳 防止脚本崩溃。
+        """
+        # 1. 匹配 2 位 ISO 国家代码
+        country_code = team_flag.get(team_name)
+        if not country_code:
+            return "🏳"
+        
+        # 2. 将代码（如 'FR'）安全转换为国旗 Emoji 字符
+        try:
+            return "".join(chr(ord(char) + 127397) for char in country_code.upper())
+        except Exception:
+            return "🏳"
 
     # ──────────────────────────────────────────
     # 比赛查询
@@ -103,7 +119,9 @@ class WorldCupDataProcessor:
             "home_team":  home.get("name", "TBD"),
             "away_team":  away.get("name", "TBD"),
             "home_flag":  home.get("crest", ""),
+            "home_emoji": self.get_flag_emoji(home_moji),
             "away_flag":  away.get("crest", ""),
+            "away_emoji": self.get_flag_emoji(away_moji),
             "home_score": str(home_score) if home_score is not None else "-",
             "away_score": str(away_score) if away_score is not None else "-",
             "ht_home":    str(half_time.get("home", "-")),
@@ -127,6 +145,7 @@ class WorldCupDataProcessor:
             "player_name": player.get("name", "Unknown"),
             "nationality": player.get("nationality", ""),
             "team_name":   team.get("name", ""),
+            "team_emoji": self.get_flag_emoji(team.get("name")),
             "goals":       scorer.get("goals") or 0,
             "assists":     scorer.get("assists") or 0,
             "penalties":   scorer.get("penalties") or 0,
