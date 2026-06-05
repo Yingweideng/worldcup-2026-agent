@@ -245,7 +245,7 @@
 
   <script>
   (function () {
-    /* ── 国旗数据库（持续扩充） ── */
+    /* ── 国旗数据库（持续扩充） 
     const TEAM_FLAGS = {
       "United States":"🇺🇸","USA":"🇺🇸","美国":"🇺🇸",
       "Canada":"🇨🇦","加拿大":"🇨🇦",
@@ -291,6 +291,7 @@
       "TBD":"⚽"
     };
     const flag = n => TEAM_FLAGS[n] || "⚽";
+    ── */
 
     /* ── 渲染器字典 ── */
     const renderers = {
@@ -306,11 +307,11 @@
               <table width="100%">
                 <tbody>
                   <tr>
-                    <th width="10%"><img src="${b.home_flag}" width="36" alt="Flag of ${flag(b.home)}"></th>
+                    <th width="10%"><img src="${b.home_flag}" width="36" alt="Flag of ${b.home}"></th>
                     <th width="25%"><div class="feature-team">${esc(b.home)}</div></th>
                     <th width="30%">${scoreHtml}</th>
                     <th width="25%"><div class="feature-team">${esc(b.away)}</div></th>
-                    <th width="10%" text-align="left"><img src="${b.away_flag}" width="36" alt="Flag of ${flag(b.away)}"></th>
+                    <th width="10%" text-align="left"><img src="${b.away_flag}" width="36" alt="Flag of ${b.away}"></th>
                   </tr>
                 </tbody>
               </table>
@@ -333,11 +334,11 @@
                   <table width="80%">
                     <tbody>
                       <tr>
-                        <th width="10%"><img src="${m.home_flag}" width="36" alt="Flag of ${flag(m.home_team)}"></th>
+                        <th width="10%"><img src="${m.home_flag}" width="36" alt="Flag of ${m.home_team}"></th>
                         <th width="25%"><div class="feature-team">${esc(m.home_team)}</div></th>
                         <th width="30%">${scoreStr}</th>
                         <th width="25%"><div class="feature-team">${esc(m.away_team)}</div></th>
-                        <th width="10%" text-align="left"><img src="${m.away_flag}" width="36" alt="Flag of ${flag(m.away_team)}"></th>
+                        <th width="10%" text-align="left"><img src="${m.away_flag}" width="36" alt="Flag of ${m.away_team}"></th>
                       </tr>
                     </tbody>
                   </table> 
@@ -356,11 +357,11 @@
               <table width="80%">
                 <tbody>
                   <tr>
-                    <th width="10%"><img src="${m.home_flag}" width="36" alt="Flag of ${flag(m.home_team)}"></th>
+                    <th width="10%"><img src="${m.home_flag}" width="36" alt="Flag of ${m.home_team}"></th>
                     <th width="25%"><div class="feature-team">${esc(m.home_team)}</div></th>
                     <th width="30%"><span style="color:var(--muted); font-weight:400; font-size:22px; margin:0 6px">vs</span></th>
                     <th width="25%"><div class="feature-team">${esc(m.away_team)}</div></th>
-                    <th width="10%" text-align="left"><img src="${m.away_flag}" width="36" alt="Flag of ${flag(m.away_team)}"></th>
+                    <th width="10%" text-align="left"><img src="${m.away_flag}" width="36" alt="Flag of ${m.away_team}"></th>
                   </tr>
                 </tbody>
               </table> 
