@@ -183,6 +183,7 @@ class WorldCupDataProcessor:
                     {
                         "position": row.get("position"),
                         "team":     (row.get("team") or {}).get("name", ""),
+                        "emoji": self.get_flag_emoji((row.get("team") or {}).get("name", "")),
                         "played":   row.get("playedGames"),
                         "won":      row.get("won"),
                         "draw":     row.get("draw"),

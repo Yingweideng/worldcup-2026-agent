@@ -142,6 +142,51 @@
     .schedule-time  { font-size: 14px; color: var(--blue); white-space: nowrap; }
     .schedule-group { font-size: 14px; color: var(--muted); white-space: nowrap; }
 
+    /* 积分榜专属样式 */
+    .standings-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 16px;
+        margin-top: 12px;
+    }
+    .group-card {
+        background: var(--card-bg, #fff);
+        border: 0.5px solid var(--intensity-8, rgba(0,0,0,0.08));
+        border-radius: 12px;
+        padding: 14px;
+    }
+    .group-title {
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: var(--primary, #F3A04C);
+        border-bottom: 1px solid var(--intensity-8, rgba(0,0,0,0.08));
+        padding-bottom: 4px;
+    }
+    .standings-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 12px;
+    }
+    .standings-table th {
+        color: var(--text-secondary, rgba(0,0,0,0.5));
+        font-weight: 500;
+        text-align: left;
+        padding-bottom: 4px;
+    }
+    .standings-table td {
+        padding: 6px 0;
+        border-bottom: 0.5px solid var(--intensity-8, rgba(0,0,0,0.08));
+        color: black;
+    }
+    .standings-table tr:last-child td {
+        border-bottom: none;
+    }
+    .col-pos { width: 10%; text-align: center; font-weight: 600;}
+    .col-team { width: 60%; text-align: left; }
+    .col-pts { width: 30%; text-align: center; font-weight: bold; }
+
+
     /* ── Ranking ── */
     .ranking-table {
       width: 100%;
@@ -371,6 +416,37 @@
           </div>`).join("");
       },
 
+      standings(b){
+        blockHtml = `
+          <div class="standings-grid">
+              ${b.items.map(group => `
+                  <div class="group-card">
+                      <div class="group-title">🏆 ${group.group.replace('Group', '小组')}</div>
+                      <table class="standings-table">
+                          <thead>
+                              <tr>
+                                  <th class="col-pos">#</th>
+                                  <th class="col-team">球队</th>
+                                  <th class="col-pts" style="text-align: center;">积分</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              ${group.table.map(team => `
+                                  <tr>
+                                      <td class="col-pos">${team.position}</td>
+                                      <td class="col-team">${team.emoji || '🏳'} ${team.team}</td>
+                                      <td class="col-pts" style="text-align: center;"><b>${team.points}</b></td>
+                                  </tr>
+                              `).join('')}
+                          </tbody>
+                      </table>
+                  </div>
+              `).join('')}
+          </div>
+        `;
+        return blockHtml;
+      },
+
       ranking(b) {
         const medals = ["medal-1","medal-2","medal-3"];
         const rows = (b.items || []).map((r, i) => {
@@ -413,8 +489,8 @@
 
     /* ── 图标映射 ── */
     const BLOCK_ICONS = {
-      feature: "🏆", match_list: "📊",
-      ranking: "⚽", schedule: "📅", news_feed: "📰"
+      feature: "🏆", match_list: "📊", schedule: "📅", 
+      ranking: "⚽", standings: "📊", news_feed: "📰"
     };
 
     /* ── XSS 转义 ── */

@@ -93,7 +93,7 @@ class WorldCupEditor:
             return {
                 "phase": "IN",
                 "label": "比赛日模式",
-                "blocks": "feature, match_list, ranking, schedule, news_feed"
+                "blocks": "feature, match_list, schedule, ranking, standings, news_feed"
             }
         self.dynamic_title = "2026 美加墨世界杯 赛后回顾"
         return {
@@ -235,8 +235,9 @@ class WorldCupEditor:
         emoji_map = {
             "feature":    "🏆",
             "match_list": "📊",
-            "ranking":    "⚽",
             "schedule":   "📅",
+            "ranking":    "⚽",
+            "standings":  "📈",
             "news_feed":  "📰",
         }
         parts = [f"<b>📢 {self.dynamic_title}</b>\n"]
@@ -285,6 +286,18 @@ class WorldCupEditor:
                         f"({r.get('team_name','')}|{r.get('team_emoji','')}) ｜ ⚽ {r.get('goals',0)}"
                         + (f" (点球 {r['penalties']})" if r.get("penalties") else "")
                     )
+                parts.append("<blockquote>" + "\n".join(lines) + "</blockquote>")
+
+            elif btype == "standings":
+                lines = []
+                for m in b.get("items", []):
+                    line = (
+                        f"🔝 <b>{m.get('group')}:</b>\n"
+                    )
+                    for n in m.get("table",[]):
+                        line += f"{n.get('position')}. {n.get('emoji')} <b>{n.get('team')}</b>   {n.get('points')}\n"
+
+                    lines.append(line)
                 parts.append("<blockquote>" + "\n".join(lines) + "</blockquote>")
 
             elif btype == "news_feed":
