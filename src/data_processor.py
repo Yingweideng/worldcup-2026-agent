@@ -52,15 +52,15 @@ class WorldCupDataProcessor:
         return sorted(result, key=lambda x: x.get("utcDate", ""))
 
     def get_today_matches(self) -> List[Dict[str, Any]]:
-        """今日已完赛 / 进行中 / 暂停的比赛"""
+        """昨日已完赛 / 进行中 / 暂停的比赛"""
         return self.get_matches_by_date(
-            self.today, ["FINISHED", "IN_PLAY", "PAUSED"]
+            self.today - datetime.timedelta(days=1), ["FINISHED", "IN_PLAY", "PAUSED"]
         )
 
     def get_tomorrow_matches(self) -> List[Dict[str, Any]]:
-        """明日已定时 / 计划中的比赛"""
+        """今日已定时 / 计划中的比赛"""
         return self.get_matches_by_date(
-            self.today + datetime.timedelta(days=1), ["TIMED", "SCHEDULED"]
+            self.today, ["TIMED", "SCHEDULED"]
         )
 
     # ──────────────────────────────────────────
@@ -159,7 +159,7 @@ class WorldCupDataProcessor:
     def export_for_gemini(self) -> Dict[str, Any]:
         """
         返回结构化摘要，直接注入 Gemini Prompt 占位符。
-        包含：今日赛果、明日赛程、射手榜 Top5、小组积分榜摘要。
+        包含：昨日赛果、今日赛程、射手榜 Top5、小组积分榜摘要。
         """
         today_raw      = self.get_today_matches()
         tomorrow_raw   = self.get_tomorrow_matches()

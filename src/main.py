@@ -8,6 +8,7 @@ from scrapling import Fetcher
 from google import genai
 from dotenv import load_dotenv
 from data_processor import WorldCupDataProcessor
+from tabulate import tabulate
 
 # 加载本地 .env 密钥
 load_dotenv()
@@ -19,8 +20,8 @@ TOURNAMENT_END   = datetime.date(2026, 7, 19)
 
 class WorldCupEditor:
     def __init__(self):
-        self.today      = datetime.date.today()
-        #self.today      = datetime.date(2026, 6, 14)
+        #self.today      = datetime.date.today()
+        self.today      = datetime.date(2026, 6, 15)
         self.today_str  = self.today.strftime("%Y-%m-%d")
         self.dynamic_title = ""
 
@@ -93,7 +94,7 @@ class WorldCupEditor:
             return {
                 "phase": "IN",
                 "label": "比赛日模式",
-                "blocks": "feature, match_list, schedule, ranking, standings, news_feed"
+                "blocks": "feature, match_list, schedule, ranking,  news_feed"
             }
         self.dynamic_title = "2026 美加墨世界杯 赛后回顾"
         return {
@@ -147,7 +148,7 @@ class WorldCupEditor:
     def fetch_raw_news(self):
         """从 Tier-1 来源抓取世界杯相关新闻链接"""
         articles = []
-        keywords = ["world-cup", "2026", "fifa", "match", "世界杯", "美加墨世界杯", "2026世界杯"]
+        keywords = ["world-cup", "world-cup 2026", "FIFA World Cup 2026", "fifa 2026", "FWC 2026", "match", "世界杯", "美加墨世界杯", "2026世界杯"]
         for url in self.config.get("tier1_sources", []):
             try:
                 page = Fetcher.get(url)
@@ -175,7 +176,7 @@ class WorldCupEditor:
     # ──────────────────────────────────────────
 
     def generate_report(self, news: list, stats: str) -> str:
-        """构造 Prompt 并调用 Gemini，返回原始文本（含 JSON）
+        """构造 Prompt 并调用 Gemini,返回原始文本 (含 JSON)
 
         ⚠️  修复说明：原先使用 str.format() 会把模板中 JSON 示例里的
             {  }  花括号（如 {"blocks": [...]}）误解析为占位符，
@@ -254,50 +255,73 @@ class WorldCupEditor:
                 parts.append(f"<blockquote>{header}{b.get('content','')}</blockquote>")
 
             elif btype == "match_list":
-                lines = []
-                for m in b.get("items", []):
-                    score_str = f"{m.get('home_score','-')} : {m.get('away_score','-')}"
-                    line = (
-                        f"{m.get('home_emoji')} <b>{m.get('home_team')}</b> {score_str} "
-                        f"<b>{m.get('away_team')}</b> {m.get('away_emoji')}"
-                    )
-                    #if m.get("venue"):
-                    #    line += f"  🏟 {m['venue']}"
-                    if m.get("group"):
-                        line += f"  [{m['group']}]"
-                    lines.append(line)
-                parts.append("<blockquote>" + "\n".join(lines) + "</blockquote>")
+                tab_headers = []
+                tab_data = []
+                for m in b.get("items",[]):
+                    lines = []
+                    lines.append(f"{m.get('home_emoji')}<b>{m.get('home_team')}</b>")
+                    lines.append(f"{m.get('home_score','-')}:{m.get('away_score','-')}")
+                    lines.append(f"<b>{m.get('away_team')}</b>{m.get('away_emoji')}")
+                    lines.append(m.get("group"))
+                    tab_data.append(lines)
+            
+                text_table = tabulate(tab_data, headers=tab_headers, tablefmt="plain")
+                message_text = (
+                    f"<blockquote><pre>{text_table}</pre></blockquote>"
+                )
+                parts.append(message_text)
 
             elif btype == "schedule":
-                lines = []
-                for m in b.get("items", []):
-                    lines.append(
-                        f"{m.get('home_emoji')} <b>{m.get('home_team')}</b> vs <b>{m.get('away_team')}</b> {m.get('away_emoji')}"
-                        f"  {m.get('kickoff_et','TBD')}"
-                        + (f"  [{m.get('group','')}]" if m.get("group") else "")
-                    )
-                parts.append("<blockquote>" + "\n".join(lines) + "</blockquote>")
+                tab_headers = []
+                tab_data = []
+                for m in b.get("items",[]):
+                    lines = []
+                    lines.append(f"{m.get('home_emoji')}{m.get('home_team')}")
+                    lines.append(f"<b> VS </b>")
+                    lines.append(f"{m.get('away_team')}{m.get('away_emoji')}")
+                    lines.append(m.get("group"))
+                    lines.append(m.get('kickoff_et','TBD'))
+                    tab_data.append(lines)
+            
+                text_table = tabulate(tab_data, headers=tab_headers, tablefmt="plain")
+                message_text = (
+                    f"<blockquote><pre>{text_table}</pre></blockquote>"
+                )
+                parts.append(message_text)
 
             elif btype == "ranking":
-                lines = []
-                for r in b.get("items", []):
-                    lines.append(
-                        f"{r.get('rank','#')}. <b>{r.get('player_name')}</b>"
-                        f"({r.get('team_name','')}|{r.get('team_emoji','')}) ｜ ⚽ {r.get('goals',0)}"
-                        + (f" (点球 {r['penalties']})" if r.get("penalties") else "")
-                    )
-                parts.append("<blockquote>" + "\n".join(lines) + "</blockquote>")
+                tab_headers = []
+                tab_data = []
+                for m in b.get("items",[]):
+                    lines = []
+                    lines.append(f"{m.get('rank','#')}.")
+                    lines.append(f"{m.get('player_name')}{m.get('team_emoji')}")
+                    lines.append(f"{m.get('goals',0)}")
+                    lines.append(f" ({m['penalties']})" if m.get("penalties") else "")
+                    tab_data.append(lines)
+            
+                text_table = tabulate(tab_data, headers=tab_headers, tablefmt="plain")
+                message_text = (
+                    f"<blockquote><pre>{text_table}</pre></blockquote>"
+                )
+                parts.append(message_text)
 
             elif btype == "standings":
                 lines = []
-                for m in b.get("items", []):
-                    line = (
-                        f"🔝 <b>{m.get('group')}:</b>\n"
-                    )
+                for m in b.get("items",[]):
+                    tab_headers = ["🔝",f"{m.get('group')}",""]
+                    tab_data = []
                     for n in m.get("table",[]):
-                        line += f"{n.get('position')}. {n.get('emoji')} <b>{n.get('team')}</b>   {n.get('points')}\n"
-
-                    lines.append(line)
+                        table_lines = []
+                        table_lines.append(f"{n.get('position')}")
+                        table_lines.append(f"{n.get('emoji')} {n.get('team')}")
+                        table_lines.append(f"{n.get('points')}")
+                        tab_data.append(table_lines)
+          
+                    text_table = tabulate(tab_data, headers=tab_headers, tablefmt="plain")
+                    message_text = (f"<pre>{text_table}</pre>")
+                    lines.append(f"{message_text}\n")
+                
                 parts.append("<blockquote>" + "\n".join(lines) + "</blockquote>")
 
             elif btype == "news_feed":

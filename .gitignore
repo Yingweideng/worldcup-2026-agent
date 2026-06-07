@@ -8,6 +8,5 @@ __pycache__/
 
 # 排除本地运行产生的临时数据（可选）
 data/processed_urls.json
-history/*.html
 !history/index.html
 
