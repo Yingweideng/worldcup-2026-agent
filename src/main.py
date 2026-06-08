@@ -20,8 +20,8 @@ TOURNAMENT_END   = datetime.date(2026, 7, 19)
 
 class WorldCupEditor:
     def __init__(self):
-        #self.today      = datetime.date.today()
-        self.today      = datetime.date(2026, 6, 15)
+        self.today      = datetime.date.today()
+        #self.today      = datetime.date(2026, 6, 15)
         self.today_str  = self.today.strftime("%Y-%m-%d")
         self.dynamic_title = ""
 
