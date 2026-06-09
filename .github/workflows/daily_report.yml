@@ -4,7 +4,7 @@ on:
   schedule:
     # 对应北美东部夏令时 (EDT) 早上 4:00    
     # 对应北美东部标准时间 (EST) 早上 3:00    
-    - cron: '0 8 * * *'
+    - cron: '12 7 * * *'
   workflow_dispatch: # 支持手动触发测试
 
 permissions:
