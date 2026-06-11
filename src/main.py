@@ -406,7 +406,7 @@ class WorldCupEditor:
         print(f"[agent] Starting … Date: {self.today_str}")
 
         # Step 1: 从 football-data.org 拉取官方数据（写入 JSON 并刷新处理器）
-        #self.fetch_results_data()
+        self.fetch_results_data()
 
         # Step 2: 从网络抓取新闻 + 统计文本
         news  = self.fetch_raw_news()
