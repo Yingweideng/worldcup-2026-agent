@@ -94,7 +94,7 @@ class WorldCupEditor:
             return {
                 "phase": "IN",
                 "label": "比赛日模式",
-                "blocks": "feature, match_list, schedule, ranking,  news_feed"
+                "blocks": "feature, match_list, schedule, ranking, standings, news_feed"
             }
         self.dynamic_title = "2026 美加墨世界杯 赛后回顾"
         return {
