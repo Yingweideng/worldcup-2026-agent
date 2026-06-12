@@ -46,10 +46,10 @@ class WorldCupDataProcessor:
         date_str = target_date.strftime("%Y-%m-%d")
         result = [
             m for m in self.data.get("matches", [])
-            if m.get("utcDate", "")[:10] == date_str
+            if m.get("localDate", "")[:10] == date_str
             and m.get("status") in statuses
         ]
-        return sorted(result, key=lambda x: x.get("utcDate", ""))
+        return sorted(result, key=lambda x: x.get("localDate", ""))
 
     def get_today_matches(self) -> List[Dict[str, Any]]:
         """昨日已完赛 / 进行中 / 暂停的比赛"""

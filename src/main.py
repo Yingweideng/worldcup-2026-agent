@@ -4,6 +4,7 @@ import hashlib
 import datetime
 import time
 import requests
+from zoneinfo import ZoneInfo
 from scrapling import Fetcher
 from google import genai
 from dotenv import load_dotenv
@@ -20,8 +21,8 @@ TOURNAMENT_END   = datetime.date(2026, 7, 19)
 
 class WorldCupEditor:
     def __init__(self):
-        #self.today      = datetime.date.today()
-        self.today      = datetime.date(2026, 6, 15)
+        self.today      = datetime.date.today()
+        #self.today      = datetime.date(2026, 6, 15)
         self.today_str  = self.today.strftime("%Y-%m-%d")
         self.dynamic_title = ""
 
@@ -94,7 +95,7 @@ class WorldCupEditor:
             return {
                 "phase": "IN",
                 "label": "比赛日模式",
-                "blocks": "feature, match_list, schedule, ranking,  news_feed"
+                "blocks": "feature, match_list, schedule, ranking, standings, news_feed"
             }
         self.dynamic_title = "2026 美加墨世界杯 赛后回顾"
         return {
@@ -123,6 +124,14 @@ class WorldCupEditor:
         print("[football-data] Starting fetch: matches, standings, scorers …")
 
         matches_data   = self._football_fetch("matches")
+        #match date need EDT date
+        # Define your target time zone
+        eastern_tz = ZoneInfo("America/Toronto")
+        for match in matches_data["matches"]:
+            dt_utc = datetime.datetime.strptime(match["utcDate"], "%Y-%m-%dT%H:%M:%SZ")
+            dt_et = dt_utc - datetime.timedelta(hours=4)   # EDT
+            match["localDate"] = dt_et.strftime("%Y-%m-%d %H:%M:%S %Z")
+
         time.sleep(6)
         standings_data = self._football_fetch("standings")
         time.sleep(6)
@@ -406,7 +415,7 @@ class WorldCupEditor:
         print(f"[agent] Starting … Date: {self.today_str}")
 
         # Step 1: 从 football-data.org 拉取官方数据（写入 JSON 并刷新处理器）
-        #self.fetch_results_data()
+        self.fetch_results_data()
 
         # Step 2: 从网络抓取新闻 + 统计文本
         news  = self.fetch_raw_news()
