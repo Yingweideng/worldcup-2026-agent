@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-12 11:10:06 UTC",
+  "last_updated": "2026-06-13 10:08:37 UTC",
   "competition": {
     "name": "FIFA World Cup 2026",
     "code": "WC"
@@ -32,7 +32,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_A",
-      "lastUpdated": "2026-06-12T08:25:00Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 769,
         "name": "Mexico",
@@ -69,7 +69,8 @@
           "type": "REFEREE",
           "nationality": "Brazil"
         }
-      ]
+      ],
+      "localDate": "2026-06-11 15:00:00 "
     },
     {
       "area": {
@@ -98,7 +99,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_A",
-      "lastUpdated": "2026-06-12T08:25:00Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 772,
         "name": "South Korea",
@@ -135,7 +136,8 @@
           "type": "REFEREE",
           "nationality": "Egypt"
         }
-      ]
+      ],
+      "localDate": "2026-06-11 22:00:00 "
     },
     {
       "area": {
@@ -160,11 +162,11 @@
       },
       "id": 537333,
       "utcDate": "2026-06-12T19:00:00Z",
-      "status": "TIMED",
+      "status": "FINISHED",
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_B",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 828,
         "name": "Canada",
@@ -180,15 +182,15 @@
         "crest": "https://crests.football-data.org/bosnia.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "DRAW",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 1
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 1
         }
       },
       "odds": {
@@ -201,7 +203,8 @@
           "type": "REFEREE",
           "nationality": "Argentina"
         }
-      ]
+      ],
+      "localDate": "2026-06-12 15:00:00 "
     },
     {
       "area": {
@@ -226,11 +229,11 @@
       },
       "id": 537345,
       "utcDate": "2026-06-13T01:00:00Z",
-      "status": "TIMED",
+      "status": "FINISHED",
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_D",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T03:25:00Z",
       "homeTeam": {
         "id": 771,
         "name": "United States",
@@ -246,15 +249,15 @@
         "crest": "https://crests.football-data.org/761.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "HOME_TEAM",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 4,
+          "away": 1
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 3,
+          "away": 0
         }
       },
       "odds": {
@@ -267,7 +270,8 @@
           "type": "REFEREE",
           "nationality": "Netherlands"
         }
-      ]
+      ],
+      "localDate": "2026-06-12 21:00:00 "
     },
     {
       "area": {
@@ -296,7 +300,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_B",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 8030,
         "name": "Qatar",
@@ -333,7 +337,8 @@
           "type": "REFEREE",
           "nationality": "Honduras"
         }
-      ]
+      ],
+      "localDate": "2026-06-13 15:00:00 "
     },
     {
       "area": {
@@ -362,7 +367,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_C",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 764,
         "name": "Brazil",
@@ -399,7 +404,8 @@
           "type": "REFEREE",
           "nationality": "Slovenia"
         }
-      ]
+      ],
+      "localDate": "2026-06-13 18:00:00 "
     },
     {
       "area": {
@@ -428,7 +434,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_C",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 836,
         "name": "Haiti",
@@ -465,7 +471,8 @@
           "type": "REFEREE",
           "nationality": null
         }
-      ]
+      ],
+      "localDate": "2026-06-13 21:00:00 "
     },
     {
       "area": {
@@ -494,7 +501,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_D",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 779,
         "name": "Australia",
@@ -531,7 +538,8 @@
           "type": "REFEREE",
           "nationality": "Venezuela"
         }
-      ]
+      ],
+      "localDate": "2026-06-14 00:00:00 "
     },
     {
       "area": {
@@ -560,7 +568,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_E",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 759,
         "name": "Germany",
@@ -590,7 +598,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-14 13:00:00 "
     },
     {
       "area": {
@@ -619,7 +628,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_F",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 8601,
         "name": "Netherlands",
@@ -649,7 +658,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-14 16:00:00 "
     },
     {
       "area": {
@@ -678,7 +688,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_E",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 1935,
         "name": "Ivory Coast",
@@ -708,7 +718,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-14 19:00:00 "
     },
     {
       "area": {
@@ -737,7 +748,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_F",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 792,
         "name": "Sweden",
@@ -767,7 +778,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-14 22:00:00 "
     },
     {
       "area": {
@@ -796,7 +808,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_H",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 760,
         "name": "Spain",
@@ -826,7 +838,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-15 12:00:00 "
     },
     {
       "area": {
@@ -855,7 +868,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_G",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 805,
         "name": "Belgium",
@@ -885,7 +898,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-15 15:00:00 "
     },
     {
       "area": {
@@ -914,7 +928,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_H",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 801,
         "name": "Saudi Arabia",
@@ -944,7 +958,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-15 18:00:00 "
     },
     {
       "area": {
@@ -973,7 +988,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_G",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 840,
         "name": "Iran",
@@ -1003,7 +1018,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-15 21:00:00 "
     },
     {
       "area": {
@@ -1032,7 +1048,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_I",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 773,
         "name": "France",
@@ -1062,7 +1078,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-16 15:00:00 "
     },
     {
       "area": {
@@ -1091,7 +1108,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_I",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 8062,
         "name": "Iraq",
@@ -1121,7 +1138,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-16 18:00:00 "
     },
     {
       "area": {
@@ -1150,7 +1168,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_J",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 762,
         "name": "Argentina",
@@ -1180,7 +1198,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-16 21:00:00 "
     },
     {
       "area": {
@@ -1209,7 +1228,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_J",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 816,
         "name": "Austria",
@@ -1239,7 +1258,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-17 00:00:00 "
     },
     {
       "area": {
@@ -1268,7 +1288,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_K",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 765,
         "name": "Portugal",
@@ -1298,7 +1318,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-17 13:00:00 "
     },
     {
       "area": {
@@ -1327,7 +1348,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_L",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 770,
         "name": "England",
@@ -1357,7 +1378,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-17 16:00:00 "
     },
     {
       "area": {
@@ -1386,7 +1408,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_L",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 763,
         "name": "Ghana",
@@ -1416,7 +1438,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-17 19:00:00 "
     },
     {
       "area": {
@@ -1445,7 +1468,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_K",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 8070,
         "name": "Uzbekistan",
@@ -1475,7 +1498,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-17 22:00:00 "
     },
     {
       "area": {
@@ -1504,7 +1528,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_A",
-      "lastUpdated": "2026-06-12T01:32:00Z",
+      "lastUpdated": "2026-06-13T01:32:00Z",
       "homeTeam": {
         "id": 798,
         "name": "Czechia",
@@ -1534,7 +1558,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-18 12:00:00 "
     },
     {
       "area": {
@@ -1563,7 +1588,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_B",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 788,
         "name": "Switzerland",
@@ -1593,7 +1618,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-18 15:00:00 "
     },
     {
       "area": {
@@ -1622,7 +1648,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_B",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 828,
         "name": "Canada",
@@ -1652,7 +1678,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-18 18:00:00 "
     },
     {
       "area": {
@@ -1681,7 +1708,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_A",
-      "lastUpdated": "2026-06-12T01:32:00Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 769,
         "name": "Mexico",
@@ -1711,7 +1738,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-18 21:00:00 "
     },
     {
       "area": {
@@ -1740,7 +1768,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_D",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 771,
         "name": "United States",
@@ -1770,7 +1798,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-19 15:00:00 "
     },
     {
       "area": {
@@ -1799,7 +1828,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_C",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 8873,
         "name": "Scotland",
@@ -1829,7 +1858,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-19 18:00:00 "
     },
     {
       "area": {
@@ -1858,7 +1888,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_C",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 764,
         "name": "Brazil",
@@ -1888,7 +1918,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-19 20:30:00 "
     },
     {
       "area": {
@@ -1917,7 +1948,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_D",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 803,
         "name": "Turkey",
@@ -1947,7 +1978,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-19 23:00:00 "
     },
     {
       "area": {
@@ -1976,7 +2008,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_F",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 8601,
         "name": "Netherlands",
@@ -2006,7 +2038,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-20 13:00:00 "
     },
     {
       "area": {
@@ -2035,7 +2068,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_E",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 759,
         "name": "Germany",
@@ -2065,7 +2098,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-20 16:00:00 "
     },
     {
       "area": {
@@ -2094,7 +2128,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_E",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 791,
         "name": "Ecuador",
@@ -2124,7 +2158,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-20 20:00:00 "
     },
     {
       "area": {
@@ -2153,7 +2188,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_F",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 802,
         "name": "Tunisia",
@@ -2183,7 +2218,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-21 00:00:00 "
     },
     {
       "area": {
@@ -2212,7 +2248,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_H",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 760,
         "name": "Spain",
@@ -2242,7 +2278,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-21 12:00:00 "
     },
     {
       "area": {
@@ -2271,7 +2308,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_G",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 805,
         "name": "Belgium",
@@ -2301,7 +2338,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-21 15:00:00 "
     },
     {
       "area": {
@@ -2330,7 +2368,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_H",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 758,
         "name": "Uruguay",
@@ -2360,7 +2398,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-21 18:00:00 "
     },
     {
       "area": {
@@ -2389,7 +2428,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_G",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 783,
         "name": "New Zealand",
@@ -2419,7 +2458,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-21 21:00:00 "
     },
     {
       "area": {
@@ -2448,7 +2488,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_J",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 762,
         "name": "Argentina",
@@ -2478,7 +2518,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-22 13:00:00 "
     },
     {
       "area": {
@@ -2507,7 +2548,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_I",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 773,
         "name": "France",
@@ -2537,7 +2578,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-22 17:00:00 "
     },
     {
       "area": {
@@ -2566,7 +2608,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_I",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 8872,
         "name": "Norway",
@@ -2596,7 +2638,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-22 20:00:00 "
     },
     {
       "area": {
@@ -2625,7 +2668,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_J",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 8049,
         "name": "Jordan",
@@ -2655,7 +2698,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-22 23:00:00 "
     },
     {
       "area": {
@@ -2684,7 +2728,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_K",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 765,
         "name": "Portugal",
@@ -2714,7 +2758,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-23 13:00:00 "
     },
     {
       "area": {
@@ -2743,7 +2788,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_L",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 770,
         "name": "England",
@@ -2773,7 +2818,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-23 16:00:00 "
     },
     {
       "area": {
@@ -2802,7 +2848,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_L",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 1836,
         "name": "Panama",
@@ -2832,7 +2878,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-23 19:00:00 "
     },
     {
       "area": {
@@ -2861,7 +2908,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_K",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 818,
         "name": "Colombia",
@@ -2891,7 +2938,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-23 22:00:00 "
     },
     {
       "area": {
@@ -2920,7 +2968,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_B",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 788,
         "name": "Switzerland",
@@ -2950,7 +2998,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-24 15:00:00 "
     },
     {
       "area": {
@@ -2979,7 +3028,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_B",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 1060,
         "name": "Bosnia-Herzegovina",
@@ -3009,7 +3058,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-24 15:00:00 "
     },
     {
       "area": {
@@ -3038,7 +3088,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_C",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 815,
         "name": "Morocco",
@@ -3068,7 +3118,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-24 18:00:00 "
     },
     {
       "area": {
@@ -3097,7 +3148,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_C",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 8873,
         "name": "Scotland",
@@ -3127,7 +3178,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-24 18:00:00 "
     },
     {
       "area": {
@@ -3156,7 +3208,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_A",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 798,
         "name": "Czechia",
@@ -3186,7 +3238,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-24 21:00:00 "
     },
     {
       "area": {
@@ -3215,7 +3268,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_A",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 774,
         "name": "South Africa",
@@ -3245,7 +3298,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-24 21:00:00 "
     },
     {
       "area": {
@@ -3274,7 +3328,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_E",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 791,
         "name": "Ecuador",
@@ -3304,7 +3358,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-25 16:00:00 "
     },
     {
       "area": {
@@ -3333,7 +3388,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_E",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 9460,
         "name": "Curaçao",
@@ -3363,7 +3418,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-25 16:00:00 "
     },
     {
       "area": {
@@ -3392,7 +3448,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_F",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 802,
         "name": "Tunisia",
@@ -3422,7 +3478,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-25 19:00:00 "
     },
     {
       "area": {
@@ -3451,7 +3508,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_F",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 766,
         "name": "Japan",
@@ -3481,7 +3538,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-25 19:00:00 "
     },
     {
       "area": {
@@ -3510,7 +3568,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_D",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 803,
         "name": "Turkey",
@@ -3540,7 +3598,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-25 22:00:00 "
     },
     {
       "area": {
@@ -3569,7 +3628,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_D",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 761,
         "name": "Paraguay",
@@ -3599,7 +3658,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-25 22:00:00 "
     },
     {
       "area": {
@@ -3628,7 +3688,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_I",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 8872,
         "name": "Norway",
@@ -3658,7 +3718,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-26 15:00:00 "
     },
     {
       "area": {
@@ -3687,7 +3748,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_I",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 804,
         "name": "Senegal",
@@ -3717,7 +3778,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-26 15:00:00 "
     },
     {
       "area": {
@@ -3746,7 +3808,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_H",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 758,
         "name": "Uruguay",
@@ -3776,7 +3838,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-26 20:00:00 "
     },
     {
       "area": {
@@ -3805,7 +3868,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_H",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 1930,
         "name": "Cape Verde Islands",
@@ -3835,7 +3898,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-26 20:00:00 "
     },
     {
       "area": {
@@ -3864,7 +3928,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_G",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 783,
         "name": "New Zealand",
@@ -3894,7 +3958,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-26 23:00:00 "
     },
     {
       "area": {
@@ -3923,7 +3988,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_G",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 825,
         "name": "Egypt",
@@ -3953,7 +4018,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-26 23:00:00 "
     },
     {
       "area": {
@@ -3982,7 +4048,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_L",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 1836,
         "name": "Panama",
@@ -4012,7 +4078,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-27 17:00:00 "
     },
     {
       "area": {
@@ -4041,7 +4108,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_L",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 799,
         "name": "Croatia",
@@ -4071,7 +4138,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-27 17:00:00 "
     },
     {
       "area": {
@@ -4100,7 +4168,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_K",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 818,
         "name": "Colombia",
@@ -4130,7 +4198,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-27 19:30:00 "
     },
     {
       "area": {
@@ -4159,7 +4228,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_K",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 1934,
         "name": "Congo DR",
@@ -4189,7 +4258,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-27 19:30:00 "
     },
     {
       "area": {
@@ -4218,7 +4288,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_J",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 8049,
         "name": "Jordan",
@@ -4248,7 +4318,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-27 22:00:00 "
     },
     {
       "area": {
@@ -4277,7 +4348,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_J",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": 778,
         "name": "Algeria",
@@ -4307,7 +4378,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-27 22:00:00 "
     },
     {
       "area": {
@@ -4336,7 +4408,7 @@
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": null,
         "name": null,
@@ -4366,7 +4438,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-28 15:00:00 "
     },
     {
       "area": {
@@ -4395,7 +4468,7 @@
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": null,
         "name": null,
@@ -4425,7 +4498,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-29 13:00:00 "
     },
     {
       "area": {
@@ -4454,7 +4528,7 @@
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": null,
         "name": null,
@@ -4484,7 +4558,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-29 16:30:00 "
     },
     {
       "area": {
@@ -4513,7 +4588,7 @@
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": null,
         "name": null,
@@ -4543,7 +4618,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-29 21:00:00 "
     },
     {
       "area": {
@@ -4572,7 +4648,7 @@
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": null,
         "name": null,
@@ -4602,7 +4678,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-30 13:00:00 "
     },
     {
       "area": {
@@ -4631,7 +4708,7 @@
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": null,
         "name": null,
@@ -4661,7 +4738,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-30 17:00:00 "
     },
     {
       "area": {
@@ -4690,7 +4768,7 @@
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": null,
         "name": null,
@@ -4720,7 +4798,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-06-30 21:00:00 "
     },
     {
       "area": {
@@ -4749,7 +4828,7 @@
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": null,
         "name": null,
@@ -4779,7 +4858,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-07-01 12:00:00 "
     },
     {
       "area": {
@@ -4808,7 +4888,7 @@
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": null,
         "name": null,
@@ -4838,7 +4918,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-07-01 16:00:00 "
     },
     {
       "area": {
@@ -4867,7 +4948,7 @@
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": null,
         "name": null,
@@ -4897,7 +4978,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-07-01 20:00:00 "
     },
     {
       "area": {
@@ -4926,7 +5008,7 @@
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": null,
         "name": null,
@@ -4956,7 +5038,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-07-02 15:00:00 "
     },
     {
       "area": {
@@ -4985,7 +5068,7 @@
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": null,
         "name": null,
@@ -5015,7 +5098,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-07-02 19:00:00 "
     },
     {
       "area": {
@@ -5044,7 +5128,7 @@
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": null,
         "name": null,
@@ -5074,7 +5158,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-07-02 23:00:00 "
     },
     {
       "area": {
@@ -5103,7 +5188,7 @@
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": null,
         "name": null,
@@ -5133,7 +5218,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-07-03 14:00:00 "
     },
     {
       "area": {
@@ -5162,7 +5248,7 @@
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": null,
         "name": null,
@@ -5192,7 +5278,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-07-03 18:00:00 "
     },
     {
       "area": {
@@ -5221,7 +5308,7 @@
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": null,
         "name": null,
@@ -5251,7 +5338,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-07-03 21:30:00 "
     },
     {
       "area": {
@@ -5280,7 +5368,7 @@
       "matchday": null,
       "stage": "LAST_16",
       "group": null,
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": null,
         "name": null,
@@ -5310,7 +5398,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-07-04 13:00:00 "
     },
     {
       "area": {
@@ -5339,7 +5428,7 @@
       "matchday": null,
       "stage": "LAST_16",
       "group": null,
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": null,
         "name": null,
@@ -5369,7 +5458,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-07-04 17:00:00 "
     },
     {
       "area": {
@@ -5398,7 +5488,7 @@
       "matchday": null,
       "stage": "LAST_16",
       "group": null,
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": null,
         "name": null,
@@ -5428,7 +5518,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-07-05 16:00:00 "
     },
     {
       "area": {
@@ -5457,7 +5548,7 @@
       "matchday": null,
       "stage": "LAST_16",
       "group": null,
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": null,
         "name": null,
@@ -5487,7 +5578,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-07-05 20:00:00 "
     },
     {
       "area": {
@@ -5516,7 +5608,7 @@
       "matchday": null,
       "stage": "LAST_16",
       "group": null,
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": null,
         "name": null,
@@ -5546,7 +5638,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-07-06 15:00:00 "
     },
     {
       "area": {
@@ -5575,7 +5668,7 @@
       "matchday": null,
       "stage": "LAST_16",
       "group": null,
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": null,
         "name": null,
@@ -5605,7 +5698,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-07-06 20:00:00 "
     },
     {
       "area": {
@@ -5634,7 +5728,7 @@
       "matchday": null,
       "stage": "LAST_16",
       "group": null,
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": null,
         "name": null,
@@ -5664,7 +5758,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-07-07 12:00:00 "
     },
     {
       "area": {
@@ -5693,7 +5788,7 @@
       "matchday": null,
       "stage": "LAST_16",
       "group": null,
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": null,
         "name": null,
@@ -5723,7 +5818,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-07-07 16:00:00 "
     },
     {
       "area": {
@@ -5752,7 +5848,7 @@
       "matchday": null,
       "stage": "QUARTER_FINALS",
       "group": null,
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": null,
         "name": null,
@@ -5782,7 +5878,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-07-09 16:00:00 "
     },
     {
       "area": {
@@ -5811,7 +5908,7 @@
       "matchday": null,
       "stage": "QUARTER_FINALS",
       "group": null,
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": null,
         "name": null,
@@ -5841,7 +5938,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-07-10 15:00:00 "
     },
     {
       "area": {
@@ -5870,7 +5968,7 @@
       "matchday": null,
       "stage": "QUARTER_FINALS",
       "group": null,
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": null,
         "name": null,
@@ -5900,7 +5998,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-07-11 17:00:00 "
     },
     {
       "area": {
@@ -5929,7 +6028,7 @@
       "matchday": null,
       "stage": "QUARTER_FINALS",
       "group": null,
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": null,
         "name": null,
@@ -5959,7 +6058,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-07-11 21:00:00 "
     },
     {
       "area": {
@@ -5988,7 +6088,7 @@
       "matchday": null,
       "stage": "SEMI_FINALS",
       "group": null,
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": null,
         "name": null,
@@ -6018,7 +6118,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-07-14 15:00:00 "
     },
     {
       "area": {
@@ -6047,7 +6148,7 @@
       "matchday": null,
       "stage": "SEMI_FINALS",
       "group": null,
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": null,
         "name": null,
@@ -6077,7 +6178,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-07-15 15:00:00 "
     },
     {
       "area": {
@@ -6106,7 +6208,7 @@
       "matchday": null,
       "stage": "THIRD_PLACE",
       "group": null,
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": null,
         "name": null,
@@ -6136,7 +6238,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-07-18 17:00:00 "
     },
     {
       "area": {
@@ -6165,7 +6268,7 @@
       "matchday": null,
       "stage": "FINAL",
       "group": null,
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-13T00:20:14Z",
       "homeTeam": {
         "id": null,
         "name": null,
@@ -6195,7 +6298,8 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [],
+      "localDate": "2026-07-19 15:00:00 "
     }
   ],
   "standings": [
@@ -6296,14 +6400,14 @@
             "tla": "BIH",
             "crest": "https://crests.football-data.org/bosnia.svg"
           },
-          "playedGames": 0,
+          "playedGames": 1,
           "form": null,
           "won": 0,
-          "draw": 0,
+          "draw": 1,
           "lost": 0,
-          "points": 0,
-          "goalsFor": 0,
-          "goalsAgainst": 0,
+          "points": 1,
+          "goalsFor": 1,
+          "goalsAgainst": 1,
           "goalDifference": 0
         },
         {
@@ -6315,18 +6419,18 @@
             "tla": "CAN",
             "crest": "https://crests.football-data.org/canada.svg"
           },
-          "playedGames": 0,
+          "playedGames": 1,
           "form": null,
           "won": 0,
-          "draw": 0,
+          "draw": 1,
           "lost": 0,
-          "points": 0,
-          "goalsFor": 0,
-          "goalsAgainst": 0,
+          "points": 1,
+          "goalsFor": 1,
+          "goalsAgainst": 1,
           "goalDifference": 0
         },
         {
-          "position": 1,
+          "position": 3,
           "team": {
             "id": 8030,
             "name": "Qatar",
@@ -6345,7 +6449,7 @@
           "goalDifference": 0
         },
         {
-          "position": 1,
+          "position": 3,
           "team": {
             "id": 788,
             "name": "Switzerland",
@@ -6456,6 +6560,25 @@
         {
           "position": 1,
           "team": {
+            "id": 771,
+            "name": "United States",
+            "shortName": "USA",
+            "tla": "USA",
+            "crest": "https://crests.football-data.org/usa.svg"
+          },
+          "playedGames": 1,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 0,
+          "points": 3,
+          "goalsFor": 4,
+          "goalsAgainst": 1,
+          "goalDifference": 3
+        },
+        {
+          "position": 2,
+          "team": {
             "id": 779,
             "name": "Australia",
             "shortName": "Australia",
@@ -6473,26 +6596,7 @@
           "goalDifference": 0
         },
         {
-          "position": 1,
-          "team": {
-            "id": 761,
-            "name": "Paraguay",
-            "shortName": "Paraguay",
-            "tla": "PAR",
-            "crest": "https://crests.football-data.org/761.svg"
-          },
-          "playedGames": 0,
-          "form": null,
-          "won": 0,
-          "draw": 0,
-          "lost": 0,
-          "points": 0,
-          "goalsFor": 0,
-          "goalsAgainst": 0,
-          "goalDifference": 0
-        },
-        {
-          "position": 1,
+          "position": 2,
           "team": {
             "id": 803,
             "name": "Turkey",
@@ -6511,23 +6615,23 @@
           "goalDifference": 0
         },
         {
-          "position": 1,
+          "position": 4,
           "team": {
-            "id": 771,
-            "name": "United States",
-            "shortName": "USA",
-            "tla": "USA",
-            "crest": "https://crests.football-data.org/usa.svg"
+            "id": 761,
+            "name": "Paraguay",
+            "shortName": "Paraguay",
+            "tla": "PAR",
+            "crest": "https://crests.football-data.org/761.svg"
           },
-          "playedGames": 0,
+          "playedGames": 1,
           "form": null,
           "won": 0,
           "draw": 0,
-          "lost": 0,
+          "lost": 1,
           "points": 0,
-          "goalsFor": 0,
-          "goalsAgainst": 0,
-          "goalDifference": 0
+          "goalsFor": 1,
+          "goalsAgainst": 4,
+          "goalDifference": -3
         }
       ]
     },
@@ -7199,6 +7303,37 @@
   "scorers": [
     {
       "player": {
+        "id": 131040,
+        "name": "Folarin Balogun",
+        "firstName": "Folarin",
+        "lastName": "Balogun",
+        "dateOfBirth": "2001-07-03",
+        "nationality": "USA",
+        "section": "Offence",
+        "position": null,
+        "shirtNumber": null,
+        "lastUpdated": "2026-06-01T11:16:31Z"
+      },
+      "team": {
+        "id": 771,
+        "name": "United States",
+        "shortName": "USA",
+        "tla": "USA",
+        "crest": "https://crests.football-data.org/usa.svg",
+        "address": "1801 South Prairie Ave Chicago, IL 90266",
+        "website": "http://www.ussoccer.com",
+        "founded": 1913,
+        "clubColors": "White / Navy Blue / Red",
+        "venue": null,
+        "lastUpdated": "2026-06-01T09:42:10Z"
+      },
+      "playedMatches": 1,
+      "goals": 2,
+      "assists": null,
+      "penalties": null
+    },
+    {
+      "player": {
         "id": 39237,
         "name": "Julián Quiñones",
         "firstName": "Julián",
@@ -7346,6 +7481,130 @@
         "clubColors": "Red / White / Blue",
         "venue": null,
         "lastUpdated": "2022-04-02T10:45:25Z"
+      },
+      "playedMatches": 1,
+      "goals": 1,
+      "assists": null,
+      "penalties": null
+    },
+    {
+      "player": {
+        "id": 17767,
+        "name": "Jovo Lukić",
+        "firstName": "Jovo",
+        "lastName": "Lukić",
+        "dateOfBirth": "1998-11-28",
+        "nationality": "Bosnia-Herzegovina",
+        "section": "Offence",
+        "position": null,
+        "shirtNumber": 19,
+        "lastUpdated": "2026-03-31T09:41:53Z"
+      },
+      "team": {
+        "id": 1060,
+        "name": "Bosnia-Herzegovina",
+        "shortName": "Bosnia-H.",
+        "tla": "BIH",
+        "crest": "https://crests.football-data.org/bosnia.svg",
+        "address": "Ulica Ferhadija, 30 Sarajevo 71000",
+        "website": "http://www.nfsbih.ba",
+        "founded": 1992,
+        "clubColors": "White / Blue",
+        "venue": null,
+        "lastUpdated": "2026-06-01T09:43:27Z"
+      },
+      "playedMatches": 1,
+      "goals": 1,
+      "assists": null,
+      "penalties": null
+    },
+    {
+      "player": {
+        "id": 15958,
+        "name": "Cyle Larin",
+        "firstName": "Cyle",
+        "lastName": "Larin",
+        "dateOfBirth": "1995-04-17",
+        "nationality": "Canada",
+        "section": "Offence",
+        "position": null,
+        "shirtNumber": null,
+        "lastUpdated": "2026-06-01T11:00:54Z"
+      },
+      "team": {
+        "id": 828,
+        "name": "Canada",
+        "shortName": "Canada",
+        "tla": "CAN",
+        "crest": "https://crests.football-data.org/canada.svg",
+        "address": "null null null",
+        "website": null,
+        "founded": null,
+        "clubColors": null,
+        "venue": null,
+        "lastUpdated": "2022-10-07T08:25:45Z"
+      },
+      "playedMatches": 1,
+      "goals": 1,
+      "assists": null,
+      "penalties": null
+    },
+    {
+      "player": {
+        "id": 119594,
+        "name": "Mauricio",
+        "firstName": null,
+        "lastName": "Mauricio",
+        "dateOfBirth": "2001-06-22",
+        "nationality": "Paraguay",
+        "section": "Midfield",
+        "position": null,
+        "shirtNumber": null,
+        "lastUpdated": "2026-06-03T09:41:57Z"
+      },
+      "team": {
+        "id": 761,
+        "name": "Paraguay",
+        "shortName": "Paraguay",
+        "tla": "PAR",
+        "crest": "https://crests.football-data.org/761.svg",
+        "address": "Calle Mayor Martínez 1393 Asunción null",
+        "website": "http://www.apf.org.py",
+        "founded": 1906,
+        "clubColors": "Red / White / Blue",
+        "venue": null,
+        "lastUpdated": "2021-05-22T11:35:25Z"
+      },
+      "playedMatches": 1,
+      "goals": 1,
+      "assists": null,
+      "penalties": null
+    },
+    {
+      "player": {
+        "id": 136733,
+        "name": "Gio Reyna",
+        "firstName": "Gio",
+        "lastName": "Reyna",
+        "dateOfBirth": "2002-11-13",
+        "nationality": "USA",
+        "section": "Midfield",
+        "position": null,
+        "shirtNumber": null,
+        "lastUpdated": "2026-06-01T11:16:31Z"
+      },
+      "team": {
+        "id": 771,
+        "name": "United States",
+        "shortName": "USA",
+        "tla": "USA",
+        "crest": "https://crests.football-data.org/usa.svg",
+        "address": "1801 South Prairie Ave Chicago, IL 90266",
+        "website": "http://www.ussoccer.com",
+        "founded": 1913,
+        "clubColors": "White / Navy Blue / Red",
+        "venue": null,
+        "lastUpdated": "2026-06-01T09:42:10Z"
       },
       "playedMatches": 1,
       "goals": 1,
