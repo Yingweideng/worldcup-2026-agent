@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 美加墨世界杯 第 4 比赛日 · 2026-06-14</title>
+  <style>
+    :root {
+      --bg:    #0b0f19;
+      --cont:  #111b15;
+      --card:  #1c2a21;
+      --gold:  #f3a04c;
+      --green: #40b43e;
+      --red:   #e05555;
+      --blue:  #4c9ef3;
+      --text:  #f3f4f6;
+      --muted: rgba(243,244,246,0.6);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 20px 12px 40px;
+    }
+    .wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--cont);
+      padding: 28px 24px 36px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    /* ── Header ── */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 24px;
+    }
+    .page-title { color: var(--gold); font-size: 20px; font-weight: 800; line-height: 1.3; }
+    .page-date  { color: var(--green); font-size: 12px; margin-top: 4px; white-space: nowrap; }
+
+    /* ── Section ── */
+    .section-label {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 24px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .section-label::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: rgba(243,160,76,.25);
+    }
+
+    /* ── Card base ── */
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin-bottom: 14px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* ── Feature ── */
+    .feature-match {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      background: rgba(0,0,0,0.3);
+      padding: 16px 18px;
+      border-radius: 10px;
+      margin-bottom: 14px;
+    }
+    .feature-team { text-align: center; font-weight: 700; font-size: 14px; flex: 1; }
+    .feature-score {
+      font-size: 30px;
+      font-weight: 900;
+      color: var(--gold);
+      letter-spacing: .05em;
+      text-align: center;
+      min-width: 90px;
+    }
+    .feature-content { font-size: 14px; line-height: 1.75; color: var(--muted); }
+
+    /* ── Match list ── */
+    .match-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .match-row:last-child { border-bottom: none; }
+    .match-teams {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .match-score {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--gold);
+      min-width: 60px;
+      text-align: center;
+    }
+    .match-meta {
+      font-size: 14px;
+      color: var(--muted);
+      text-align: right;
+      min-width: 120px;
+    }
+    .match-note {
+      font-size: 12px;
+      color: var(--muted);
+      padding: 6px 0 2px;
+      line-height: 1.6;
+    }
+
+    /* ── Schedule ── */
+    .schedule-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      gap: 8px;
+    }
+    .schedule-row:last-child { border-bottom: none; }
+    .schedule-teams { font-size: 14px; font-weight: 700; flex: 1; }
+    .schedule-time  { font-size: 14px; color: var(--blue); white-space: nowrap; }
+    .schedule-group { font-size: 14px; color: var(--muted); white-space: nowrap; }
+
+    /* 积分榜专属样式 */
+    .standings-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 16px;
+        margin-top: 12px;
+    }
+    .group-card {
+        background: var(--card-bg, #fff);
+        border: 0.5px solid var(--intensity-8, rgba(0,0,0,0.08));
+        border-radius: 12px;
+        padding: 14px;
+    }
+    .group-title {
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: var(--primary, #F3A04C);
+        border-bottom: 1px solid var(--intensity-8, rgba(0,0,0,0.08));
+        padding-bottom: 4px;
+    }
+    .standings-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 12px;
+    }
+    .standings-table th {
+        color: var(--text-secondary, rgba(0,0,0,0.5));
+        font-weight: 500;
+        text-align: left;
+        padding-bottom: 4px;
+    }
+    .standings-table td {
+        padding: 6px 0;
+        border-bottom: 0.5px solid var(--intensity-8, rgba(0,0,0,0.08));
+        color: black;
+    }
+    .standings-table tr:last-child td {
+        border-bottom: none;
+    }
+    .col-pos { width: 10%; text-align: center; font-weight: 600;}
+    .col-team { width: 60%; text-align: left; }
+    .col-pts { width: 30%; text-align: center; font-weight: bold; }
+
+
+    /* ── Ranking ── */
+    .ranking-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .ranking-table th {
+      text-align: left;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 4px 6px 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .ranking-table td {
+      padding: 10px 6px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      vertical-align: middle;
+    }
+    .ranking-table tr:last-child td { border-bottom: none; }
+    .rank-num  { color: var(--gold); font-weight: 800; width: 28px; }
+    .rank-name { font-weight: 700; }
+    .rank-team { color: var(--muted); font-size: 12px; }
+    .rank-goals {
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--green);
+      text-align: right;
+    }
+    .rank-pen  { font-size: 11px; color: var(--muted); text-align: right; }
+    .medal-1::before { content: "🥇 "; }
+    .medal-2::before { content: "🥈 "; }
+    .medal-3::before { content: "🥉 "; }
+
+    /* ── News feed ── */
+    .news-item {
+      padding: 11px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      line-height: 1.6;
+    }
+    .news-item:last-child { border-bottom: none; }
+    .news-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      background: rgba(243,160,76,0.15);
+      color: var(--gold);
+      border: 1px solid rgba(243,160,76,0.3);
+      padding: 1px 6px;
+      border-radius: 4px;
+      margin-right: 7px;
+      vertical-align: middle;
+    }
+    .news-text { font-size: 13px; font-weight: 600; }
+    .news-link { font-size: 11px; color: var(--blue); text-decoration: none; }
+    .news-link:hover { text-decoration: underline; }
+
+    /* ── Badge ── */
+    .badge {
+      display: inline-block;
+      font-size: 10px;
+      padding: 1px 6px;
+      border-radius: 4px;
+      background: rgba(64,180,62,0.15);
+      color: var(--green);
+      border: 1px solid rgba(64,180,62,0.3);
+    }
+
+    /* ── Footer ── */
+    .footer {
+      margin-top: 28px;
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+    }
+    .footer a { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <!-- Header -->
+    <div class="page-header">
+      <div>
+        <div class="page-title">2026 美加墨世界杯 第 4 比赛日</div>
+        <div class="page-date">🗓 2026-06-14 · 官方数据 football-data.org</div>
+      </div>
+    </div>
+
+    <!-- Dynamic content mount -->
+    <div id="app">加载中…</div>
+
+    <!-- Footer -->
+    <div class="footer">
+      数据来源：football-data.org &amp; Tier-1 Media ·
+      由 <a href="#">2026美加墨世界杯情报站</a> 整理汇总
+    </div>
+  </div>
+
+  <!-- Embedded data -->
+  <script id="data-json" type="application/json">{
+  "blocks": [
+    {
+      "type": "feature",
+      "title": "焦点之战",
+      "home": "巴西",
+      "home_flag": "https://crests.football-data.org/764.svg",
+      "home_emoji": "🇧🇷",
+      "away": "摩洛哥",
+      "away_flag": "https://crests.football-data.org/morocco.svg",
+      "away_emoji": "🇲🇦",
+      "score": "1 : 1",
+      "content": "在桑巴军团本届世界杯的首秀中，主帅安切洛蒂迎来了并不轻松的挑战。面对以防守反击著称的北非劲旅摩洛哥，巴西虽然凭借强大的个人能力在前场制造威胁，但摩洛哥坚韧的防线和出色的战术纪律并未给桑巴军团太多机会。双方最终1-1战平，这场平局也向安帅敲响了警钟，低位防守依然是豪门在世界杯上的头号难题。"
+    },
+    {
+      "type": "match_list",
+      "title": "昨日赛果",
+      "items": [
+        {
+          "home_team": "卡塔尔",
+          "away_team": "瑞士",
+          "home_flag": "https://crests.football-data.org/8030.svg",
+          "home_emoji": "🇶🇦",
+          "away_flag": "https://crests.football-data.org/788.svg",
+          "away_emoji": "🇨🇭",
+          "home_score": "1",
+          "away_score": "1",
+          "kickoff_et": "06/13 15:00 ET",
+          "venue": "TBD",
+          "group": "Group B",
+          "stage": "GROUP_STAGE",
+          "note": "卡塔尔展现出强大的韧性逼平欧洲强队瑞士，双方各取一分。"
+        },
+        {
+          "home_team": "巴西",
+          "away_team": "摩洛哥",
+          "home_flag": "https://crests.football-data.org/764.svg",
+          "home_emoji": "🇧🇷",
+          "away_flag": "https://crests.football-data.org/morocco.svg",
+          "away_emoji": "🇲🇦",
+          "home_score": "1",
+          "away_score": "1",
+          "kickoff_et": "06/13 18:00 ET",
+          "venue": "TBD",
+          "group": "Group C",
+          "stage": "GROUP_STAGE",
+          "note": "安切洛蒂麾下的桑巴军团在摩洛哥极具纪律性的防守面前未能带走胜利。"
+        },
+        {
+          "home_team": "海地",
+          "away_team": "苏格兰",
+          "home_flag": "https://crests.football-data.org/haiti.svg",
+          "home_emoji": "🇭🇹",
+          "away_flag": "https://crests.football-data.org/814.svg",
+          "away_emoji": "🇬🇧",
+          "home_score": "0",
+          "away_score": "1",
+          "kickoff_et": "06/13 21:00 ET",
+          "venue": "TBD",
+          "group": "Group C",
+          "stage": "GROUP_STAGE",
+          "note": "苏格兰时隔36年再度在世界杯赛场获胜，1-0击败海地开门红。"
+        }
+      ]
+    },
+    {
+      "type": "schedule",
+      "title": "今日赛程",
+      "items": [
+        {
+          "home_team": "德国",
+          "away_team": "库拉索",
+          "home_flag": "https://crests.football-data.org/759.svg",
+          "home_emoji": "🇩🇪",
+          "away_flag": "https://crests.football-data.org/curacao.svg",
+          "away_emoji": "🇨🇼",
+          "kickoff_et": "06/14 13:00 ET",
+          "group": "Group E",
+          "stage": "GROUP_STAGE"
+        },
+        {
+          "home_team": "荷兰",
+          "away_team": "日本",
+          "home_flag": "https://crests.football-data.org/8601.svg",
+          "home_emoji": "🇳🇱",
+          "away_flag": "https://crests.football-data.org/766.svg",
+          "away_emoji": "🇯🇵",
+          "kickoff_et": "06/14 16:00 ET",
+          "group": "Group F",
+          "stage": "GROUP_STAGE"
+        },
+        {
+          "home_team": "科特迪瓦",
+          "away_team": "厄瓜多尔",
+          "home_flag": "https://crests.football-data.org/787.svg",
+          "home_emoji": "🇨🇮",
+          "away_flag": "https://crests.football-data.org/791.svg",
+          "away_emoji": "🇪🇨",
+          "kickoff_et": "06/14 19:00 ET",
+          "group": "Group E",
+          "stage": "GROUP_STAGE"
+        },
+        {
+          "home_team": "瑞典",
+          "away_team": "突尼斯",
+          "home_flag": "https://crests.football-data.org/792.svg",
+          "home_emoji": "🇸🇪",
+          "away_flag": "https://crests.football-data.org/tunisia.svg",
+          "away_emoji": "🇹🇳",
+          "kickoff_et": "06/14 22:00 ET",
+          "group": "Group F",
+          "stage": "GROUP_STAGE"
+        }
+      ]
+    },
+    {
+      "type": "ranking",
+      "title": "射手榜 Top 5",
+      "items": [
+        {
+          "rank": 1,
+          "player_name": "Folarin Balogun",
+          "team_name": "United States",
+          "team_emoji": "🇺🇸",
+          "goals": 2,
+          "penalties": 0,
+          "assists": 0
+        },
+        {
+          "rank": 2,
+          "player_name": "Julián Quiñones",
+          "team_name": "Mexico",
+          "team_emoji": "🇲🇽",
+          "goals": 1,
+          "penalties": 0,
+          "assists": 0
+        },
+        {
+          "rank": 3,
+          "player_name": "Raúl Jiménez",
+          "team_name": "Mexico",
+          "team_emoji": "🇲🇽",
+          "goals": 1,
+          "penalties": 0,
+          "assists": 0
+        },
+        {
+          "rank": 4,
+          "player_name": "Ladislav Krejčí",
+          "team_name": "Czechia",
+          "team_emoji": "🇨🇿",
+          "goals": 1,
+          "penalties": 0,
+          "assists": 0
+        },
+        {
+          "rank": 5,
+          "player_name": "In-beom Hwang",
+          "team_name": "South Korea",
+          "team_emoji": "🇰🇷",
+          "goals": 1,
+          "penalties": 0,
+          "assists": 1
+        }
+      ]
+    },
+    {
+      "type": "standings",
+      "title": "积分榜 (Group A-D)",
+      "items": [
+        {
+          "group": "Group A",
+          "table": [
+            {
+              "position": 1,
+              "team": "Mexico",
+              "emoji": "🇲🇽",
+              "points": 3
+            },
+            {
+              "position": 2,
+              "team": "South Korea",
+              "emoji": "🇰🇷",
+              "points": 3
+            },
+            {
+              "position": 3,
+              "team": "Czechia",
+              "emoji": "🇨🇿",
+              "points": 0
+            },
+            {
+              "position": 4,
+              "team": "South Africa",
+              "emoji": "🇿🇦",
+              "points": 0
+            }
+          ]
+        },
+        {
+          "group": "Group B",
+          "table": [
+            {
+              "position": 1,
+              "team": "Switzerland",
+              "emoji": "🇨🇭",
+              "points": 1
+            },
+            {
+              "position": 2,
+              "team": "Canada",
+              "emoji": "🇨🇦",
+              "points": 1
+            },
+            {
+              "position": 3,
+              "team": "Qatar",
+              "emoji": "🇶🇦",
+              "points": 1
+            },
+            {
+              "position": 4,
+              "team": "Bosnia-Herzegovina",
+              "emoji": "🇧🇦",
+              "points": 1
+            }
+          ]
+        },
+        {
+          "group": "Group C",
+          "table": [
+            {
+              "position": 1,
+              "team": "Scotland",
+              "emoji": "🇬🇧",
+              "points": 3
+            },
+            {
+              "position": 2,
+              "team": "Morocco",
+              "emoji": "🇲🇦",
+              "points": 1
+            },
+            {
+              "position": 3,
+              "team": "Brazil",
+              "emoji": "🇧🇷",
+              "points": 1
+            },
+            {
+              "position": 4,
+              "team": "Haiti",
+              "emoji": "🇭🇹",
+              "points": 0
+            }
+          ]
+        },
+        {
+          "group": "Group D",
+          "table": [
+            {
+              "position": 1,
+              "team": "United States",
+              "emoji": "🇺🇸",
+              "points": 3
+            },
+            {
+              "position": 2,
+              "team": "Australia",
+              "emoji": "🇦🇺",
+              "points": 3
+            },
+            {
+              "position": 3,
+              "team": "Turkey",
+              "emoji": "🇹🇷",
+              "points": 0
+            },
+            {
+              "position": 4,
+              "team": "Paraguay",
+              "emoji": "🇵🇾",
+              "points": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "news_feed",
+      "title": "情报快讯",
+      "items": [
+        {
+          "tag": "赛事",
+          "text": "苏格兰1-0绝杀海地取得开门红，拿下自1998年以来在世界杯的首场胜利，队长罗伯逊称球队实现了梦想。",
+          "url": "https://www.skysports.com/football/news/12098/13553844/haiti-0-1-scotland-steve-clarke-reflects-on-must-win-world-cup-group-c-opener-as-andy-robertson-says-players-achieved-their-dreams"
+        },
+        {
+          "tag": "动态",
+          "text": "德国门神诺伊尔以40岁高龄重返世界杯，这位传奇将力争在职业生涯暮年再次证明自己。",
+          "url": "https://www.skysports.com/football/news/12023/13552957/manuel-neuer-makes-world-cup-return-for-germany-at-40-but-will-the-goalkeeper-enhance-his-reputation-or-risk-his-legacy"
+        },
+        {
+          "tag": "专访",
+          "text": "荷兰队长范戴克表示渴望在2026年美加墨世界杯赛场上倾其所有，以最精彩的方式为国家队生涯谢幕。",
+          "url": "https://www.skysports.com/football/news/12098/13552746/virgil-van-dijk-netherlands-captain-hopes-to-bring-down-curtain-on-international-career-in-style-at-2026-world-cup"
+        },
+        {
+          "tag": "争议",
+          "text": "索马里边裁因签证被拒无缘本届世界杯现场执法，但仍将获得全额世界杯执法报酬保障。",
+          "url": "https://bbs.hupu.com/640003836.html"
+        }
+      ]
+    }
+  ]
+}</script>
+
+  <script>
+  (function () {
+    /* ── 国旗数据库（持续扩充） 
+    const TEAM_FLAGS = {
+      "United States":"🇺🇸","USA":"🇺🇸","美国":"🇺🇸",
+      "Canada":"🇨🇦","加拿大":"🇨🇦",
+      "Mexico":"🇲🇽","墨西哥":"🇲🇽",
+      "Brazil":"🇧🇷","巴西":"🇧🇷",
+      "Argentina":"🇦🇷","阿根廷":"🇦🇷",
+      "France":"🇫🇷","法国":"🇫🇷",
+      "England":"󠁧󠁢󠁥󠁮󠁧󠁿","England":"🏴󠁧󠁢󠁥󠁮󠁧󠁿","英格兰":"🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+      "Germany":"🇩🇪","德国":"🇩🇪",
+      "Spain":"🇪🇸","西班牙":"🇪🇸",
+      "Portugal":"🇵🇹","葡萄牙":"🇵🇹",
+      "Netherlands":"🇳🇱","荷兰":"🇳🇱",
+      "Japan":"🇯🇵","日本":"🇯🇵",
+      "South Korea":"🇰🇷","韩国":"🇰🇷",
+      "Morocco":"🇲🇦","摩洛哥":"🇲🇦",
+      "Senegal":"🇸🇳","塞内加尔":"🇸🇳",
+      "Nigeria":"🇳🇬","尼日利亚":"🇳🇬",
+      "Saudi Arabia":"🇸🇦","沙特":"🇸🇦",
+      "Australia":"🇦🇺","澳大利亚":"🇦🇺",
+      "Ecuador":"🇪🇨","厄瓜多尔":"🇪🇨",
+      "Uruguay":"🇺🇾","乌拉圭":"🇺🇾",
+      "Colombia":"🇨🇴","哥伦比亚":"🇨🇴",
+      "Switzerland":"🇨🇭","瑞士":"🇨🇭",
+      "Croatia":"🇭🇷","克罗地亚":"🇭🇷",
+      "Poland":"🇵🇱","波兰":"🇵🇱",
+      "Cameroon":"🇨🇲","喀麦隆":"🇨🇲",
+      "Ghana":"🇬🇭","加纳":"🇬🇭",
+      "Iran":"🇮🇷","伊朗":"🇮🇷",
+      "Belgium":"🇧🇪","比利时":"🇧🇪",
+      "Serbia":"🇷🇸","塞尔维亚":"🇷🇸",
+      "Denmark":"🇩🇰","丹麦":"🇩🇰",
+      "Tunisia":"🇹🇳","突尼斯":"🇹🇳",
+      "Costa Rica":"🇨🇷","哥斯达黎加":"🇨🇷",
+      "Ivory Coast":"🇨🇮","科特迪瓦":"🇨🇮",
+      "Albania":"🇦🇱","阿尔巴尼亚":"🇦🇱",
+      "Ukraine":"🇺🇦","乌克兰":"🇺🇦",
+      "Turkey":"🇹🇷","土耳其":"🇹🇷",
+      "Chile":"🇨🇱","智利":"🇨🇱",
+      "Austria":"🇦🇹","奥地利":"🇦🇹",
+      "Hungary":"🇭🇺","匈牙利":"🇭🇺",
+      "Slovakia":"🇸🇰","斯洛伐克":"🇸🇰",
+      "Slovenia":"🇸🇮","斯洛文尼亚":"🇸🇮",
+      "TBD":"⚽"
+    };
+    const flag = n => TEAM_FLAGS[n] || "⚽";
+    ── */
+
+    /* ── 渲染器字典 ── */
+    const renderers = {
+
+      feature(b) {
+        let matchHtml = "";
+        if (b.home && b.away) {
+          const scoreHtml = b.score
+            ? `<div class="feature-score">${esc(b.score)}</div>`
+            : `<div class="feature-score" style="font-size:13px;color:var(--muted)">VS</div>`;
+          matchHtml = `
+            <div class="feature-match">
+              <table width="100%">
+                <tbody>
+                  <tr>
+                    <th width="10%"><img src="${b.home_flag}" width="36" alt="Flag of ${b.home}"></th>
+                    <th width="25%"><div class="feature-team">${esc(b.home)}</div></th>
+                    <th width="30%">${scoreHtml}</th>
+                    <th width="25%"><div class="feature-team">${esc(b.away)}</div></th>
+                    <th width="10%" text-align="left"><img src="${b.away_flag}" width="36" alt="Flag of ${b.away}"></th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>`;
+        }
+        return matchHtml + `<div class="feature-content">${esc(b.content || "")}</div>`;
+      },
+
+      match_list(b) {
+        return (b.items || []).map(m => {
+          const scoreStr = (m.home_score !== undefined && m.away_score !== undefined)
+            ? `${m.home_score} : ${m.away_score}` : "- : -";
+          const meta = [m.kickoff_et, m.venue, m.group].filter(Boolean).join(" · ");
+          const noteHtml = m.note
+            ? `<div class="match-note">💬 ${esc(m.note)}</div>` : "";
+          return `
+            <div class="match-row">
+              <div style="flex:1">
+                <div class="match-teams">
+                  <table width="80%">
+                    <tbody>
+                      <tr>
+                        <th width="10%"><img src="${m.home_flag}" width="36" alt="Flag of ${m.home_team}"></th>
+                        <th width="25%"><div class="feature-team">${esc(m.home_team)}</div></th>
+                        <th width="30%">${scoreStr}</th>
+                        <th width="25%"><div class="feature-team">${esc(m.away_team)}</div></th>
+                        <th width="10%" text-align="left"><img src="${m.away_flag}" width="36" alt="Flag of ${m.away_team}"></th>
+                      </tr>
+                    </tbody>
+                  </table> 
+                </div>
+                ${noteHtml}
+              </div>
+              <div class="match-meta">${esc(meta)}</div>
+            </div>`;
+        }).join("");
+      },
+
+      schedule(b) {
+        return (b.items || []).map(m => `
+          <div class="schedule-row">
+            <div class="schedule-teams">
+              <table width="80%">
+                <tbody>
+                  <tr>
+                    <th width="10%"><img src="${m.home_flag}" width="36" alt="Flag of ${m.home_team}"></th>
+                    <th width="25%"><div class="feature-team">${esc(m.home_team)}</div></th>
+                    <th width="30%"><span style="color:var(--muted); font-weight:400; font-size:22px; margin:0 6px">vs</span></th>
+                    <th width="25%"><div class="feature-team">${esc(m.away_team)}</div></th>
+                    <th width="10%" text-align="left"><img src="${m.away_flag}" width="36" alt="Flag of ${m.away_team}"></th>
+                  </tr>
+                </tbody>
+              </table> 
+            </div>
+            <div class="schedule-time">⏰ ${esc(m.kickoff_et || "TBD")}</div>
+            ${m.group ? `<div class="schedule-group">[${esc(m.group)}]</div>` : ""}
+          </div>`).join("");
+      },
+
+      standings(b){
+        blockHtml = `
+          <div class="standings-grid">
+              ${b.items.map(group => `
+                  <div class="group-card">
+                      <div class="group-title">🏆 ${group.group.replace('Group', '小组')}</div>
+                      <table class="standings-table">
+                          <thead>
+                              <tr>
+                                  <th class="col-pos">#</th>
+                                  <th class="col-team">球队</th>
+                                  <th class="col-pts" style="text-align: center;">积分</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              ${group.table.map(team => `
+                                  <tr>
+                                      <td class="col-pos">${team.position}</td>
+                                      <td class="col-team">${team.emoji || '🏳'} ${team.team}</td>
+                                      <td class="col-pts" style="text-align: center;"><b>${team.points}</b></td>
+                                  </tr>
+                              `).join('')}
+                          </tbody>
+                      </table>
+                  </div>
+              `).join('')}
+          </div>
+        `;
+        return blockHtml;
+      },
+
+      ranking(b) {
+        const medals = ["medal-1","medal-2","medal-3"];
+        const rows = (b.items || []).map((r, i) => {
+          const medalClass = medals[i] || "";
+          const penHtml = r.penalties
+            ? `<div class="rank-pen">含点球 ${r.penalties}</div>` : "";
+          return `
+            <tr>
+              <td class="rank-num">${r.rank}</td>
+              <td>
+                <div class="rank-name ${medalClass}">${esc(r.player_name)}</div>
+                <div class="rank-team">${esc(r.team_emoji)} ${esc(r.team_name)}</div>
+              </td>
+              <td class="rank-goals">${r.goals}</td>
+              <td>${penHtml}</td>
+            </tr>`;
+        }).join("");
+        return `
+          <table class="ranking-table">
+            <thead>
+              <tr>
+                <th>#</th><th>球员 · 国家队</th>
+                <th style="text-align:right">进球</th>
+                <th style="text-align:right">点球</th>
+              </tr>
+            </thead>
+            <tbody>${rows}</tbody>
+          </table>`;
+      },
+
+      news_feed(b) {
+        return (b.items || []).map(n => `
+          <div class="news-item">
+            <span class="news-tag">${esc(n.tag || "新闻")}</span>
+            <span class="news-text">${esc(n.text || "")}</span><br>
+            ${n.url ? `<a class="news-link" href="${esc(n.url)}" target="_blank" rel="noopener">→ 查看详情</a>` : ""}
+          </div>`).join("");
+      }
+    };
+
+    /* ── 图标映射 ── */
+    const BLOCK_ICONS = {
+      feature: "🏆", match_list: "📊", schedule: "📅", 
+      ranking: "⚽", standings: "📊", news_feed: "📰"
+    };
+
+    /* ── XSS 转义 ── */
+    function esc(s) {
+      return String(s ?? "")
+        .replace(/&/g,"&amp;").replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+    }
+
+    /* ── 主渲染 ── */
+    document.addEventListener("DOMContentLoaded", () => {
+      const app = document.getElementById("app");
+      try {
+        const raw  = document.getElementById("data-json").textContent;
+        const data = JSON.parse(raw);
+        const html = (data.blocks || []).map(b => {
+          const icon    = BLOCK_ICONS[b.type] || "•";
+          const inner   = renderers[b.type] ? renderers[b.type](b) : "";
+          return `
+            <div class="section-label">${icon} ${esc(b.title || b.type)}</div>
+            <div class="card">${inner}</div>`;
+        }).join("");
+        app.innerHTML = html || "<p style='color:var(--muted)'>暂无内容</p>";
+      } catch(e) {
+        app.innerHTML = `<p style="color:var(--red)">⚠ 数据加载失败：${esc(e.message)}</p>`;
+      }
+    });
+  })();
+  </script>
+</body>
+</html>
