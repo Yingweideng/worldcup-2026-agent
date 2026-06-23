@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-22 13:06:56 UTC",
+  "last_updated": "2026-06-23 10:44:08 UTC",
   "competition": {
     "name": "FIFA World Cup 2026",
     "code": "WC"
@@ -2708,11 +2708,11 @@
       },
       "id": 537399,
       "utcDate": "2026-06-22T17:00:00Z",
-      "status": "TIMED",
+      "status": "FINISHED",
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_J",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-23T08:25:01Z",
       "homeTeam": {
         "id": 762,
         "name": "Argentina",
@@ -2728,21 +2728,28 @@
         "crest": "https://crests.football-data.org/816.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "HOME_TEAM",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 0
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 0
         }
       },
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": [],
+      "referees": [
+        {
+          "id": 276653,
+          "name": "Amin Omar",
+          "type": "REFEREE",
+          "nationality": "Egypt"
+        }
+      ],
       "localDate": "2026-06-22 13:00:00 "
     },
     {
@@ -2768,11 +2775,11 @@
       },
       "id": 537393,
       "utcDate": "2026-06-22T21:00:00Z",
-      "status": "TIMED",
+      "status": "FINISHED",
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_I",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-23T08:25:01Z",
       "homeTeam": {
         "id": 773,
         "name": "France",
@@ -2788,21 +2795,28 @@
         "crest": "https://crests.football-data.org/iraq.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "HOME_TEAM",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 3,
+          "away": 0
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 0
         }
       },
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": [],
+      "referees": [
+        {
+          "id": 77052,
+          "name": "Drew Fischer",
+          "type": "REFEREE",
+          "nationality": "Canada"
+        }
+      ],
       "localDate": "2026-06-22 17:00:00 "
     },
     {
@@ -2828,11 +2842,11 @@
       },
       "id": 537394,
       "utcDate": "2026-06-23T00:00:00Z",
-      "status": "TIMED",
+      "status": "FINISHED",
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_I",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-23T08:25:01Z",
       "homeTeam": {
         "id": 8872,
         "name": "Norway",
@@ -2848,21 +2862,28 @@
         "crest": "https://crests.football-data.org/senegal.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "HOME_TEAM",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 3,
+          "away": 2
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 0
         }
       },
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": [],
+      "referees": [
+        {
+          "id": 11412,
+          "name": "Wilton Sampaio",
+          "type": "REFEREE",
+          "nationality": "Brazil"
+        }
+      ],
       "localDate": "2026-06-22 20:00:00 "
     },
     {
@@ -2888,11 +2909,11 @@
       },
       "id": 537400,
       "utcDate": "2026-06-23T03:00:00Z",
-      "status": "TIMED",
+      "status": "FINISHED",
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_J",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-23T08:25:01Z",
       "homeTeam": {
         "id": 8049,
         "name": "Jordan",
@@ -2908,21 +2929,28 @@
         "crest": "https://crests.football-data.org/algeria.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "AWAY_TEAM",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 2
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 0
         }
       },
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": [],
+      "referees": [
+        {
+          "id": 9351,
+          "name": "Slavko Vinčič",
+          "type": "REFEREE",
+          "nationality": "Slovenia"
+        }
+      ],
       "localDate": "2026-06-22 23:00:00 "
     },
     {
@@ -7199,40 +7227,40 @@
         {
           "position": 1,
           "team": {
-            "id": 8872,
-            "name": "Norway",
-            "shortName": "Norway",
-            "tla": "NOR",
-            "crest": "https://crests.football-data.org/813.svg"
-          },
-          "playedGames": 1,
-          "form": null,
-          "won": 1,
-          "draw": 0,
-          "lost": 0,
-          "points": 3,
-          "goalsFor": 4,
-          "goalsAgainst": 1,
-          "goalDifference": 3
-        },
-        {
-          "position": 2,
-          "team": {
             "id": 773,
             "name": "France",
             "shortName": "France",
             "tla": "FRA",
             "crest": "https://crests.football-data.org/773.svg"
           },
-          "playedGames": 1,
+          "playedGames": 2,
           "form": null,
-          "won": 1,
+          "won": 2,
           "draw": 0,
           "lost": 0,
-          "points": 3,
-          "goalsFor": 3,
+          "points": 6,
+          "goalsFor": 6,
           "goalsAgainst": 1,
-          "goalDifference": 2
+          "goalDifference": 5
+        },
+        {
+          "position": 2,
+          "team": {
+            "id": 8872,
+            "name": "Norway",
+            "shortName": "Norway",
+            "tla": "NOR",
+            "crest": "https://crests.football-data.org/813.svg"
+          },
+          "playedGames": 2,
+          "form": null,
+          "won": 2,
+          "draw": 0,
+          "lost": 0,
+          "points": 6,
+          "goalsFor": 7,
+          "goalsAgainst": 3,
+          "goalDifference": 4
         },
         {
           "position": 3,
@@ -7243,15 +7271,15 @@
             "tla": "SEN",
             "crest": "https://crests.football-data.org/senegal.svg"
           },
-          "playedGames": 1,
+          "playedGames": 2,
           "form": null,
           "won": 0,
           "draw": 0,
-          "lost": 1,
+          "lost": 2,
           "points": 0,
-          "goalsFor": 1,
-          "goalsAgainst": 3,
-          "goalDifference": -2
+          "goalsFor": 3,
+          "goalsAgainst": 6,
+          "goalDifference": -3
         },
         {
           "position": 4,
@@ -7262,15 +7290,15 @@
             "tla": "IRQ",
             "crest": "https://crests.football-data.org/iraq.svg"
           },
-          "playedGames": 1,
+          "playedGames": 2,
           "form": null,
           "won": 0,
           "draw": 0,
-          "lost": 1,
+          "lost": 2,
           "points": 0,
           "goalsFor": 1,
-          "goalsAgainst": 4,
-          "goalDifference": -3
+          "goalsAgainst": 7,
+          "goalDifference": -6
         }
       ]
     },
@@ -7288,15 +7316,15 @@
             "tla": "ARG",
             "crest": "https://crests.football-data.org/762.png"
           },
-          "playedGames": 1,
+          "playedGames": 2,
           "form": null,
-          "won": 1,
+          "won": 2,
           "draw": 0,
           "lost": 0,
-          "points": 3,
-          "goalsFor": 3,
+          "points": 6,
+          "goalsFor": 5,
           "goalsAgainst": 0,
-          "goalDifference": 3
+          "goalDifference": 5
         },
         {
           "position": 2,
@@ -7307,37 +7335,18 @@
             "tla": "AUT",
             "crest": "https://crests.football-data.org/816.svg"
           },
-          "playedGames": 1,
+          "playedGames": 2,
           "form": null,
           "won": 1,
           "draw": 0,
-          "lost": 0,
+          "lost": 1,
           "points": 3,
           "goalsFor": 3,
-          "goalsAgainst": 1,
-          "goalDifference": 2
+          "goalsAgainst": 3,
+          "goalDifference": 0
         },
         {
           "position": 3,
-          "team": {
-            "id": 8049,
-            "name": "Jordan",
-            "shortName": "Jordan",
-            "tla": "JOR",
-            "crest": "https://crests.football-data.org/8049.png"
-          },
-          "playedGames": 1,
-          "form": null,
-          "won": 0,
-          "draw": 0,
-          "lost": 1,
-          "points": 0,
-          "goalsFor": 1,
-          "goalsAgainst": 3,
-          "goalDifference": -2
-        },
-        {
-          "position": 4,
           "team": {
             "id": 778,
             "name": "Algeria",
@@ -7345,14 +7354,33 @@
             "tla": "ALG",
             "crest": "https://crests.football-data.org/algeria.svg"
           },
-          "playedGames": 1,
+          "playedGames": 2,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 1,
+          "points": 3,
+          "goalsFor": 2,
+          "goalsAgainst": 4,
+          "goalDifference": -2
+        },
+        {
+          "position": 4,
+          "team": {
+            "id": 8049,
+            "name": "Jordan",
+            "shortName": "Jordan",
+            "tla": "JOR",
+            "crest": "https://crests.football-data.org/8049.png"
+          },
+          "playedGames": 2,
           "form": null,
           "won": 0,
           "draw": 0,
-          "lost": 1,
+          "lost": 2,
           "points": 0,
-          "goalsFor": 0,
-          "goalsAgainst": 3,
+          "goalsFor": 2,
+          "goalsAgainst": 5,
           "goalDifference": -3
         }
       ]
@@ -7527,6 +7555,99 @@
   "scorers": [
     {
       "player": {
+        "id": 3218,
+        "name": "Lionel Messi",
+        "firstName": "Lionel",
+        "lastName": "Messi",
+        "dateOfBirth": "1987-06-24",
+        "nationality": "Argentina",
+        "section": "Offence",
+        "position": null,
+        "shirtNumber": null,
+        "lastUpdated": "2026-06-01T11:16:29Z"
+      },
+      "team": {
+        "id": 762,
+        "name": "Argentina",
+        "shortName": "Argentina",
+        "tla": "ARG",
+        "crest": "https://crests.football-data.org/762.png",
+        "address": "Viamonte 1366/76 Buenos Aires, Buenos Aires 1053",
+        "website": "http://www.afa.org.ar",
+        "founded": 1893,
+        "clubColors": "Sky Blue / White / Black",
+        "venue": null,
+        "lastUpdated": "2022-05-17T21:09:25Z"
+      },
+      "playedMatches": 2,
+      "goals": 5,
+      "assists": null,
+      "penalties": null
+    },
+    {
+      "player": {
+        "id": 3374,
+        "name": "Kylian Mbappé",
+        "firstName": "Kylian",
+        "lastName": "Mbappé",
+        "dateOfBirth": "1998-12-20",
+        "nationality": "France",
+        "section": "Offence",
+        "position": null,
+        "shirtNumber": null,
+        "lastUpdated": "2026-06-01T11:16:30Z"
+      },
+      "team": {
+        "id": 773,
+        "name": "France",
+        "shortName": "France",
+        "tla": "FRA",
+        "crest": "https://crests.football-data.org/773.svg",
+        "address": "87 Boulevard de Grenelle Paris 75738",
+        "website": "http://www.fff.fr",
+        "founded": 1919,
+        "clubColors": "Blue / White / Red",
+        "venue": null,
+        "lastUpdated": "2026-06-01T09:42:18Z"
+      },
+      "playedMatches": 2,
+      "goals": 4,
+      "assists": null,
+      "penalties": null
+    },
+    {
+      "player": {
+        "id": 38101,
+        "name": "Erling Haaland",
+        "firstName": "Erling",
+        "lastName": "Haaland",
+        "dateOfBirth": "2000-07-21",
+        "nationality": "Norway",
+        "section": "Offence",
+        "position": null,
+        "shirtNumber": null,
+        "lastUpdated": "2026-06-01T11:16:30Z"
+      },
+      "team": {
+        "id": 8872,
+        "name": "Norway",
+        "shortName": "Norway",
+        "tla": "NOR",
+        "crest": "https://crests.football-data.org/813.svg",
+        "address": "Serviceboks 1, Ullevaal stadion Oslo 0840",
+        "website": "http://www.fotball.no",
+        "founded": 1902,
+        "clubColors": "Red / White / Navy Blue",
+        "venue": null,
+        "lastUpdated": "2026-06-01T09:43:53Z"
+      },
+      "playedMatches": 2,
+      "goals": 4,
+      "assists": null,
+      "penalties": null
+    },
+    {
+      "player": {
         "id": 6928,
         "name": "Deniz Undav",
         "firstName": "Deniz",
@@ -7554,37 +7675,6 @@
       "playedMatches": 2,
       "goals": 3,
       "assists": 2,
-      "penalties": null
-    },
-    {
-      "player": {
-        "id": 3218,
-        "name": "Lionel Messi",
-        "firstName": "Lionel",
-        "lastName": "Messi",
-        "dateOfBirth": "1987-06-24",
-        "nationality": "Argentina",
-        "section": "Offence",
-        "position": null,
-        "shirtNumber": null,
-        "lastUpdated": "2026-06-01T11:16:29Z"
-      },
-      "team": {
-        "id": 762,
-        "name": "Argentina",
-        "shortName": "Argentina",
-        "tla": "ARG",
-        "crest": "https://crests.football-data.org/762.png",
-        "address": "Viamonte 1366/76 Buenos Aires, Buenos Aires 1053",
-        "website": "http://www.afa.org.ar",
-        "founded": 1893,
-        "clubColors": "Sky Blue / White / Black",
-        "venue": null,
-        "lastUpdated": "2022-05-17T21:09:25Z"
-      },
-      "playedMatches": 1,
-      "goals": 3,
-      "assists": null,
       "penalties": null
     },
     {
@@ -7772,68 +7862,6 @@
       "goals": 2,
       "assists": null,
       "penalties": 1
-    },
-    {
-      "player": {
-        "id": 6716,
-        "name": "Daichi Kamada",
-        "firstName": "Daichi",
-        "lastName": "Kamada",
-        "dateOfBirth": "1996-08-05",
-        "nationality": "Japan",
-        "section": "Midfield",
-        "position": null,
-        "shirtNumber": null,
-        "lastUpdated": "2026-06-01T11:16:31Z"
-      },
-      "team": {
-        "id": 766,
-        "name": "Japan",
-        "shortName": "Japan",
-        "tla": "JPN",
-        "crest": "https://crests.football-data.org/766.svg",
-        "address": "JFA House Football Avenue, Bunkyo-ku Tōkyō 113-8311",
-        "website": "http://www.jfa.or.jp",
-        "founded": 1921,
-        "clubColors": "Blue / White",
-        "venue": null,
-        "lastUpdated": "2026-06-01T09:40:05Z"
-      },
-      "playedMatches": 2,
-      "goals": 2,
-      "assists": null,
-      "penalties": null
-    },
-    {
-      "player": {
-        "id": 145613,
-        "name": "Yasin Ayari",
-        "firstName": "Yasin",
-        "lastName": "Ayari",
-        "dateOfBirth": "2003-10-06",
-        "nationality": "Sweden",
-        "section": "Midfield",
-        "position": null,
-        "shirtNumber": 26,
-        "lastUpdated": "2026-06-01T11:16:31Z"
-      },
-      "team": {
-        "id": 792,
-        "name": "Sweden",
-        "shortName": "Sweden",
-        "tla": "SWE",
-        "crest": "https://crests.football-data.org/792.svg",
-        "address": "Evenemangsgatan 31 / Box 1216 Solna 17123",
-        "website": "http://www.svenskfotboll.se",
-        "founded": 1904,
-        "clubColors": "Yellow / Blue",
-        "venue": null,
-        "lastUpdated": "2026-06-01T09:42:37Z"
-      },
-      "playedMatches": 2,
-      "goals": 2,
-      "assists": null,
-      "penalties": null
     }
   ]
 }
