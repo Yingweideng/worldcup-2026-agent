@@ -385,6 +385,9 @@
                         <th width="25%"><div class="feature-team">${esc(m.away_team)}</div></th>
                         <th width="10%" text-align="left"><img src="${m.away_flag}" width="36" alt="Flag of ${m.away_team}"></th>
                       </tr>
+                      <tr>
+                        <th cols="5" text-align="left"><div>${m.get(match_note)}</div></th>
+                      </tr>
                     </tbody>
                   </table> 
                 </div>
@@ -408,43 +411,15 @@
                     <th width="25%"><div class="feature-team">${esc(m.away_team)}</div></th>
                     <th width="10%" text-align="left"><img src="${m.away_flag}" width="36" alt="Flag of ${m.away_team}"></th>
                   </tr>
+                  <tr>
+                    <th cols="5" text-align="left"><div>${m.get(schedule_note)}</div></th>
+                  </tr>
                 </tbody>
               </table> 
             </div>
             <div class="schedule-time">⏰ ${esc(m.kickoff_et || "TBD")}</div>
             ${m.group ? `<div class="schedule-group">[${esc(m.group)}]</div>` : ""}
           </div>`).join("");
-      },
-
-      standings(b){
-        blockHtml = `
-          <div class="standings-grid">
-              ${b.items.map(group => `
-                  <div class="group-card">
-                      <div class="group-title">🏆 ${group.group.replace('Group', '小组')}</div>
-                      <table class="standings-table">
-                          <thead>
-                              <tr>
-                                  <th class="col-pos">#</th>
-                                  <th class="col-team">球队</th>
-                                  <th class="col-pts" style="text-align: center;">积分</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                              ${group.table.map(team => `
-                                  <tr>
-                                      <td class="col-pos">${team.position}</td>
-                                      <td class="col-team">${team.emoji || '🏳'} ${team.team}</td>
-                                      <td class="col-pts" style="text-align: center;"><b>${team.points}</b></td>
-                                  </tr>
-                              `).join('')}
-                          </tbody>
-                      </table>
-                  </div>
-              `).join('')}
-          </div>
-        `;
-        return blockHtml;
       },
 
       ranking(b) {

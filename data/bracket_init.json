@@ -1,0 +1,18 @@
+[
+  {"id": "R16_01", "home": "Germany",     "away": "Paraguay"},
+  {"id": "R16_02", "home": "France",      "away": "Sweden"},
+  {"id": "R16_03", "home": "South Africa","away": "Canada"},
+  {"id": "R16_04", "home": "Netherlands", "away": "Morocco"},
+  {"id": "R16_05", "home": "Colombia",    "away": "Croatia"},
+  {"id": "R16_06", "home": "Spain",       "away": "Austria"},
+  {"id": "R16_07", "home": "USA",         "away": "Bosnia and Herzegovina"},
+  {"id": "R16_08", "home": "Belgium",     "away": "Korea Republic"},
+  {"id": "R16_09", "home": "Brazil",      "away": "Japan"},
+  {"id": "R16_10", "home": "Ivory Coast", "away": "Norway"},
+  {"id": "R16_11", "home": "Mexico",      "away": "Ecuador"},
+  {"id": "R16_12", "home": "England",     "away": "Senegal"},
+  {"id": "R16_13", "home": "Argentina",   "away": "Cape Verde"},
+  {"id": "R16_14", "home": "Australia",   "away": "Egypt"},
+  {"id": "R16_15", "home": "Switzerland", "away": "Iran"},
+  {"id": "R16_16", "home": "Portugal",    "away": "Ghana"}
+]

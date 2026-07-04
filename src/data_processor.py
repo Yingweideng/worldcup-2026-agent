@@ -78,17 +78,6 @@ class WorldCupDataProcessor:
         return sorted_scorers[:limit]
 
     # ──────────────────────────────────────────
-    # 积分榜
-    # ──────────────────────────────────────────
-
-    def get_group_standings(self, group: Optional[str] = None) -> List[Dict[str, Any]]:
-        """返回指定小组（或所有小组）的积分榜"""
-        standings = self.data.get("standings", [])
-        if group:
-            return [s for s in standings if s.get("group") == group]
-        return standings
-
-    # ──────────────────────────────────────────
     # 格式化辅助
     # ──────────────────────────────────────────
 
@@ -164,44 +153,16 @@ class WorldCupDataProcessor:
         today_raw      = self.get_today_matches()
         tomorrow_raw   = self.get_tomorrow_matches()
         scorers_raw    = self.get_top_scorers(5)
-        standings_raw  = self.get_group_standings()
 
         today_matches    = [self.format_match_for_display(m) for m in today_raw]
         tomorrow_matches = [self.format_match_for_display(m) for m in tomorrow_raw]
         top_scorers      = [self.format_scorer_for_display(s, i + 1)
                             for i, s in enumerate(scorers_raw)]
 
-        # 积分榜：只取前 8 组（A-H），每组取前 4 支球队
-        standings_sample = []
-        for grp in standings_raw[:8]:
-            table = grp.get("table") or []
-            standings_sample.append({
-                "group": grp.get("group", ""),
-                "stage": grp.get("stage", ""),
-                "type":  grp.get("type", ""),
-                "table": [
-                    {
-                        "position": row.get("position"),
-                        "team":     (row.get("team") or {}).get("name", ""),
-                        "emoji": self.get_flag_emoji((row.get("team") or {}).get("name", "")),
-                        "played":   row.get("playedGames"),
-                        "won":      row.get("won"),
-                        "draw":     row.get("draw"),
-                        "lost":     row.get("lost"),
-                        "gf":       row.get("goalsFor"),
-                        "ga":       row.get("goalsAgainst"),
-                        "gd":       row.get("goalDifference"),
-                        "points":   row.get("points"),
-                    }
-                    for row in table[:4]
-                ],
-            })
-
         return {
             "today_date":       self.today.strftime("%Y-%m-%d"),
             "last_updated":     self.data.get("last_updated", ""),
             "today_matches":    today_matches,
             "tomorrow_matches": tomorrow_matches,
-            "top_scorers":      top_scorers,
-            "standings_sample": standings_sample,
+            "top_scorers":      top_scorers
         }

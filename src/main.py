@@ -120,8 +120,8 @@ class WorldCupEditor:
             return None
 
     def fetch_results_data(self):
-        """从 football-data.org 拉取 matches / standings / scorers 并写入 JSON"""
-        print("[football-data] Starting fetch: matches, standings, scorers …")
+        """从 football-data.org 拉取 matches / scorers 并写入 JSON"""
+        print("[football-data] Starting fetch: matches, scorers …")
 
         matches_data   = self._football_fetch("matches")
         #match date need EDT date
@@ -133,15 +133,12 @@ class WorldCupEditor:
             match["localDate"] = dt_et.strftime("%Y-%m-%d %H:%M:%S %Z")
 
         time.sleep(6)
-        standings_data = self._football_fetch("standings")
-        time.sleep(6)
         scorers_data   = self._football_fetch("scorers")
 
         combined = {
             "last_updated": time.strftime("%Y-%m-%d %H:%M:%S UTC"),
             "competition":  {"name": "FIFA World Cup 2026", "code": "WC"},
             "matches":   (matches_data  or {}).get("matches",   []),
-            "standings": (standings_data or {}).get("standings", []),
             "scorers":   (scorers_data   or {}).get("scorers",   []),
         }
 
@@ -202,13 +199,11 @@ class WorldCupEditor:
                 "today_matches":    [],
                 "tomorrow_matches": [],
                 "top_scorers":      [],
-                "standings_sample": [],
             }
 
         #print(json.dumps(wc["today_matches"]))
         #print(json.dumps(wc["tomorrow_matches"]))
         #print(json.dumps(wc["top_scorers"]))
-        #print(json.dumps(wc["standings_sample"]))        
         
         # ── 使用 str.replace() 逐一替换，避免 str.format() 误解析 JSON 花括号 ──
         prompt = (
@@ -221,7 +216,6 @@ class WorldCupEditor:
             .replace("{worldcup_matches}",    json.dumps(wc["today_matches"],    ensure_ascii=False))
             .replace("{tomorrow_matches}",    json.dumps(wc["tomorrow_matches"], ensure_ascii=False))
             .replace("{top_scorers}",         json.dumps(wc["top_scorers"],      ensure_ascii=False))
-            .replace("{standings}",           json.dumps(wc["standings_sample"], ensure_ascii=False))
         )
 
         response = self.client.models.generate_content(
@@ -247,7 +241,6 @@ class WorldCupEditor:
             "match_list": "📊",
             "schedule":   "📅",
             "ranking":    "⚽",
-            "standings":  "📈",
             "news_feed":  "📰",
         }
         parts = [f"<b>📢 {self.dynamic_title}</b>\n"]
@@ -264,39 +257,31 @@ class WorldCupEditor:
                 parts.append(f"<blockquote>{header}{b.get('content','')}</blockquote>")
 
             elif btype == "match_list":
-                tab_headers = []
-                tab_data = []
+                lines = []
                 for m in b.get("items",[]):
-                    lines = []
-                    lines.append(f"{m.get('home_emoji')}<b>{m.get('home_team')}</b>")
-                    lines.append(f"{m.get('home_score','-')}:{m.get('away_score','-')}")
-                    lines.append(f"<b>{m.get('away_team')}</b>{m.get('away_emoji')}")
-                    lines.append(m.get("group"))
-                    tab_data.append(lines)
-            
-                text_table = tabulate(tab_data, headers=tab_headers, tablefmt="plain")
-                message_text = (
-                    f"<blockquote><pre>{text_table}</pre></blockquote>"
-                )
-                parts.append(message_text)
+                    score_str = f"<b>{m.get('home_score','-')} : {m.get('away_score','-')}</b>"
+                    line = (
+                        f"{m.get('home_emoji')} <b>{m.get('home_team')}</b> {score_str} "
+                        f"<b>{m.get('away_team')}</b> {m.get('away_emoji')}"
+                    )
+                    if m.get("venue"):
+                        line += f"  🏟 {m['venue']}"
+                    line += f"\n{m.get('match_note')}"
+                    lines.append(line)
+
+                parts.append("<blockquote>" + "\n".join(lines) + "</blockquote>")
 
             elif btype == "schedule":
-                tab_headers = []
-                tab_data = []
+                lines = []
                 for m in b.get("items",[]):
-                    lines = []
-                    lines.append(f"{m.get('home_emoji')}{m.get('home_team')}")
-                    lines.append(f"<b> VS </b>")
-                    lines.append(f"{m.get('away_team')}{m.get('away_emoji')}")
-                    lines.append(m.get("group"))
-                    lines.append(m.get('kickoff_et','TBD'))
-                    tab_data.append(lines)
-            
-                text_table = tabulate(tab_data, headers=tab_headers, tablefmt="plain")
-                message_text = (
-                    f"<blockquote><pre>{text_table}</pre></blockquote>"
-                )
-                parts.append(message_text)
+                    line = (
+                        f"{m.get('home_emoji')} <b>{m.get('home_team')}</b> <b>VS</b> "
+                        f"<b>{m.get('away_team')}</b> {m.get('away_emoji')}"
+                        f"  {m.get('kickoff_et','TBD')}\n{m.get('schedule_note')}"
+                    )
+                    lines.append(line)
+
+                parts.append("<blockquote>" + "\n".join(lines) + "</blockquote>")
 
             elif btype == "ranking":
                 tab_headers = []
@@ -314,24 +299,6 @@ class WorldCupEditor:
                     f"<blockquote><pre>{text_table}</pre></blockquote>"
                 )
                 parts.append(message_text)
-
-            elif btype == "standings":
-                lines = []
-                for m in b.get("items",[]):
-                    tab_headers = ["🔝",f"{m.get('group')}",""]
-                    tab_data = []
-                    for n in m.get("table",[]):
-                        table_lines = []
-                        table_lines.append(f"{n.get('position')}")
-                        table_lines.append(f"{n.get('emoji')} {n.get('team')}")
-                        table_lines.append(f"{n.get('points')}")
-                        tab_data.append(table_lines)
-          
-                    text_table = tabulate(tab_data, headers=tab_headers, tablefmt="plain")
-                    message_text = (f"<pre>{text_table}</pre>")
-                    lines.append(f"{message_text}\n")
-                
-                parts.append("<blockquote>" + "\n".join(lines) + "</blockquote>")
 
             elif btype == "news_feed":
                 lines = [
