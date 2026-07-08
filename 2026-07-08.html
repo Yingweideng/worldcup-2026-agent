@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 美加墨世界杯 第 28 比赛日 · 2026-07-08</title>
+  <style>
+    :root {
+      --bg:    #0b0f19;
+      --cont:  #111b15;
+      --card:  #1c2a21;
+      --gold:  #f3a04c;
+      --green: #40b43e;
+      --red:   #e05555;
+      --blue:  #4c9ef3;
+      --text:  #f3f4f6;
+      --muted: rgba(243,244,246,0.6);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 20px 12px 40px;
+    }
+    .wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--cont);
+      padding: 28px 24px 36px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    /* ── Header ── */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 24px;
+    }
+    .page-title { color: var(--gold); font-size: 20px; font-weight: 800; line-height: 1.3; }
+    .page-date  { color: var(--green); font-size: 12px; margin-top: 4px; white-space: nowrap; }
+
+    /* ── Section ── */
+    .section-label {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 24px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .section-label::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: rgba(243,160,76,.25);
+    }
+
+    /* ── Card base ── */
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin-bottom: 14px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* ── Feature ── */
+    .feature-match {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      background: rgba(0,0,0,0.3);
+      padding: 16px 18px;
+      border-radius: 10px;
+      margin-bottom: 14px;
+    }
+    .feature-team { text-align: center; font-weight: 700; font-size: 14px; flex: 1; }
+    .feature-score {
+      font-size: 30px;
+      font-weight: 900;
+      color: var(--gold);
+      letter-spacing: .05em;
+      text-align: center;
+      min-width: 90px;
+    }
+    .feature-content { font-size: 14px; line-height: 1.75; color: var(--muted); }
+
+    /* ── Match list ── */
+    .match-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .match-row:last-child { border-bottom: none; }
+    .match-teams {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .match-score {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--gold);
+      min-width: 60px;
+      text-align: center;
+    }
+    .match-meta {
+      font-size: 14px;
+      color: var(--muted);
+      text-align: right;
+      min-width: 120px;
+    }
+    .match-note {
+      font-size: 12px;
+      color: var(--muted);
+      padding: 6px 0 2px;
+      line-height: 1.6;
+    }
+
+    /* ── Schedule ── */
+    .schedule-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      gap: 8px;
+    }
+    .schedule-row:last-child { border-bottom: none; }
+    .schedule-teams { font-size: 14px; font-weight: 700; flex: 1; }
+    .schedule-time  { font-size: 14px; color: var(--blue); white-space: nowrap; }
+    .schedule-group { font-size: 14px; color: var(--muted); white-space: nowrap; }
+
+    /* 积分榜专属样式 */
+    .standings-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 16px;
+        margin-top: 12px;
+    }
+    .group-card {
+        background: var(--card-bg, #fff);
+        border: 0.5px solid var(--intensity-8, rgba(0,0,0,0.08));
+        border-radius: 12px;
+        padding: 14px;
+    }
+    .group-title {
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: var(--primary, #F3A04C);
+        border-bottom: 1px solid var(--intensity-8, rgba(0,0,0,0.08));
+        padding-bottom: 4px;
+    }
+    .standings-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 12px;
+    }
+    .standings-table th {
+        color: var(--text-secondary, rgba(0,0,0,0.5));
+        font-weight: 500;
+        text-align: left;
+        padding-bottom: 4px;
+    }
+    .standings-table td {
+        padding: 6px 0;
+        border-bottom: 0.5px solid var(--intensity-8, rgba(0,0,0,0.08));
+        color: black;
+    }
+    .standings-table tr:last-child td {
+        border-bottom: none;
+    }
+    .col-pos { width: 10%; text-align: center; font-weight: 600;}
+    .col-team { width: 60%; text-align: left; }
+    .col-pts { width: 30%; text-align: center; font-weight: bold; }
+
+
+    /* ── Ranking ── */
+    .ranking-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .ranking-table th {
+      text-align: left;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 4px 6px 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .ranking-table td {
+      padding: 10px 6px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      vertical-align: middle;
+    }
+    .ranking-table tr:last-child td { border-bottom: none; }
+    .rank-num  { color: var(--gold); font-weight: 800; width: 28px; }
+    .rank-name { font-weight: 700; }
+    .rank-team { color: var(--muted); font-size: 12px; }
+    .rank-goals {
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--green);
+      text-align: right;
+    }
+    .rank-pen  { font-size: 11px; color: var(--muted); text-align: right; }
+    .medal-1::before { content: "🥇 "; }
+    .medal-2::before { content: "🥈 "; }
+    .medal-3::before { content: "🥉 "; }
+
+    /* ── News feed ── */
+    .news-item {
+      padding: 11px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      line-height: 1.6;
+    }
+    .news-item:last-child { border-bottom: none; }
+    .news-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      background: rgba(243,160,76,0.15);
+      color: var(--gold);
+      border: 1px solid rgba(243,160,76,0.3);
+      padding: 1px 6px;
+      border-radius: 4px;
+      margin-right: 7px;
+      vertical-align: middle;
+    }
+    .news-text { font-size: 13px; font-weight: 600; }
+    .news-link { font-size: 11px; color: var(--blue); text-decoration: none; }
+    .news-link:hover { text-decoration: underline; }
+
+    /* ── Badge ── */
+    .badge {
+      display: inline-block;
+      font-size: 10px;
+      padding: 1px 6px;
+      border-radius: 4px;
+      background: rgba(64,180,62,0.15);
+      color: var(--green);
+      border: 1px solid rgba(64,180,62,0.3);
+    }
+
+    /* ── Footer ── */
+    .footer {
+      margin-top: 28px;
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+    }
+    .footer a { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <!-- Header -->
+    <div class="page-header">
+      <div>
+        <div class="page-title">2026 美加墨世界杯 第 28 比赛日</div>
+        <div class="page-date">🗓 2026-07-08 · 官方数据 football-data.org</div>
+      </div>
+    </div>
+
+    <!-- Dynamic content mount -->
+    <div id="app">加载中…</div>
+
+    <!-- Footer -->
+    <div class="footer">
+      数据来源：football-data.org &amp; Tier-1 Media ·
+      由 <a href="#">2026美加墨世界杯情报站</a> 整理汇总
+    </div>
+  </div>
+
+  <!-- Embedded data -->
+  <script id="data-json" type="application/json">{
+  "blocks": [
+    {
+      "type": "feature",
+      "title": "焦点之战",
+      "home": "Argentina",
+      "home_flag": "https://crests.football-data.org/762.png",
+      "home_emoji": "🇦🇷",
+      "away": "Egypt",
+      "away_flag": "https://crests.football-data.org/825.svg",
+      "away_emoji": "🇪🇬",
+      "score": "3 : 2",
+      "content": "卫冕冠军阿根廷3-2惊险逆转埃及挺进8强！梅西在球队半场落后的绝境下再度挺身而出，以无可挑剔的领袖气质导演逆转，目前以8球独自领跑射手榜。然而，埃及主帅哈桑赛后炮轰裁判偏袒，直言“整届杯赛都在保送卫冕冠军”。这场充满争议与巨星救赎的史诗对决，生动诠释了淘汰赛的残酷与魅力，老将梅西再次顶住时间侵蚀，挽救了潘帕斯雄鹰的夺冠梦想。"
+    },
+    {
+      "type": "match_list",
+      "title": "昨日赛果",
+      "items": [
+        {
+          "home_team": "Argentina",
+          "away_team": "Egypt",
+          "home_flag": "https://crests.football-data.org/762.png",
+          "home_emoji": "🇦🇷",
+          "away_flag": "https://crests.football-data.org/825.svg",
+          "away_emoji": "🇪🇬",
+          "home_score": "3",
+          "away_score": "2",
+          "kickoff_et": "07/07 12:00 ET",
+          "venue": "TBD",
+          "group": "",
+          "stage": "LAST_16",
+          "match_note": "埃及凭借强悍反击上半场1-0领先，逼迫阿根廷陷入苦战。下半场梅西带头吹响反攻号角，阿根廷连入3球完成逆转。尽管埃及最后时刻扳回一球，但无奈吞下失利苦果。赛后埃及主帅对裁判判罚提出极度抗议。"
+        },
+        {
+          "home_team": "Switzerland",
+          "away_team": "Colombia",
+          "home_flag": "https://crests.football-data.org/788.svg",
+          "home_emoji": "🇨🇭",
+          "away_flag": "https://crests.football-data.org/818.svg",
+          "away_emoji": "🇨🇴",
+          "home_score": "4",
+          "away_score": "3",
+          "kickoff_et": "07/07 16:00 ET",
+          "venue": "TBD",
+          "group": "",
+          "stage": "LAST_16",
+          "match_note": "双方联手奉献了一场疯狂的进球大战。瑞士队凭借中场的高效运转和严密的战术纪律两度领先，而哥伦比亚则展现出南美足球的狂野韧性顽强扳平。最终瑞士凭借更加沉稳的门前终结能力，4-3险胜晋级八强。"
+        }
+      ]
+    },
+    {
+      "type": "ranking",
+      "title": "射手榜 Top 5",
+      "items": [
+        {
+          "rank": 1,
+          "player_name": "Lionel Messi",
+          "team_name": "Argentina",
+          "team_emoji": "🇦🇷",
+          "goals": 8,
+          "penalties": 0,
+          "assists": 1
+        },
+        {
+          "rank": 2,
+          "player_name": "Erling Haaland",
+          "team_name": "Norway",
+          "team_emoji": "🇳🇴",
+          "goals": 7,
+          "penalties": 0,
+          "assists": 0
+        },
+        {
+          "rank": 3,
+          "player_name": "Kylian Mbappé",
+          "team_name": "France",
+          "team_emoji": "🇫🇷",
+          "goals": 7,
+          "penalties": 1,
+          "assists": 2
+        },
+        {
+          "rank": 4,
+          "player_name": "Harry Kane",
+          "team_name": "England",
+          "team_emoji": "🇬🇧",
+          "goals": 6,
+          "penalties": 2,
+          "assists": 1
+        },
+        {
+          "rank": 5,
+          "player_name": "Julián Quiñones",
+          "team_name": "Mexico",
+          "team_emoji": "🇲🇽",
+          "goals": 4,
+          "penalties": 0,
+          "assists": 1
+        }
+      ]
+    },
+    {
+      "type": "news_feed",
+      "title": "情报快讯",
+      "items": [
+        {
+          "tag": "争议",
+          "text": "埃及主帅哈桑赛后怒不可遏，直言当场裁判判罚极不公正，甚至声称整届世界杯都在偏袒并“保送”卫冕冠军阿根廷。",
+          "url": "https://www.skysports.com/football/news/12098/13561467/argentina-3-2-egypt-hossam-hassan-says-officiating-unfair-and-world-cup-directed-towards-reigning-champions"
+        },
+        {
+          "tag": "金靴",
+          "text": "梅西凭借对阵埃及的关键进球，目前以8球强势领跑金靴榜，哈兰德、姆巴佩及凯恩紧随其后展开终极厮杀。",
+          "url": "https://www.skysports.com/football/news/11095/13556951/world-cup-2026-golden-boot-race-lionel-messi-kylian-mbappe-harry-kane-and-erling-haaland-in-epic-battle"
+        },
+        {
+          "tag": "战术",
+          "text": "战术深度复盘：面对埃及的高压逼抢，梅西如何通过大幅度回撤中场接应，战胜体能极限并完成阿根廷的世界杯自我救赎。",
+          "url": "https://www.nytimes.com/athletic/7429471/2026/07/08/argentina-lionel-messi-world-cup-tactics/"
+        },
+        {
+          "tag": "数据",
+          "text": "残酷魔咒：本届世界杯已累计有6支非洲球队在比赛最后读秒阶段遭遇绝杀淘汰，暴露出非洲球队在关键时刻的防守集中度问题。",
+          "url": "https://bbs.hupu.com/640681298.html"
+        }
+      ]
+    }
+  ]
+}</script>
+
+  <script>
+  (function () {
+    /* ── 国旗数据库（持续扩充） 
+    const TEAM_FLAGS = {
+      "United States":"🇺🇸","USA":"🇺🇸","美国":"🇺🇸",
+      "Canada":"🇨🇦","加拿大":"🇨🇦",
+      "Mexico":"🇲🇽","墨西哥":"🇲🇽",
+      "Brazil":"🇧🇷","巴西":"🇧🇷",
+      "Argentina":"🇦🇷","阿根廷":"🇦🇷",
+      "France":"🇫🇷","法国":"🇫🇷",
+      "England":"󠁧󠁢󠁥󠁮󠁧󠁿","England":"🏴󠁧󠁢󠁥󠁮󠁧󠁿","英格兰":"🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+      "Germany":"🇩🇪","德国":"🇩🇪",
+      "Spain":"🇪🇸","西班牙":"🇪🇸",
+      "Portugal":"🇵🇹","葡萄牙":"🇵🇹",
+      "Netherlands":"🇳🇱","荷兰":"🇳🇱",
+      "Japan":"🇯🇵","日本":"🇯🇵",
+      "South Korea":"🇰🇷","韩国":"🇰🇷",
+      "Morocco":"🇲🇦","摩洛哥":"🇲🇦",
+      "Senegal":"🇸🇳","塞内加尔":"🇸🇳",
+      "Nigeria":"🇳🇬","尼日利亚":"🇳🇬",
+      "Saudi Arabia":"🇸🇦","沙特":"🇸🇦",
+      "Australia":"🇦🇺","澳大利亚":"🇦🇺",
+      "Ecuador":"🇪🇨","厄瓜多尔":"🇪🇨",
+      "Uruguay":"🇺🇾","乌拉圭":"🇺🇾",
+      "Colombia":"🇨🇴","哥伦比亚":"🇨🇴",
+      "Switzerland":"🇨🇭","瑞士":"🇨🇭",
+      "Croatia":"🇭🇷","克罗地亚":"🇭🇷",
+      "Poland":"🇵🇱","波兰":"🇵🇱",
+      "Cameroon":"🇨🇲","喀麦隆":"🇨🇲",
+      "Ghana":"🇬🇭","加纳":"🇬🇭",
+      "Iran":"🇮🇷","伊朗":"🇮🇷",
+      "Belgium":"🇧🇪","比利时":"🇧🇪",
+      "Serbia":"🇷🇸","塞尔维亚":"🇷🇸",
+      "Denmark":"🇩🇰","丹麦":"🇩🇰",
+      "Tunisia":"🇹🇳","突尼斯":"🇹🇳",
+      "Costa Rica":"🇨🇷","哥斯达黎加":"🇨🇷",
+      "Ivory Coast":"🇨🇮","科特迪瓦":"🇨🇮",
+      "Albania":"🇦🇱","阿尔巴尼亚":"🇦🇱",
+      "Ukraine":"🇺🇦","乌克兰":"🇺🇦",
+      "Turkey":"🇹🇷","土耳其":"🇹🇷",
+      "Chile":"🇨🇱","智利":"🇨🇱",
+      "Austria":"🇦🇹","奥地利":"🇦🇹",
+      "Hungary":"🇭🇺","匈牙利":"🇭🇺",
+      "Slovakia":"🇸🇰","斯洛伐克":"🇸🇰",
+      "Slovenia":"🇸🇮","斯洛文尼亚":"🇸🇮",
+      "TBD":"⚽"
+    };
+    const flag = n => TEAM_FLAGS[n] || "⚽";
+    ── */
+
+    /* ── 渲染器字典 ── */
+    const renderers = {
+
+      feature(b) {
+        let matchHtml = "";
+        if (b.home && b.away) {
+          const scoreHtml = b.score
+            ? `<div class="feature-score">${esc(b.score)}</div>`
+            : `<div class="feature-score" style="font-size:13px;color:var(--muted)">VS</div>`;
+          matchHtml = `
+            <div class="feature-match">
+              <table width="100%">
+                <tbody>
+                  <tr>
+                    <th width="10%"><img src="${b.home_flag}" width="36" alt="Flag of ${b.home}"></th>
+                    <th width="25%"><div class="feature-team">${esc(b.home)}</div></th>
+                    <th width="30%">${scoreHtml}</th>
+                    <th width="25%"><div class="feature-team">${esc(b.away)}</div></th>
+                    <th width="10%" text-align="left"><img src="${b.away_flag}" width="36" alt="Flag of ${b.away}"></th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>`;
+        }
+        return matchHtml + `<div class="feature-content">${esc(b.content || "")}</div>`;
+      },
+
+      match_list(b) {
+        return (b.items || []).map(m => {
+          const scoreStr = (m.home_score !== undefined && m.away_score !== undefined)
+            ? `${m.home_score} : ${m.away_score}` : "- : -";
+          const meta = [m.kickoff_et, m.venue, m.group].filter(Boolean).join(" · ");
+          const noteHtml = m.note
+            ? `<div class="match-note">💬 ${esc(m.note)}</div>` : "";
+          return `
+            <div class="match-row">
+              <div style="flex:1">
+                <div class="match-teams">
+                  <table width="80%">
+                    <tbody>
+                      <tr>
+                        <th width="10%"><img src="${m.home_flag}" width="36" alt="Flag of ${m.home_team}"></th>
+                        <th width="25%"><div class="feature-team">${esc(m.home_team)}</div></th>
+                        <th width="30%">${scoreStr}</th>
+                        <th width="25%"><div class="feature-team">${esc(m.away_team)}</div></th>
+                        <th width="10%" text-align="left"><img src="${m.away_flag}" width="36" alt="Flag of ${m.away_team}"></th>
+                      </tr>
+                      <tr>
+                        <th cols="5" text-align="left"><div>${m.get(match_note)}</div></th>
+                      </tr>
+                    </tbody>
+                  </table> 
+                </div>
+                ${noteHtml}
+              </div>
+              <div class="match-meta">${esc(meta)}</div>
+            </div>`;
+        }).join("");
+      },
+
+      schedule(b) {
+        return (b.items || []).map(m => `
+          <div class="schedule-row">
+            <div class="schedule-teams">
+              <table width="80%">
+                <tbody>
+                  <tr>
+                    <th width="10%"><img src="${m.home_flag}" width="36" alt="Flag of ${m.home_team}"></th>
+                    <th width="25%"><div class="feature-team">${esc(m.home_team)}</div></th>
+                    <th width="30%"><span style="color:var(--muted); font-weight:400; font-size:22px; margin:0 6px">vs</span></th>
+                    <th width="25%"><div class="feature-team">${esc(m.away_team)}</div></th>
+                    <th width="10%" text-align="left"><img src="${m.away_flag}" width="36" alt="Flag of ${m.away_team}"></th>
+                  </tr>
+                  <tr>
+                    <th cols="5" text-align="left"><div>${m.get(schedule_note)}</div></th>
+                  </tr>
+                </tbody>
+              </table> 
+            </div>
+            <div class="schedule-time">⏰ ${esc(m.kickoff_et || "TBD")}</div>
+            ${m.group ? `<div class="schedule-group">[${esc(m.group)}]</div>` : ""}
+          </div>`).join("");
+      },
+
+      ranking(b) {
+        const medals = ["medal-1","medal-2","medal-3"];
+        const rows = (b.items || []).map((r, i) => {
+          const medalClass = medals[i] || "";
+          const penHtml = r.penalties
+            ? `<div class="rank-pen">含点球 ${r.penalties}</div>` : "";
+          return `
+            <tr>
+              <td class="rank-num">${r.rank}</td>
+              <td>
+                <div class="rank-name ${medalClass}">${esc(r.player_name)}</div>
+                <div class="rank-team">${esc(r.team_emoji)} ${esc(r.team_name)}</div>
+              </td>
+              <td class="rank-goals">${r.goals}</td>
+              <td>${penHtml}</td>
+            </tr>`;
+        }).join("");
+        return `
+          <table class="ranking-table">
+            <thead>
+              <tr>
+                <th>#</th><th>球员 · 国家队</th>
+                <th style="text-align:right">进球</th>
+                <th style="text-align:right">点球</th>
+              </tr>
+            </thead>
+            <tbody>${rows}</tbody>
+          </table>`;
+      },
+
+      news_feed(b) {
+        return (b.items || []).map(n => `
+          <div class="news-item">
+            <span class="news-tag">${esc(n.tag || "新闻")}</span>
+            <span class="news-text">${esc(n.text || "")}</span><br>
+            ${n.url ? `<a class="news-link" href="${esc(n.url)}" target="_blank" rel="noopener">→ 查看详情</a>` : ""}
+          </div>`).join("");
+      }
+    };
+
+    /* ── 图标映射 ── */
+    const BLOCK_ICONS = {
+      feature: "🏆", match_list: "📊", schedule: "📅", 
+      ranking: "⚽", standings: "📊", news_feed: "📰"
+    };
+
+    /* ── XSS 转义 ── */
+    function esc(s) {
+      return String(s ?? "")
+        .replace(/&/g,"&amp;").replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+    }
+
+    /* ── 主渲染 ── */
+    document.addEventListener("DOMContentLoaded", () => {
+      const app = document.getElementById("app");
+      try {
+        const raw  = document.getElementById("data-json").textContent;
+        const data = JSON.parse(raw);
+        const html = (data.blocks || []).map(b => {
+          const icon    = BLOCK_ICONS[b.type] || "•";
+          const inner   = renderers[b.type] ? renderers[b.type](b) : "";
+          return `
+            <div class="section-label">${icon} ${esc(b.title || b.type)}</div>
+            <div class="card">${inner}</div>`;
+        }).join("");
+        app.innerHTML = html || "<p style='color:var(--muted)'>暂无内容</p>";
+      } catch(e) {
+        app.innerHTML = `<p style="color:var(--red)">⚠ 数据加载失败：${esc(e.message)}</p>`;
+      }
+    });
+  })();
+  </script>
+</body>
+</html>
